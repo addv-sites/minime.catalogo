@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { TarjetaProducto } from './TarjetaProducto'
 import type { Producto, Seccion } from '../data/catalog'
 
@@ -49,5 +49,23 @@ describe('TarjetaProducto', () => {
   it('usa un alt descriptivo con la sección', () => {
     render(<TarjetaProducto producto={producto()} seccion={seccion} />)
     expect(screen.getByAltText('CROCS de ZAPATITOS')).toBeInTheDocument()
+  })
+
+  it('abre el detalle al tocar la tarjeta y muestra la talla completa', () => {
+    render(<TarjetaProducto producto={producto()} seccion={seccion} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Ver detalle de CROCS' }))
+    const dialogo = screen.getByRole('dialog', { name: 'Detalle de CROCS' })
+    expect(dialogo).toBeInTheDocument()
+    expect(within(dialogo).getByText('14CM AZUL')).toBeInTheDocument()
+    expect(within(dialogo).getByText('Sugerido: $95.00')).toBeInTheDocument()
+  })
+
+  it('cierra el detalle al pulsar el botón de cerrar y devuelve el foco a la tarjeta', () => {
+    render(<TarjetaProducto producto={producto()} seccion={seccion} />)
+    const boton = screen.getByRole('button', { name: 'Ver detalle de CROCS' })
+    fireEvent.click(boton)
+    fireEvent.click(screen.getByRole('button', { name: 'Cerrar detalle' }))
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(boton).toHaveFocus()
   })
 })

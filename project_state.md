@@ -79,6 +79,8 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 - **Paginación**: `src/utils/paginacion.ts` (`paginarCatalogo`, `indiceSeccion`, `indiceProducto`, `PRODUCTOS_POR_PAGINA = 6`).
 - **Estructura**: Portada → Introducción → Página de sección + páginas de productos (por sección) → Contraportada.
 - **Tarjeta de producto**: imagen con srcset (`-thumb` lazy / nativa / `@2x` detalle), nombre, talla, precio, sugerido, badge **AGOTADO** (fondo gris, `aria-disabled`).
+- **Detalle de producto (popup)**: al tocar/hacer clic en una tarjeta se abre un diálogo (`role="dialog"`, `aria-modal`, portado a `body`) con imagen `@2x`, talla completa (wrap), precio, sugerido y sección. Cierre por botón, Escape, clic en fondo; foco devuelto a la tarjeta. El popup permite **zoom con dos dedos** (`touch-action: pan-x pan-y`, sin bloquear gestos).
+- **Ajuste móvil (6 productos/página)**: márgenes compactos de página/cabecera/tarjeta y rejilla `repeat(3, minmax(0,1fr))` (2×3) en móvil, `repeat(2, …)` (3×2) en ≥640px, para que precios y detalles quepan sin cortarse.
 - **Navegación**: botones ‹ ›, teclado (flechas, Escape cierra índice; ignora inputs), índice de secciones (diálogo no modal), swipe/drag/tap (mobileScrollSupport=false, swipeDistance=30).
 - **Motion**: solo `transform`/`opacity`; `prefers-reduced-motion` reduce `flippingTime` a 1 ms y elimina transiciones.
 
@@ -136,8 +138,8 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 - Tratamiento fotográfico definitivo (estilización editorial) — bloqueado por modelo sin visión; revisión manual del usuario.
 - Confirmación del "md de Stitch" (la identidad usada es el HTML de referencia recibido).
 - Derivación de género para filtros (Niña/Niño) en secciones ambiguas.
-- Parsing de tallas/colores (hoy se conservan como texto).
-- Tests de componente para `Libro`/`PaginaProductos` con render real (hoy los tests cubren utils + tarjetas + búsqueda + App).
+- Parsing de tallas/colores (hoy se conservan como texto; el popup de detalle muestra la talla completa).
+- Tests de componente para `Libro`/`PaginaProductos` con render real (hoy los tests cubren utils + tarjetas + detalle + búsqueda + App).
 
 ## 9. Riesgos actuales
 

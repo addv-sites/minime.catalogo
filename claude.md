@@ -110,6 +110,7 @@ minime_cat/
 │   │   ├── Libro.tsx              # Libro page-flip (react-pageflip, FlipApi, teclado, índice)
 │   │   ├── Portada/Introduccion/Contraportada.tsx
 │   │   ├── PaginaSeccion.tsx / PaginaProductos.tsx / TarjetaProducto.tsx
+│   │   ├── DetalleProducto.tsx    # Popup de detalle (diálogo, zoom 2 dedos, portado a body)
 │   │   ├── Busqueda.tsx           # Combobox accesible
 │   │   └── libro.css
 │   ├── admin/                     # Admin local (dev) — NO entra al build
@@ -157,7 +158,7 @@ Valida integridad de datos: duplicados reales, sin imagen, precios vacíos, cód
 | `npm run build` | Typecheck + build estático (`tsc -b && vite build`) | ✅ |
 | `npm run preview` | Preview del build | ✅ |
 | `npm run lint` | Lint (oxlint) | ✅ |
-| `npm test` / `npm run test:watch` | Pruebas unitarias (Vitest, 34 tests) | ✅ |
+| `npm test` / `npm run test:watch` | Pruebas unitarias (Vitest, 41 tests) | ✅ |
 | `npm run products:validate` | Validar productos | ✅ |
 | `npm run products:generate` | Generar JSON | ✅ |
 | `npm run images:optimize` | Optimizar imágenes (Pillow) | ✅ (2022 WebP generados) |

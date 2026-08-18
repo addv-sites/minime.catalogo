@@ -39,7 +39,7 @@ El sitio es **100% estático** y está publicado en **GitHub Pages**, sin backen
 | `npm run build` | Typecheck (`tsc -b`) + build estático en `dist/` |
 | `npm run preview` | Preview del build |
 | `npm run lint` | Lint (oxlint) |
-| `npm test` | Pruebas unitarias (Vitest, 34 tests) |
+| `npm test` | Pruebas unitarias (Vitest, 41 tests) |
 | `npm run test:watch` | Tests en watch |
 | `npm run products:validate` | Validar `admin/source/products-private.json` |
 | `npm run products:generate` | Generar `public/data/products.json` |
@@ -114,6 +114,8 @@ Archivo Word (~20 MB) en la raíz del proyecto, fuente única y verdadera de pro
 - **Navegación**: botones ‹ ›, teclado (flechas; Escape cierra el índice; no interfiere al escribir), swipe/drag/tap, índice de secciones.
 - **Búsqueda**: por código, nombre o talla; con salto directo a la página del producto.
 - **AGOTADO**: badge claro, el producto no se elimina.
+- **Detalle de producto (popup)**: al tocar/hacer clic en una tarjeta se abre un diálogo accesible con imagen `@2x`, talla completa, precio, sugerido y sección; permite **zoom con dos dedos**. Cierra por botón, Escape o clic en el fondo.
+- **Móvil**: 6 productos por página con márgenes compactos para que precios y detalles no se corten.
 - **Imágenes**: WebP con srcset (`-thumb` lazy / nativa / `@2x` detalle).
 - **Accesibilidad (WCAG AA)**: foco visible, contraste corregido, ARIA (`aria-live`, `role="dialog"`, `role="listbox"`), alt text, touch targets ≥ 44px, `prefers-reduced-motion`.
 
@@ -161,7 +163,7 @@ minime_cat/
 │   ├── utils/format.ts            # normalizarPrecio, slugificar
 │   ├── utils/paginacion.ts        # paginarCatalogo, indiceSeccion, indiceProducto
 │   ├── utils/busqueda.ts          # buscarProductos, normalizarTexto
-│   ├── components/                # Libro, Portada, Sección, Productos, Tarjeta, Búsqueda, Contraportada
+│   ├── components/                # Libro, Portada, Sección, Productos, Tarjeta, Detalle, Búsqueda, Contraportada
 │   ├── admin/                     # Admin local (dev) — NO entra al build
 │   ├── styles/tokens.css          # Tokens de identidad Stitch
 │   ├── styles/global.css          # Reset, tipografía, focus-visible
@@ -207,8 +209,8 @@ Reglas de arquitectura fijadas por el prompt maestro:
 1. **Tratamiento fotográfico definitivo** (estilización editorial): pendiente de revisión visual (el agente no tiene visión; usar `sips` o revisión manual).
 2. Confirmar identidad visual definitiva (¿llega el "md de Stitch"?).
 3. Derivación de género (Niña/Niño) para secciones ambiguas.
-4. Parsing de tallas/colores (hoy se conservan como texto).
-5. Tests de componente para `Libro`/`PaginaProductos` con render real.
+4. Parsing de tallas/colores (hoy se conservan como texto; el popup de detalle muestra la talla completa).
+5. Tests de componente para `Libro`/`PaginaProductos` con render real (los tests actuales cubren utils, tarjetas, detalle, búsqueda y App).
 
 ---
 
