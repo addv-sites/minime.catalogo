@@ -8,13 +8,13 @@ const secciones: Seccion[] = [
   {
     nombre: 'ZAPATITOS',
     productos: [
-      { codigo: 'Z050', nombre: 'CROCS', talla: '14CM AZUL', precio: '$35.00', sugerido: '', disponible: true, imagen: 'image452.webp' },
+      { codigo: 'Z050', nombre: 'CROCS', talla: '14CM AZUL', precio: '$35.00', existencias: 3, disponible: true, imagen: 'image452.webp' },
     ],
   },
   {
     nombre: 'BABEROS',
     productos: [
-      { codigo: 'B001', nombre: 'Babero Oso', talla: '', precio: '$40.00', sugerido: '', disponible: false, imagen: 'image100.webp' },
+      { codigo: 'B001', nombre: 'Babero Oso', talla: '', precio: '$40.00', existencias: 0, disponible: false, imagen: 'image100.webp' },
     ],
   },
 ]

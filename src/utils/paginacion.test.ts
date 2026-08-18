@@ -8,7 +8,7 @@ function producto(codigo: string): Producto {
     nombre: `Producto ${codigo}`,
     talla: 'TALLA',
     precio: '$10.00',
-    sugerido: '$20.00',
+    existencias: 5,
     disponible: true,
     imagen: 'image1.webp',
   }

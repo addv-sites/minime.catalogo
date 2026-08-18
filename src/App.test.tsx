@@ -9,7 +9,7 @@ vi.mock('./components/Libro', () => ({
 vi.mock('./data/catalog', () => ({
   cargarCatalogo: vi.fn().mockResolvedValue({
     meta: { marca: 'MINI ME', descripcion: 'Catálogo digital premium', totalProductos: 675, totalSecciones: 15, generado: '2026-08-17' },
-    secciones: [{ nombre: 'CALCETAS Y TINES', productos: [{ codigo: 'C0001', nombre: 'Calcetín flor', talla: '', precio: '$93.70', sugerido: '$50.00', disponible: true, imagen: 'image2.webp' }] }],
+    secciones: [{ nombre: 'CALCETAS Y TINES', productos: [{ codigo: 'C0001', nombre: 'Calcetín flor', talla: '', precio: '$93.70', existencias: 5, disponible: true, imagen: 'image2.webp' }] }],
   }),
 }))
 

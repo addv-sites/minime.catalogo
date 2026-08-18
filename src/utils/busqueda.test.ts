@@ -3,7 +3,7 @@ import { buscarProductos, normalizarTexto } from './busqueda'
 import type { Producto, Seccion } from '../data/catalog'
 
 function producto(codigo: string, nombre: string, talla = ''): Producto {
-  return { codigo, nombre, talla, precio: '$10.00', sugerido: '', disponible: true, imagen: 'image1.webp' }
+  return { codigo, nombre, talla, precio: '$10.00', existencias: 5, disponible: true, imagen: 'image1.webp' }
 }
 
 function seccion(nombre: string, productos: Producto[]): Seccion {

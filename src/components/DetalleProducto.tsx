@@ -16,8 +16,9 @@ export function DetalleProducto({ producto, seccion, onCerrar }: Props) {
   const imagen = rutaImagen(producto.imagen, 'detalle')
   const srcset = srcsetImagen(producto.imagen)
   const precio = normalizarPrecio(producto.precio)
-  const sugerido = normalizarPrecio(producto.sugerido)
   const agotado = !producto.disponible
+  const etiquetaExistencias =
+    producto.existencias === 1 ? '1 pieza en existencia' : `${producto.existencias} piezas en existencia`
 
   useEffect(() => {
     refCerrar.current?.focus()
@@ -78,7 +79,7 @@ export function DetalleProducto({ producto, seccion, onCerrar }: Props) {
           <p className="detalle__seccion">{seccion.nombre}</p>
           {producto.talla && <p className="detalle__talla">{producto.talla}</p>}
           <p className="detalle__precio">{precio || 'Consultar'}</p>
-          {sugerido && <p className="detalle__sugerido">Sugerido: {sugerido}</p>}
+          {producto.existencias > 0 && <p className="detalle__existencias">{etiquetaExistencias}</p>}
           <p className="detalle__zoom">Puedes hacer zoom con dos dedos</p>
         </div>
       </div>

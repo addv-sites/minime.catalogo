@@ -3,7 +3,7 @@ export interface Producto {
   nombre: string
   talla: string
   precio: string
-  sugerido: string
+  existencias: number
   disponible: boolean
   imagen: string | null
 }

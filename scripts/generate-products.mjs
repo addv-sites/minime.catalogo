@@ -39,15 +39,24 @@ function normalizeSection(name) {
   return SECTION_ORDER.find((s) => s === n) ?? n
 }
 
+function contarExistencias(p) {
+  const final = (p.final || '').trim()
+  if (!final) return 0
+  if (final.includes('°')) return final.split('°').length - 1
+  const m = final.match(/\d+/)
+  return m ? Number(m[0]) : 0
+}
+
 function toPublicProduct(p, suffix) {
   const base = (p.imagen || '').split('.')[0]
+  const existencias = contarExistencias(p)
   return {
     codigo: suffix > 1 ? `${p.codigo}-${suffix}` : p.codigo,
     nombre: (p.nombre || '').trim(),
     talla: (p.talla || '').trim(),
-    precio: (p.precio || '').trim(),
-    sugerido: (p.sugerido || '').trim(),
-    disponible: p.disponible !== false,
+    precio: (p.sugerido || '').trim() || (p.precio || '').trim(),
+    existencias,
+    disponible: p.disponible !== false && existencias > 0,
     imagen: base ? `${base}.webp` : null,
   }
 }

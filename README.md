@@ -55,7 +55,7 @@ Archivo Word (~20 MB) en la raíz del proyecto, fuente única y verdadera de pro
 **Contenido analizado:**
 - 15 tablas con 675 productos.
 - 675 imágenes JPEG (~346×224 px, ~29 KB, baja resolución).
-- Columnas por producto: `imagen | código+nombre | talla+colores | precio | precio sugerido | marcador ° (disponibilidad por variante)`.
+- Columnas por producto: `imagen | código+nombre | talla+colores | precio | precio sugerido | marcador ° (existencias en almacén)`.
 
 ### Secciones reales (675 productos)
 
@@ -93,13 +93,15 @@ Archivo Word (~20 MB) en la raíz del proyecto, fuente única y verdadera de pro
 }
 ```
 
+> **Mapeo al catálogo público** (`public/data/products.json`): el precio del catálogo es el **precio sugerido** (`sugerido`); las **existencias** se cuentan del campo `final` (nº de `°`). El JSON público expone solo `codigo | nombre | talla | precio | existencias | disponible | imagen`.
+
 ### Anomalías documentadas del documento
 
 - **`SC015`** (COBIJA POLAR): sin imagen y con precio vacío.
 - **12 códigos duplicados reales**: `RA0031`, `Z050` (x3), `APC017/019/020/021/022/024/025/026/027/028`. Decisión conservadora: preservar el ID original añadiendo sufijo técnico interno (ej. `Z050-2`).
 - **11 productos sin código**: reciben ID técnico `SINCOD-*`.
 - **Talla + colores mezclados** en una sola celda.
-- **Campo `final` (°)**: checkbox por variante, todos vacíos (nada marcado como disponible/agotado aún).
+- **Campo `final` (°)**: cantidad de existencias en almacén. El generador las cuenta (`°°°°` = 4); el texto `"60 bolsitas"` se lee como número (60). Total: 1542 existencias.
 - **`APC020`**: marcador `final` inesperado (warn).
 
 ### Resultado de la validación
@@ -113,8 +115,8 @@ Archivo Word (~20 MB) en la raíz del proyecto, fuente única y verdadera de pro
 - **Libro page-flip** con `react-pageflip`: portada → introducción → páginas de sección + productos (6 por página) → contraportada.
 - **Navegación**: botones ‹ ›, teclado (flechas; Escape cierra el índice; no interfiere al escribir), swipe/drag/tap, índice de secciones.
 - **Búsqueda**: por código, nombre o talla; con salto directo a la página del producto.
-- **AGOTADO**: badge claro, el producto no se elimina.
-- **Detalle de producto (popup)**: al tocar/hacer clic en una tarjeta se abre un diálogo accesible con imagen `@2x`, talla completa, precio, sugerido y sección; permite **zoom con dos dedos**. Cierra por botón, Escape o clic en el fondo.
+- **AGOTADO**: badge claro cuando `existencias = 0` o no disponible; el producto no se elimina.
+- **Detalle de producto (popup)**: al tocar/hacer clic en una tarjeta se abre un diálogo accesible con imagen `@2x`, talla completa, precio real, **existencias** y sección; permite **zoom con dos dedos**. Cierra por botón, Escape o clic en el fondo.
 - **Móvil**: 6 productos por página con márgenes compactos para que precios y detalles no se corten.
 - **Imágenes**: WebP con srcset (`-thumb` lazy / nativa / `@2x` detalle).
 - **Accesibilidad (WCAG AA)**: foco visible, contraste corregido, ARIA (`aria-live`, `role="dialog"`, `role="listbox"`), alt text, touch targets ≥ 44px, `prefers-reduced-motion`.

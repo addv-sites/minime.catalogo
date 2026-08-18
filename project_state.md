@@ -52,8 +52,10 @@ admin/source/products-private.json  ──>  scripts/generate-products.mjs  ─�
      (675 productos, datos internos)         (JSON público mínimo, duplicados con sufijo -2/-3)
 ```
 
-- Reglas del generador: expone solo `codigo`, `nombre`, `talla`, `precio`, `sugerido`, `disponible`, `imagen`; preserva IDs originales; agrupa por sección en orden estable; imagen como `<nombre>.webp`.
-- Campo `disponible`: el admin puede marcarlo; el generador usa `p.disponible !== false` (default disponible).
+- Reglas del generador: expone solo `codigo`, `nombre`, `talla`, `precio`, `existencias`, `disponible`, `imagen`; preserva IDs originales (duplicados → sufijo `-2/-3`); agrupa por sección en orden estable; imagen como `<nombre>.webp`.
+- Campo `precio` = valor real del campo privado `sugerido` (precio del catálogo); si `sugerido` está vacío se usa `precio` como fallback.
+- Campo `existencias`: se deriva del campo privado `final` contando los caracteres `°` (ej. `°°°°` = 4). Caso texto `"60 bolsitas"` → se extrae el número (60). Total: 1542 existencias.
+- Campo `disponible`: `disponible !== false` **y** `existencias > 0` (14 productos quedan AGOTADO, los SINCOD sin `final`).
 
 ### 3.2 Imágenes
 
@@ -78,8 +80,8 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 
 - **Paginación**: `src/utils/paginacion.ts` (`paginarCatalogo`, `indiceSeccion`, `indiceProducto`, `PRODUCTOS_POR_PAGINA = 6`).
 - **Estructura**: Portada → Introducción → Página de sección + páginas de productos (por sección) → Contraportada.
-- **Tarjeta de producto**: imagen con srcset (`-thumb` lazy / nativa / `@2x` detalle), nombre, talla, precio, sugerido, badge **AGOTADO** (fondo gris, `aria-disabled`).
-- **Detalle de producto (popup)**: al tocar/hacer clic en una tarjeta se abre un diálogo (`role="dialog"`, `aria-modal`, portado a `body`) con imagen `@2x`, talla completa (wrap), precio, sugerido y sección. Cierre por botón, Escape, clic en fondo; foco devuelto a la tarjeta. El popup permite **zoom con dos dedos** (`touch-action: pan-x pan-y`, sin bloquear gestos).
+- **Tarjeta de producto**: imagen con srcset (`-thumb` lazy / nativa / `@2x` detalle), nombre, talla, precio real (`sugerido` del origen), badge **AGOTADO** (fondo gris, `aria-disabled`).
+- **Detalle de producto (popup)**: al tocar/hacer clic en una tarjeta se abre un diálogo (`role="dialog"`, `aria-modal`, portado a `body`) con imagen `@2x`, talla completa (wrap), precio real, **existencias** ("X piezas en existencia") y sección. Cierre por botón, Escape, clic en fondo; foco devuelto a la tarjeta. El popup permite **zoom con dos dedos** (`touch-action: pan-x pan-y`, sin bloquear gestos).
 - **Ajuste móvil (6 productos/página)**: márgenes compactos de página/cabecera/tarjeta y rejilla `repeat(3, minmax(0,1fr))` (2×3) en móvil, `repeat(2, …)` (3×2) en ≥640px, para que precios y detalles quepan sin cortarse.
 - **Zona de volteo táctil (móvil)**: el tap simple ya no voltea por sorpresa (`disableFlipByClick=true`); hojear = arrastrar el dedo **desde cualquier parte de la página** (también sobre las tarjetas) o tocar los bordes. Las tarjetas se renderizan como `role="button"` (no `<button>` nativo, que la librería excluía del gesture con `clickEventForward`), con detección propia de tap táctil (umbral 10 px / 300 ms) para abrir el detalle en móvil; `swipeDistance=20`. Teclado Enter/Espacio abre el detalle (WCAG).
 - **Navegación**: botones ‹ ›, teclado (flechas, Escape cierra índice; ignora inputs), índice de secciones (diálogo no modal), swipe/drag/tap (mobileScrollSupport=false, swipeDistance=20).

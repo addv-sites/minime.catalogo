@@ -1,7 +1,7 @@
 # CMEM — Memoria de Conversación MINI ME
 
 > **Propósito**: memoria comprimida de todo lo platicado con el usuario sobre el catálogo MINI ME, para que cualquier agente (Claude, opencode) retome el trabajo con contexto completo sin volver a preguntar.
-> **Última actualización**: 2026-08-18 (catálogo libro + búsqueda + SEO + admin + CI/CD publicados en GitHub Pages)
+> **Última actualización**: 2026-08-18 (precios = sugerido, existencias desde `final`, docs + push)
 
 ---
 
@@ -60,6 +60,14 @@ El usuario quiere un **catálogo digital premium de ropa de bebé (MINI ME) con 
 - A11y: guard teclado ignora inputs (no flip al escribir); contraste corregido → menta texto `#3d7d79` (4.76:1); outlines de foco a `--color-tertiary-text` (≥3:1). Primario `#994158` (6.46:1), tinta (9.74:1).
 - Verificación: 34 tests OK · lint OK · build OK · admin fuera del build.
 
+### 14. Segmento G — Precios reales + existencias (completado)
+- **El precio del catálogo ahora es el `precio sugerido`** (campo privado `sugerido` = el real); se eliminó el "Sugerido:" de la UI. Fallback a `precio` si `sugerido` está vacío (ej. D026).
+- **Existencias** derivadas del campo privado `final`: se cuentan los `°` (`°°°°` = 4). Caso `"60 bolsitas"` → se extrae el número (60).
+- `disponible` = `!false && existencias > 0` → **14 productos quedan AGOTADO** (los SINCOD sin `final`). Total existencias: **1542**.
+- `generate-products.mjs`: exporta `precio | existencias | disponible | ...` (ya NO `sugerido`).
+- UI: popup de detalle muestra "X piezas en existencia" (`detalle__existencias`, menta); tarjeta badge AGOTADO según `disponible`.
+- Tests actualizados (43 OK) · lint OK · build OK. JSON público verificado sin `sugerido`.
+
 ## Decisiones tomadas (acordadas)
 
 | # | Decisión |
@@ -75,6 +83,9 @@ El usuario quiere un **catálogo digital premium de ropa de bebé (MINI ME) con 
 | 9 | Protocolo addv-web-app: Analizar → Proponer → Confirmar → Implementar |
 | 10 | Stack: Vite + React + TS + react-pageflip |
 | 11 | Vite `base: './'` |
+| 12 | **Precio del catálogo = `precio sugerido`** (el real) |
+| 13 | **Existencias** = nº de `°` en `final` (texto numérico → número) |
+| 14 | **AGOTADO si `existencias = 0`** (además de `disponible=false`) |
 
 ## Pendientes / bloqueos
 
@@ -92,7 +103,7 @@ El usuario quiere un **catálogo digital premium de ropa de bebé (MINI ME) con 
 | `npm run build` | Typecheck (`tsc -b`) + build estático |
 | `npm run preview` | Preview del build |
 | `npm run lint` | oxlint |
-| `npm test` / `npm run test:watch` | Vitest (34 tests) |
+| `npm test` / `npm run test:watch` | Vitest (43 tests) |
 | `npm run products:validate` | Validar `products-private.json` |
 | `npm run products:generate` | Generar `public/data/products.json` |
 | `npm run images:optimize` | Optimizar imágenes (requiere Pillow) |
@@ -109,6 +120,5 @@ El usuario quiere un **catálogo digital premium de ropa de bebé (MINI ME) con 
 
 ## Próximo paso recomendado
 
-1. **Commit + push** de la auditoría (Segmento F) y docs actualizadas.
-2. Devolver al usuario el resumen de la auditoría final y verificación del sitio publicado.
-3. Abrir con el usuario los pendientes: tratamiento fotográfico, identidad Stitch definitiva, género y tallas.
+1. Verificar visualmente el popup de detalle (formato "X piezas en existencia") y el badge AGOTADO en los 14 SINCOD.
+2. Abrir con el usuario los pendientes: tratamiento fotográfico, identidad Stitch definitiva, género y tallas.

@@ -11,7 +11,7 @@ function producto(overrides: Partial<Producto> = {}): Producto {
     nombre: 'CROCS',
     talla: '14CM AZUL',
     precio: '$35.00 C/U',
-    sugerido: '$95.00',
+    existencias: 12,
     disponible: true,
     imagen: 'image452.webp',
     ...overrides,
@@ -57,7 +57,7 @@ describe('TarjetaProducto', () => {
     const dialogo = screen.getByRole('dialog', { name: 'Detalle de CROCS' })
     expect(dialogo).toBeInTheDocument()
     expect(within(dialogo).getByText('14CM AZUL')).toBeInTheDocument()
-    expect(within(dialogo).getByText('Sugerido: $95.00')).toBeInTheDocument()
+    expect(within(dialogo).getByText('12 piezas en existencia')).toBeInTheDocument()
   })
 
   it('abre el detalle con un tap táctil corto (móvil)', () => {

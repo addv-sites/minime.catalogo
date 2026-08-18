@@ -11,7 +11,7 @@ function producto(overrides: Partial<Producto> = {}): Producto {
     nombre: 'CROCS',
     talla: '14CM AZUL DINO ROSA DINO VERDE COCO AMARILLO DINO',
     precio: '$35.00 C/U',
-    sugerido: '$95.00',
+    existencias: 12,
     disponible: true,
     imagen: 'image452.webp',
     ...overrides,
@@ -19,22 +19,22 @@ function producto(overrides: Partial<Producto> = {}): Producto {
 }
 
 describe('DetalleProducto', () => {
-  it('muestra código, sección, talla completa, precio y sugerido', () => {
+  it('muestra código, sección, talla completa, precio y existencias', () => {
     render(<DetalleProducto producto={producto()} seccion={seccion} onCerrar={vi.fn()} />)
     expect(screen.getByRole('dialog', { name: 'Detalle de CROCS' })).toBeInTheDocument()
     expect(screen.getByText('Z050')).toBeInTheDocument()
     expect(screen.getByText('ZAPATITOS')).toBeInTheDocument()
     expect(screen.getByText('14CM AZUL DINO ROSA DINO VERDE COCO AMARILLO DINO')).toBeInTheDocument()
     expect(screen.getByText('$35.00')).toBeInTheDocument()
-    expect(screen.getByText('Sugerido: $95.00')).toBeInTheDocument()
+    expect(screen.getByText('12 piezas en existencia')).toBeInTheDocument()
   })
 
-  it('muestra "Consultar" cuando no hay precio y no muestra sugerido vacío', () => {
+  it('muestra "Consultar" cuando no hay precio y no muestra existencias si es 0', () => {
     render(
-      <DetalleProducto producto={producto({ precio: '', sugerido: '' })} seccion={seccion} onCerrar={vi.fn()} />,
+      <DetalleProducto producto={producto({ precio: '', existencias: 0 })} seccion={seccion} onCerrar={vi.fn()} />,
     )
     expect(screen.getByText('Consultar')).toBeInTheDocument()
-    expect(screen.queryByText(/Sugerido:/)).not.toBeInTheDocument()
+    expect(screen.queryByText(/piezas en existencia/)).not.toBeInTheDocument()
   })
 
   it('marca AGOTADO cuando no está disponible', () => {
