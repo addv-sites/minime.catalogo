@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { cargarCatalogo, type Catalogo } from './data/catalog'
+import { Libro, type FlipApi } from './components/Libro'
+import { Busqueda } from './components/Busqueda'
+import { indiceProducto, paginarCatalogo } from './utils/paginacion'
 import './App.css'
 
 export default function App() {
   const [catalogo, setCatalogo] = useState<Catalogo | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const apiLibro = useRef<FlipApi | null>(null)
 
   useEffect(() => {
     cargarCatalogo()
@@ -12,10 +16,12 @@ export default function App() {
       .catch((e: unknown) => setError(e instanceof Error ? e.message : 'Error desconocido'))
   }, [])
 
+  const paginas = useMemo(() => (catalogo ? paginarCatalogo(catalogo.secciones) : []), [catalogo])
+
   if (error) {
     return (
       <main className="app">
-        <h1>MINI ME</h1>
+        <h1 className="app__brand">MINI ME</h1>
         <p role="alert">No se pudo cargar el catálogo: {error}</p>
       </main>
     )
@@ -24,29 +30,29 @@ export default function App() {
   if (!catalogo) {
     return (
       <main className="app">
-        <h1>MINI ME</h1>
+        <h1 className="app__brand">MINI ME</h1>
         <p>Cargando catálogo…</p>
       </main>
     )
   }
 
+  const irAProducto = (codigo: string) => {
+    const pagina = indiceProducto(paginas, codigo)
+    if (pagina >= 0) apiLibro.current?.turnToPage(pagina)
+  }
+
   return (
     <main className="app">
-      <header className="app__header">
-        <p className="app__brand">{catalogo.meta.marca}</p>
-        <h1 className="app__title">Catálogo</h1>
-        <p className="app__subtitle">
-          {catalogo.meta.totalProductos} productos · {catalogo.meta.totalSecciones} secciones
-        </p>
+      <header className="app__barra">
+        <div className="app__cabecera">
+          <p className="app__brand">{catalogo.meta.marca}</p>
+          <p className="app__totales">
+            {catalogo.meta.totalProductos} productos · {catalogo.meta.totalSecciones} secciones
+          </p>
+        </div>
+        <Busqueda secciones={catalogo.secciones} onSeleccionar={irAProducto} />
       </header>
-      <section className="app__section-list" aria-label="Secciones del catálogo">
-        {catalogo.secciones.map((seccion) => (
-          <article key={seccion.nombre} className="app__section">
-            <h2 className="app__section-title">{seccion.nombre}</h2>
-            <p className="app__section-count">{seccion.productos.length} productos</p>
-          </article>
-        ))}
-      </section>
+      <Libro catalogo={catalogo} apiRef={apiLibro} />
     </main>
   )
 }

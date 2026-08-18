@@ -2,6 +2,10 @@ import { describe, expect, it, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import App from './App'
 
+vi.mock('./components/Libro', () => ({
+  Libro: () => <div data-testid="libro" />,
+}))
+
 vi.mock('./data/catalog', () => ({
   cargarCatalogo: vi.fn().mockResolvedValue({
     meta: { marca: 'MINI ME', descripcion: 'Catálogo digital premium', totalProductos: 675, totalSecciones: 15, generado: '2026-08-17' },
@@ -10,14 +14,14 @@ vi.mock('./data/catalog', () => ({
 }))
 
 describe('App', () => {
-  it('muestra el nombre y el conteo del catálogo', async () => {
+  it('muestra la marca y los totales del catálogo', async () => {
     render(<App />)
-    expect(await screen.findByRole('heading', { name: /Catálogo/i })).toBeInTheDocument()
-    expect(screen.getByText(/675 productos/)).toBeInTheDocument()
+    expect(await screen.findByText(/675 productos · 15 secciones/)).toBeInTheDocument()
+    expect(screen.getByText('MINI ME')).toBeInTheDocument()
   })
 
-  it('muestra las secciones cargadas', async () => {
+  it('renderiza el libro del catálogo', async () => {
     render(<App />)
-    expect(await screen.findByRole('heading', { name: /CALCETAS Y TINES/ })).toBeInTheDocument()
+    expect(await screen.findByTestId('libro')).toBeInTheDocument()
   })
 })

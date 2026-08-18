@@ -47,7 +47,7 @@ function toPublicProduct(p, suffix) {
     talla: (p.talla || '').trim(),
     precio: (p.precio || '').trim(),
     sugerido: (p.sugerido || '').trim(),
-    disponible: true,
+    disponible: p.disponible !== false,
     imagen: base ? `${base}.webp` : null,
   }
 }
