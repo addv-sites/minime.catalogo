@@ -43,10 +43,8 @@
 .portada {
   height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
   text-align: center;
   padding: 1.5rem;
   background:
@@ -57,65 +55,12 @@
 }
 
 .portada__fondo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  z-index: 0;
-}
-
-.portada > :not(.portada__fondo) {
-  position: relative;
-  z-index: 2;
-}
-
-.portada::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(90% 60% at 50% 100%, transparent 40%, rgb(0 0 0 / 0.18) 100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.portada__pre {
-  font-family: var(--font-accent);
-  font-size: var(--fs-sm);
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  opacity: 0.9;
-}
-
-.portada__marca {
-  font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 8vw, 2.75rem);
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  line-height: 1;
-  margin: 0;
-}
-
-.portada__tagline {
-  font-family: var(--font-body);
-  font-size: var(--fs-sm);
-  opacity: 0.92;
-  margin: 0;
-}
-
-.portada__decoracion {
-  margin-top: 0.5rem;
-}
-
-.portada__diamante {
   display: block;
-  width: 10px;
-  height: 10px;
-  margin: 0 auto;
-  background: var(--color-white);
-  transform: rotate(45deg);
-  opacity: 0.9;
+  width: min(84%, 300px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  object-position: center;
 }
 
 /* --- Introducción --- */
