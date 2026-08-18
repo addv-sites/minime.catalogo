@@ -112,7 +112,8 @@ Archivo Word (~20 MB) en la raíz del proyecto, fuente única y verdadera de pro
 
 ## El catálogo (funcionalidades implementadas)
 
-- **Libro page-flip** con `react-pageflip`: portada → introducción → páginas de sección + productos (6 por página) → contraportada.
+- **Libro page-flip** con `react-pageflip`: portada (con imagen `portada.png` de fondo, WebP ~132 KB) → introducción → páginas de sección + productos (6 por página) → contraportada.
+- **Imagen al compartir**: `public/og-image.png` (1280×640) en metas OG y Twitter Card para previsualización del link en GitHub Pages.
 - **Navegación**: botones ‹ ›, teclado (flechas; Escape cierra el índice; no interfiere al escribir), swipe/drag/tap, índice de secciones.
 - **Búsqueda**: por código, nombre o talla; con salto directo a la página del producto.
 - **AGOTADO**: badge claro cuando `existencias = 0` o no disponible; el producto no se elimina.

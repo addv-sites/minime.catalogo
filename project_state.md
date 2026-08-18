@@ -80,6 +80,7 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 
 - **Paginación**: `src/utils/paginacion.ts` (`paginarCatalogo`, `indiceSeccion`, `indiceProducto`, `PRODUCTOS_POR_PAGINA = 6`).
 - **Estructura**: Portada → Introducción → Página de sección + páginas de productos (por sección) → Contraportada.
+- **Portada**: imagen de fondo completa `portada.png` (1254×1254, transparencia) → optimizada a `src/assets/portada.webp` (~132 KB) con `object-fit: cover`, texto MINI ME/tagline y gradiente rosa de respaldo por encima (`z-index`). `logo.jpg`/`portada-logo.webp` retirados.
 - **Tarjeta de producto**: imagen con srcset (`-thumb` lazy / nativa / `@2x` detalle), nombre, talla, precio real (`sugerido` del origen), badge **AGOTADO** (fondo gris, `aria-disabled`).
 - **Detalle de producto (popup)**: al tocar/hacer clic en una tarjeta se abre un diálogo (`role="dialog"`, `aria-modal`, portado a `body`) con imagen `@2x`, talla completa (wrap), precio real, **existencias** ("X piezas en existencia") y sección. Cierre por botón, Escape, clic en fondo; foco devuelto a la tarjeta. El popup permite **zoom con dos dedos** (`touch-action: pan-x pan-y`, sin bloquear gestos).
 - **Ajuste móvil (6 productos/página)**: márgenes compactos de página/cabecera/tarjeta y rejilla `repeat(3, minmax(0,1fr))` (2×3) en móvil, `repeat(2, …)` (3×2) en ≥640px, para que precios y detalles quepan sin cortarse.
@@ -95,7 +96,7 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 
 ### 4.3 SEO
 
-- `index.html`: `lang="es"`, meta description, theme-color `#994158`, canonical `https://addv-sites.github.io/minime.catalogo/`, OG (title/description/image/url/type), Twitter Card, JSON-LD WebSite.
+- `index.html`: `lang="es"`, meta description, theme-color `#994158`, canonical `https://addv-sites.github.io/minime.catalogo/`, OG (title/description/image/url/type), Twitter Card (`summary_large_image`), JSON-LD WebSite. **Imagen de compartir**: `public/og-image.png` (1280×640, OG/Twitter).
 - `robots.txt` y `sitemap.xml`.
 
 ### 4.4 Accesibilidad (WCAG AA)

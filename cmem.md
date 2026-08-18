@@ -68,6 +68,10 @@ El usuario quiere un **catálogo digital premium de ropa de bebé (MINI ME) con 
 - UI: popup de detalle muestra "X piezas en existencia" (`detalle__existencias`, menta); tarjeta badge AGOTADO según `disponible`.
 - Tests actualizados (43 OK) · lint OK · build OK. JSON público verificado sin `sugerido`.
 
+### 15. Segmento H — Portada con portada.png + og-image (completado)
+- **Portada**: `portada.png` (1254×1254, transparencia, aportada por el usuario) como **fondo completo** de la portada → optimizada a `src/assets/portada.webp` (~132 KB, RGBA) con `object-fit: cover`; texto MINI ME/tagline y gradiente rosa de respaldo con `z-index` encima. Se retiró `logo.jpg`/`portada-logo.webp`.
+- **OG image**: `public/og-image.png` (1280×640, aportada por el usuario) → meta `og:image` + `twitter:image` (card `summary_large_image`) con URL absoluta del sitio publicado.
+
 ## Decisiones tomadas (acordadas)
 
 | # | Decisión |
