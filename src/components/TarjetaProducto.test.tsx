@@ -60,6 +60,22 @@ describe('TarjetaProducto', () => {
     expect(within(dialogo).getByText('Sugerido: $95.00')).toBeInTheDocument()
   })
 
+  it('abre el detalle con un tap táctil corto (móvil)', () => {
+    render(<TarjetaProducto producto={producto()} seccion={seccion} />)
+    const tarjeta = screen.getByRole('button', { name: 'Ver detalle de CROCS' })
+    fireEvent.touchStart(tarjeta, { touches: [{ clientX: 50, clientY: 80 }] })
+    fireEvent.touchEnd(tarjeta, { changedTouches: [{ clientX: 51, clientY: 81 }] })
+    expect(screen.getByRole('dialog', { name: 'Detalle de CROCS' })).toBeInTheDocument()
+  })
+
+  it('no abre el detalle si el toque se convierte en un swipe (arrastre)', () => {
+    render(<TarjetaProducto producto={producto()} seccion={seccion} />)
+    const tarjeta = screen.getByRole('button', { name: 'Ver detalle de CROCS' })
+    fireEvent.touchStart(tarjeta, { touches: [{ clientX: 50, clientY: 80 }] })
+    fireEvent.touchEnd(tarjeta, { changedTouches: [{ clientX: 120, clientY: 85 }] })
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+  })
+
   it('cierra el detalle al pulsar el botón de cerrar y devuelve el foco a la tarjeta', () => {
     render(<TarjetaProducto producto={producto()} seccion={seccion} />)
     const boton = screen.getByRole('button', { name: 'Ver detalle de CROCS' })

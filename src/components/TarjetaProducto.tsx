@@ -9,18 +9,20 @@ interface Props {
   seccion: Seccion
 }
 
+const UMBRAL_TAP_PX = 10
+const UMBRAL_TAP_MS = 300
+
 export function TarjetaProducto({ producto, seccion }: Props) {
   const [detalleAbierto, setDetalleAbierto] = useState(false)
-  const refTarjeta = useRef<HTMLButtonElement>(null)
+  const refTarjeta = useRef<HTMLDivElement>(null)
+  const refInicioToque = useRef<{ x: number; y: number; t: number } | null>(null)
   const nombre = producto.nombre || 'Producto sin nombre'
   const imagen = rutaImagen(producto.imagen, 'nativa')
   const srcset = srcsetImagen(producto.imagen)
   const precio = normalizarPrecio(producto.precio)
   const agotado = !producto.disponible
 
-  const abrirDetalle = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    e.stopPropagation()
+  const abrirDetalle = () => {
     setDetalleAbierto(true)
   }
 
@@ -29,14 +31,41 @@ export function TarjetaProducto({ producto, seccion }: Props) {
     refTarjeta.current?.focus()
   }
 
+  const onTeclado = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      abrirDetalle()
+    }
+  }
+
+  const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    const toque = e.touches[0]
+    if (toque) refInicioToque.current = { x: toque.clientX, y: toque.clientY, t: Date.now() }
+  }
+
+  const onTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    const inicio = refInicioToque.current
+    refInicioToque.current = null
+    const fin = e.changedTouches[0]
+    if (!inicio || !fin) return
+    const dx = fin.clientX - inicio.x
+    const dy = fin.clientY - inicio.y
+    const esTap = Math.hypot(dx, dy) < UMBRAL_TAP_PX && Date.now() - inicio.t < UMBRAL_TAP_MS
+    if (esTap) abrirDetalle()
+  }
+
   return (
     <>
       <article className={`tarjeta${agotado ? ' tarjeta--agotado' : ''}`}>
-        <button
+        <div
           ref={refTarjeta}
-          type="button"
+          role="button"
+          tabIndex={0}
           className="tarjeta__boton"
           onClick={abrirDetalle}
+          onKeyDown={onTeclado}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
           aria-haspopup="dialog"
           aria-label={`Ver detalle de ${nombre}`}
         />

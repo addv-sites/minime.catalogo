@@ -110,9 +110,9 @@ export function Libro({ catalogo, apiRef }: Props) {
           mobileScrollSupport={false}
           clickEventForward={true}
           useMouseEvents={true}
-          swipeDistance={30}
+          swipeDistance={20}
           showPageCorners={false}
-          disableFlipByClick={false}
+          disableFlipByClick={true}
           className="libro__flip"
           style={{}}
           onFlip={(e: { data: number }) => setIndiceActual(e.data)}

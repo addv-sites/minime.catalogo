@@ -81,7 +81,8 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 - **Tarjeta de producto**: imagen con srcset (`-thumb` lazy / nativa / `@2x` detalle), nombre, talla, precio, sugerido, badge **AGOTADO** (fondo gris, `aria-disabled`).
 - **Detalle de producto (popup)**: al tocar/hacer clic en una tarjeta se abre un diálogo (`role="dialog"`, `aria-modal`, portado a `body`) con imagen `@2x`, talla completa (wrap), precio, sugerido y sección. Cierre por botón, Escape, clic en fondo; foco devuelto a la tarjeta. El popup permite **zoom con dos dedos** (`touch-action: pan-x pan-y`, sin bloquear gestos).
 - **Ajuste móvil (6 productos/página)**: márgenes compactos de página/cabecera/tarjeta y rejilla `repeat(3, minmax(0,1fr))` (2×3) en móvil, `repeat(2, …)` (3×2) en ≥640px, para que precios y detalles quepan sin cortarse.
-- **Navegación**: botones ‹ ›, teclado (flechas, Escape cierra índice; ignora inputs), índice de secciones (diálogo no modal), swipe/drag/tap (mobileScrollSupport=false, swipeDistance=30).
+- **Zona de volteo táctil (móvil)**: el tap simple ya no voltea por sorpresa (`disableFlipByClick=true`); hojear = arrastrar el dedo **desde cualquier parte de la página** (también sobre las tarjetas) o tocar los bordes. Las tarjetas se renderizan como `role="button"` (no `<button>` nativo, que la librería excluía del gesture con `clickEventForward`), con detección propia de tap táctil (umbral 10 px / 300 ms) para abrir el detalle en móvil; `swipeDistance=20`. Teclado Enter/Espacio abre el detalle (WCAG).
+- **Navegación**: botones ‹ ›, teclado (flechas, Escape cierra índice; ignora inputs), índice de secciones (diálogo no modal), swipe/drag/tap (mobileScrollSupport=false, swipeDistance=20).
 - **Motion**: solo `transform`/`opacity`; `prefers-reduced-motion` reduce `flippingTime` a 1 ms y elimina transiciones.
 
 ### 4.2 Búsqueda (`src/utils/busqueda.ts` + `Busqueda.tsx`)
