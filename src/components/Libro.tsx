@@ -47,16 +47,32 @@ export function Libro({ catalogo, apiRef }: Props) {
   )
 
   const totalPaginas = paginas.length
-  const irAdelante = () => flipRef.current?.pageFlip().flipNext()
-  const irAtras = () => flipRef.current?.pageFlip().flipPrev()
+
+  const voltear = (direccion: 1 | -1) => {
+    const flip = flipRef.current?.pageFlip()
+    if (!flip) return
+    const conAjustes = flip as unknown as {
+      getSettings: () => { disableFlipByClick: boolean }
+    }
+    const ajustes = conAjustes.getSettings()
+    const previo = ajustes.disableFlipByClick
+    ajustes.disableFlipByClick = false
+    if (direccion === 1) flip.flipNext()
+    else flip.flipPrev()
+    ajustes.disableFlipByClick = previo
+  }
+
+  const irAdelante = () => voltear(1)
+  const irAtras = () => voltear(-1)
 
   useEffect(() => {
     if (!apiRef) return
     apiRef.current = {
-      flipNext: () => flipRef.current?.pageFlip().flipNext(),
-      flipPrev: () => flipRef.current?.pageFlip().flipPrev(),
+      flipNext: () => voltear(1),
+      flipPrev: () => voltear(-1),
       turnToPage: (pagina: number) => flipRef.current?.pageFlip().turnToPage(pagina),
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [apiRef])
 
   useEffect(() => {
