@@ -19,6 +19,18 @@
   padding: 0 0.25rem;
 }
 
+@media (max-width: 639px) {
+  .app__barra {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .app__cabecera {
+    justify-content: center;
+  }
+}
+
 .app__cabecera {
   display: flex;
   align-items: baseline;
