@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+
+# Dependencias
+node_modules/
+
+# Build
+dist/
+build/
+
+# Logs
+*.log
