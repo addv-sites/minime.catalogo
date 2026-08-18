@@ -15,6 +15,14 @@ interface ProductoPrivado {
 
 const DATA_URL = './admin/source/products-private.json'
 
+function contarExistencias(p: ProductoPrivado): number {
+  const final = (p.final || '').trim()
+  if (!final) return 0
+  if (final.includes('°')) return final.split('°').length - 1
+  const m = final.match(/\d+/)
+  return m ? Number(m[0]) : 0
+}
+
 export function AdminApp() {
   const [productos, setProductos] = useState<ProductoPrivado[] | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -54,6 +62,11 @@ export function AdminApp() {
 
   const actualizar = (codigo: string, patch: Partial<ProductoPrivado>) => {
     setProductos((prev) => (prev ? prev.map((p) => (p.codigo === codigo ? { ...p, ...patch } : p)) : prev))
+  }
+
+  const actualizarExistencias = (codigo: string, raw: string) => {
+    const n = Math.max(0, Number.parseInt(raw, 10) || 0)
+    actualizar(codigo, { final: n > 0 ? '°'.repeat(n) : '' })
   }
 
   const exportar = () => {
@@ -118,32 +131,50 @@ export function AdminApp() {
         {filtrados.length} de {productos.length} productos
       </p>
 
-      <div className="admin__tabla">
-        <div className="admin__fila admin__fila--cabecera">
-          <span>Código</span>
-          <span>Nombre</span>
-          <span>Talla</span>
-          <span>Precio</span>
-          <span>Sugerido</span>
-          <span>Disponible</span>
-        </div>
-        {filtrados.map((p) => (
-          <div className="admin__fila" key={`${p.codigo}-${p.imagen}`}>
-            <span className="admin__codigo">{p.codigo || 'SINCOD'}</span>
-            <input value={p.nombre} onChange={(e) => actualizar(p.codigo, { nombre: e.target.value })} aria-label="Nombre" />
-            <input value={p.talla} onChange={(e) => actualizar(p.codigo, { talla: e.target.value })} aria-label="Talla" />
-            <input value={p.precio} onChange={(e) => actualizar(p.codigo, { precio: e.target.value })} aria-label="Precio" />
-            <input value={p.sugerido} onChange={(e) => actualizar(p.codigo, { sugerido: e.target.value })} aria-label="Sugerido" />
-            <input
-              type="checkbox"
-              className="admin__checkbox"
-              aria-label={`Disponible ${p.codigo}`}
-              checked={p.disponible !== false}
-              onChange={(e) => actualizar(p.codigo, { disponible: e.target.checked })}
-            />
+<div className="admin__tabla">
+          <div className="admin__fila admin__fila--cabecera">
+            <span>Código</span>
+            <span>Nombre</span>
+            <span>Talla</span>
+            <span>Precio orig</span>
+            <span>Precio catálogo</span>
+            <span>Existencias</span>
+            <span>Disponible</span>
           </div>
-        ))}
-      </div>
+          {filtrados.map((p) => {
+            const existencias = contarExistencias(p)
+            const efectivo = p.disponible !== false && existencias > 0
+            return (
+              <div className="admin__fila" key={`${p.codigo}-${p.imagen}`}>
+                <span className="admin__codigo">{p.codigo || 'SINCOD'}</span>
+                <input value={p.nombre} onChange={(e) => actualizar(p.codigo, { nombre: e.target.value })} aria-label="Nombre" />
+                <input value={p.talla} onChange={(e) => actualizar(p.codigo, { talla: e.target.value })} aria-label="Talla" />
+                <input value={p.precio} onChange={(e) => actualizar(p.codigo, { precio: e.target.value })} aria-label="Precio original" />
+                <input value={p.sugerido} onChange={(e) => actualizar(p.codigo, { sugerido: e.target.value })} aria-label="Precio catálogo" />
+                <input
+                  type="number"
+                  min={0}
+                  value={existencias}
+                  onChange={(e) => actualizarExistencias(p.codigo, e.target.value)}
+                  aria-label={`Existencias ${p.codigo}`}
+                  title="Existencias (edita el campo final, ° por pieza)"
+                />
+                <div className="admin__disp">
+                  <input
+                    type="checkbox"
+                    className="admin__checkbox"
+                    aria-label={`Disponible ${p.codigo}`}
+                    checked={p.disponible !== false}
+                    onChange={(e) => actualizar(p.codigo, { disponible: e.target.checked })}
+                  />
+                  <span className={efectivo ? 'admin__estado admin__estado--ok' : 'admin__estado admin__estado--no'}>
+                    {efectivo ? 'Sí' : 'No'}
+                  </span>
+                </div>
+              </div>
+            )
+          })}
+        </div>
     </main>
   )
 }

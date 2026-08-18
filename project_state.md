@@ -15,6 +15,7 @@
 | `project_state.md` | ✅ Este archivo |
 | `claude.md` | ✅ Contexto operativo del repo |
 | `cmem.md` | ✅ Memoria de conversación optimizada |
+| `inicia.sh` | ✅ Script de arranque del entorno local (`./inicia.sh` → instala deps + `npm run dev`) |
 | `admin/source/products-private.json` | ✅ Datos privados (675 productos, 15 secciones) |
 | `admin/source/media/` | ✅ 675 JPEG originales |
 | `scripts/optimize-images.py` | ✅ Pipeline WebP (nativo / @2x / thumb) |

@@ -153,6 +153,7 @@ Valida integridad de datos: duplicados reales, sin imagen, precios vacíos, cód
 
 | Comando | Descripción | Estado |
 |---|---|---|
+| `./inicia.sh` | Arrancar el entorno local (instala deps si faltan + `npm run dev`) | ✅ |
 | `npm install` | Instalar dependencias | ✅ |
 | `npm run dev` | Desarrollo Vite | ✅ |
 | `npm run build` | Typecheck + build estático (`tsc -b && vite build`) | ✅ |

@@ -71,7 +71,7 @@
 
 .admin__fila {
   display: grid;
-  grid-template-columns: 90px 1fr 1.2fr 0.9fr 0.9fr 70px;
+  grid-template-columns: 90px 1fr 1.1fr 0.9fr 0.9fr 80px 80px;
   gap: 0.5rem;
   align-items: center;
   padding: 0.4rem;
@@ -110,6 +110,27 @@
   accent-color: #71b6b3;
 }
 
+.admin__disp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.admin__estado {
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.admin__estado--ok {
+  color: #1e7d3c;
+}
+
+.admin__estado--no {
+  color: #b3261e;
+}
+
 .admin__error {
   color: #b3261e;
 }
@@ -119,8 +140,7 @@
     grid-template-columns: 70px 1fr 1fr 60px;
   }
 
-  .admin__fila input:nth-child(4),
-  .admin__fila input:nth-child(5) {
-    grid-column: span 1;
+  .admin__fila input {
+    min-width: 0;
   }
 }

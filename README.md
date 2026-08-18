@@ -34,6 +34,7 @@ El sitio es **100% estático** y está publicado en **GitHub Pages**, sin backen
 
 | Comando | Descripción |
 |---|---|
+| `./inicia.sh` | Arrancar el entorno local (instala dependencias si faltan + `npm run dev`) |
 | `npm install` | Instalar dependencias |
 | `npm run dev` | Desarrollo Vite |
 | `npm run build` | Typecheck (`tsc -b`) + build estático en `dist/` |
