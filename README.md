@@ -2,13 +2,15 @@
 
 Catálogo online premium de ropa para bebé de la marca **MINI ME**, diseñado para sentirse como un **catálogo editorial físico convertido en experiencia digital interactiva** (page-flip, mobile-first).
 
-El sitio es **100% estático** y desplegable en **GitHub Pages**, sin backend, base de datos, API ni CMS.
+El sitio es **100% estático** y está publicado en **GitHub Pages**, sin backend, base de datos, API ni CMS.
+
+**En producción:** https://addv-sites.github.io/minime.catalogo/
 
 ---
 
 ## Estado actual
 
-> **Fase actual: Datos e imágenes migrados · Stack Vite+React operativo · Scaffold funcional · Catálogo libro pendiente.**
+> **Fase actual: En producción — catálogo libro page-flip + búsqueda + SEO + admin local + CI/CD operativos.**
 
 | Fase | Estado |
 |---|---|
@@ -19,12 +21,12 @@ El sitio es **100% estático** y desplegable en **GitHub Pages**, sin backend, b
 | Definición de stack | ✅ Vite 8 + React 19 + TypeScript 6 + Vitest + oxlint + react-pageflip |
 | Pipeline de datos | ✅ `generate-products.mjs` → `public/data/products.json` (675, 15 secciones) |
 | Pipeline de imágenes | ✅ `optimize-images.py` → 2022 WebP (nativa / @2x / thumb) |
-| Scaffold del catálogo | ✅ Header + grid de secciones, tokens de Stitch, tests |
-| Implementación del catálogo libro (page-flip) | ⏳ Pendiente |
-| Búsqueda / filtros / estados AGOTADO | ⏳ Pendiente |
-| Administrador local | ⏳ Pendiente |
-| Build + GitHub Actions para GitHub Pages | ⏳ Pendiente |
-| Auditoría final | ⏳ Pendiente |
+| Catálogo libro (page-flip) | ✅ Portada → introducción → secciones → contraportada |
+| Búsqueda / estados AGOTADO | ✅ Búsqueda accesible + badge AGOTADO por producto |
+| Administrador local | ✅ `admin.html` (solo dev, excluido del build) |
+| SEO | ✅ Meta, OG, canonical, sitemap, robots.txt, structured data |
+| GitHub Actions (CI/CD) | ✅ lint + test + build + deploy a GitHub Pages |
+| Auditoría final | ✅ Responsive, a11y (WCAG AA), contraste, reduced-motion, sin admin en build |
 
 ---
 
@@ -37,12 +39,12 @@ El sitio es **100% estático** y desplegable en **GitHub Pages**, sin backend, b
 | `npm run build` | Typecheck (`tsc -b`) + build estático en `dist/` |
 | `npm run preview` | Preview del build |
 | `npm run lint` | Lint (oxlint) |
-| `npm test` | Pruebas unitarias (Vitest, 8 tests) |
+| `npm test` | Pruebas unitarias (Vitest, 34 tests) |
 | `npm run test:watch` | Tests en watch |
 | `npm run products:validate` | Validar `admin/source/products-private.json` |
 | `npm run products:generate` | Generar `public/data/products.json` |
 | `npm run images:optimize` | Optimizar imágenes a WebP (requiere Pillow) |
-| `npm run admin` | Dev en modo admin (pendiente de implementar) |
+| `npm run admin` | Admin local → `http://localhost:5173/admin.html` |
 
 ---
 
@@ -106,11 +108,32 @@ Archivo Word (~20 MB) en la raíz del proyecto, fuente única y verdadera de pro
 
 ---
 
+## El catálogo (funcionalidades implementadas)
+
+- **Libro page-flip** con `react-pageflip`: portada → introducción → páginas de sección + productos (6 por página) → contraportada.
+- **Navegación**: botones ‹ ›, teclado (flechas; Escape cierra el índice; no interfiere al escribir), swipe/drag/tap, índice de secciones.
+- **Búsqueda**: por código, nombre o talla; con salto directo a la página del producto.
+- **AGOTADO**: badge claro, el producto no se elimina.
+- **Imágenes**: WebP con srcset (`-thumb` lazy / nativa / `@2x` detalle).
+- **Accesibilidad (WCAG AA)**: foco visible, contraste corregido, ARIA (`aria-live`, `role="dialog"`, `role="listbox"`), alt text, touch targets ≥ 44px, `prefers-reduced-motion`.
+
+---
+
+## Administrador local (solo desarrollo)
+
+El admin **nunca se publica**: `vite.config.ts` limita el build a `index.html`, así que `admin.html` y `src/admin/` quedan fuera de `dist/`.
+
+- Comando: `npm run admin` → `http://localhost:5173/admin.html`.
+- Carga `admin/source/products-private.json` y permite editar nombre, talla, precio, sugerido y **disponibilidad** (AGOTADO) por producto, filtrar por sección y exportar el JSON actualizado.
+- Para reflejar cambios: reemplazar `admin/source/products-private.json` y ejecutar `npm run products:generate`.
+
+---
+
 ## Identidad visual (diseño de Stitch)
 
 Recibida como HTML de referencia y reflejada en `src/styles/tokens.css`:
 
-- **Paleta**: rosa vino (primario `#994158`, contenedor `#f58aa3`, `blush-highlight #FADDE1`), verde menta (terciario `#71b6b3`, `#a9efec`), superficie cálida (`#fff8f3`), tinta `#4A3E3E`.
+- **Paleta**: rosa vino (primario `#994158`, contenedor `#f58aa3`, `blush-highlight #FADDE1`), verde menta (terciario `#71b6b3`, `#a9efec`, texto accesible `#3d7d79`), superficie cálida (`#fff8f3`), tinta `#4A3E3E`.
 - **Tipografías**: Nunito Sans, Plus Jakarta Sans, Quicksand.
 - **Iconos**: Material Symbols Outlined.
 - **Estilo**: Mobile First, catálogo editorial premium.
@@ -124,19 +147,28 @@ Recibida como HTML de referencia y reflejada en `src/styles/tokens.css`:
 ```text
 minime_cat/
 │
+├── .github/workflows/deploy.yml   # CI/CD: lint + test + build + GitHub Pages
+│
 ├── public/                        # Build público (lo único desplegado)
 │   ├── assets/images/products/    # 2022 WebP (674×3: nativa, @2x, -thumb)
 │   ├── data/products.json         # JSON público del catálogo (675, 15 secciones)
+│   ├── robots.txt                 # SEO
+│   ├── sitemap.xml                # SEO
 │   └── favicon.svg
 │
 ├── src/                           # Frontend (Vite + React + TS)
-│   ├── data/catalog.ts            # Tipos + loader del catálogo
+│   ├── data/catalog.ts            # Tipos + loader + rutaImagen/srcsetImagen
 │   ├── utils/format.ts            # normalizarPrecio, slugificar
+│   ├── utils/paginacion.ts        # paginarCatalogo, indiceSeccion, indiceProducto
+│   ├── utils/busqueda.ts          # buscarProductos, normalizarTexto
+│   ├── components/                # Libro, Portada, Sección, Productos, Tarjeta, Búsqueda, Contraportada
+│   ├── admin/                     # Admin local (dev) — NO entra al build
 │   ├── styles/tokens.css          # Tokens de identidad Stitch
 │   ├── styles/global.css          # Reset, tipografía, focus-visible
-│   ├── App.tsx / App.css          # Header + grid de secciones (scaffold)
+│   ├── App.tsx / App.css          # Búsqueda + Libro + estados carga/error
 │   └── test/                      # Setup de pruebas
 │
+├── admin.html                     # Entrada del admin local (solo dev)
 ├── admin/                         # Administrador local (NO se publica)
 │   └── source/
 │       ├── products-private.json  # Datos extraídos (675 productos)
@@ -147,7 +179,6 @@ minime_cat/
 │   ├── generate-products.mjs      # Genera public/data/products.json
 │   └── optimize-images.py         # WebP: nativa / @2x / thumb
 │
-├── .github/workflows/             # GitHub Actions (pendiente)
 ├── Productos.docx                 # Fuente de datos original
 ├── package.json
 └── README.md
@@ -171,15 +202,13 @@ Reglas de arquitectura fijadas por el prompt maestro:
 
 ---
 
-## Próximos pasos
+## Próximos pasos (mejoras futuras)
 
-1. **Implementar el catálogo libro/page-flip** (core del encargo): portada → secciones → cierre, navegación swipe/tap/teclado, profundidad/sombras con `react-pageflip`.
-2. Búsqueda, filtros y estados de **AGOTADO** (definir disponibilidad con `final` vacío).
-3. **Administrador local** (CRUD de disponibilidad/precio/imagen) + regeneración de JSON.
-4. srcset responsivo (`-thumb`/`@2x`) + lazy loading en la UI.
-5. **GitHub Actions** (`deploy.yml`) para GitHub Pages.
-6. **SEO** (meta, OG, canonical, sitemap, robots.txt, structured data).
-7. **Auditoría final** (funcionalidad, responsive, performance, seguridad, accesibilidad WCAG).
+1. **Tratamiento fotográfico definitivo** (estilización editorial): pendiente de revisión visual (el agente no tiene visión; usar `sips` o revisión manual).
+2. Confirmar identidad visual definitiva (¿llega el "md de Stitch"?).
+3. Derivación de género (Niña/Niño) para secciones ambiguas.
+4. Parsing de tallas/colores (hoy se conservan como texto).
+5. Tests de componente para `Libro`/`PaginaProductos` con render real.
 
 ---
 

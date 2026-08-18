@@ -61,7 +61,9 @@ export function Libro({ catalogo, apiRef }: Props) {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (indiceVisible) return
+      const objetivo = e.target as HTMLElement | null
+      const esInput = objetivo && ['INPUT', 'TEXTAREA', 'SELECT'].includes(objetivo.tagName)
+      if (indiceVisible || esInput) return
       if (e.key === 'ArrowRight') irAdelante()
       if (e.key === 'ArrowLeft') irAtras()
     }

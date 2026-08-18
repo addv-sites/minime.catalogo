@@ -83,44 +83,58 @@ Este proyecto opera bajo el protocolo **addv-web-app** (skill instalada). Reglas
 ### 4.4 Identidad visual (Stitch, HTML recibido)
 
 - Primario: `#994158` (rosa vino); contenedor `#f58aa3`; `blush-highlight #FADDE1`.
-- Terciario (menta): `#71b6b3`, `#a9efec`.
+- Terciario (menta): `#71b6b3`, `#a9efec`; texto menta accesible: `#3d7d79`.
 - Superficie cálida: `#fff8f3`; tinta: `#4A3E3E`.
 - Tipografías: **Nunito Sans**, **Plus Jakarta Sans**, **Quicksand**.
 - Iconos: Material Symbols Outlined.
 - Estética: catálogo editorial premium, Mobile First.
 
-## 5. Arquitectura implementada (en curso)
+## 5. Arquitectura implementada (en producción)
 
 ```text
 minime_cat/
+├── .github/workflows/deploy.yml   # CI/CD: lint + test + build + GitHub Pages
 ├── public/                        # Solo esto se despliega
 │   ├── assets/images/products/    # 2022 WebP (674×3: nativa, @2x, -thumb)
 │   ├── data/products.json         # JSON público del catálogo (675, 15 secciones)
+│   ├── robots.txt                 # SEO
+│   ├── sitemap.xml                # SEO
 │   └── favicon.svg
 ├── src/                           # Frontend (Vite + React + TS)
-│   ├── data/catalog.ts            # Tipos + loader del catálogo
-│   ├── utils/format.ts            # normalizarPrecio, slugificar
+│   ├── data/catalog.ts            # Tipos + loader + rutaImagen/srcsetImagen
+│   ├── utils/
+│   │   ├── format.ts              # normalizarPrecio, slugificar
+│   │   ├── paginacion.ts          # paginarCatalogo, indiceSeccion, indiceProducto (6/pág)
+│   │   └── busqueda.ts            # buscarProductos, normalizarTexto
+│   ├── components/
+│   │   ├── Libro.tsx              # Libro page-flip (react-pageflip, FlipApi, teclado, índice)
+│   │   ├── Portada/Introduccion/Contraportada.tsx
+│   │   ├── PaginaSeccion.tsx / PaginaProductos.tsx / TarjetaProducto.tsx
+│   │   ├── Busqueda.tsx           # Combobox accesible
+│   │   └── libro.css
+│   ├── admin/                     # Admin local (dev) — NO entra al build
+│   │   ├── main.tsx / AdminApp.tsx / admin.css
 │   ├── styles/tokens.css          # Tokens de identidad Stitch
 │   ├── styles/global.css          # Reset, tipografía, focus-visible
-│   ├── App.tsx / App.css          # Header + grid de secciones (scaffold)
+│   ├── App.tsx / App.css          # Búsqueda + Libro + estados carga/error
 │   └── test/                      # Setup de pruebas
+├── admin.html                     # Entrada del admin local (dev, excluida del build)
 ├── admin/                         # Local, NO se publica
 │   └── source/
 │       ├── products-private.json  # Datos extraídos (675 productos)
 │       └── media/                 # 675 JPEG originales
 ├── scripts/
 │   ├── validate-products.mjs      # Valida integridad de datos
-│   ├── generate-products.mjs      # Genera public/data/products.json
+│   ├── generate-products.mjs      # Genera public/data/products.json (lee `disponible`)
 │   └── optimize-images.py         # WebP: nativa / @2x / thumb
-├── .github/workflows/deploy.yml   # Pendiente
 ├── Productos.docx
 └── package.json
 ```
 
+- **Producción**: https://addv-sites.github.io/minime.catalogo/
 - Admin → generador → `products.json` (separación datos públicos/privados).
-- El build genera únicamente archivos públicos, excluyendo admin.
+- El build genera únicamente `index.html` (`vite.config.ts` limita `rollupOptions.input`), excluyendo admin.
 - Vite `base: './'` (rutas relativas) para GitHub Pages.
-- Estado actual: pipeline datos + imágenes operativo; UI en scaffold (lista de secciones); **catálogo libro pendiente**.
 
 ## 5.1 Scripts existentes
 
@@ -129,7 +143,7 @@ Pipeline de imágenes (WebP): resolución nativa + variante `@2x` (692px, detall
 Uso: `python3 scripts/optimize-images.py <media_dir> [--dry-run]`. Requiere Pillow (`python3 -m pip install Pillow`). Ejecutado: 2022 WebP en `public/assets/images/products/`.
 
 ### `scripts/generate-products.mjs`
-Genera `public/data/products.json` desde `admin/source/products-private.json`. Expone solo campos del catálogo; preserva IDs (duplicados → sufijo `-2/-3`); agrupa por sección en orden estable; imagen como `<nombre>.webp`.
+Genera `public/data/products.json` desde `admin/source/products-private.json`. Expone solo campos del catálogo; preserva IDs (duplicados → sufijo `-2/-3`); agrupa por sección en orden estable; imagen como `<nombre>.webp`. Campo `disponible`: usa `p.disponible !== false` (default disponible; el admin lo puede marcar).
 
 ### `scripts/validate-products.mjs`
 Valida integridad de datos: duplicados reales, sin imagen, precios vacíos, códigos/nombres ausentes, consistencia de secciones. Salida no-cero si hay errores graves. Estado actual: VALIDACIÓN OK (12 duplicados, 11 SINCOD, SC015 sin imagen/precio, APC020 warn).
@@ -143,13 +157,13 @@ Valida integridad de datos: duplicados reales, sin imagen, precios vacíos, cód
 | `npm run build` | Typecheck + build estático (`tsc -b && vite build`) | ✅ |
 | `npm run preview` | Preview del build | ✅ |
 | `npm run lint` | Lint (oxlint) | ✅ |
-| `npm test` / `npm run test:watch` | Pruebas unitarias (Vitest, 8 tests) | ✅ |
+| `npm test` / `npm run test:watch` | Pruebas unitarias (Vitest, 34 tests) | ✅ |
 | `npm run products:validate` | Validar productos | ✅ |
 | `npm run products:generate` | Generar JSON | ✅ |
 | `npm run images:optimize` | Optimizar imágenes (Pillow) | ✅ (2022 WebP generados) |
-| `npm run admin` | Administrador local | ⏳ Pendiente |
+| `npm run admin` | Administrador local → `http://localhost:5173/admin.html` | ✅ |
 
-**Stack definido:** Vite 8 + React 19 + TypeScript 6 + Vitest 4 + oxlint + **react-pageflip** (instalado, aún sin integrar). Entorno: Node 24.19, npm 11.17, Python 3.11 + Pillow. ⚠️ El agente actual no tiene visión: la evaluación visual de imágenes/diseño requiere CLI (`sips`) o revisión manual del usuario.
+**Stack definido:** Vite 8 + React 19 + TypeScript 6 + Vitest 4 + oxlint + **react-pageflip 2.0.3** (integrado). Entorno: Node 24.19, npm 11.17, Python 3.11 + Pillow. ⚠️ El agente actual no tiene visión: la evaluación visual de imágenes/diseño requiere CLI (`sips`) o revisión manual del usuario.
 
 ## 7. Entorno de trabajo
 
@@ -165,11 +179,11 @@ Valida integridad de datos: duplicados reales, sin imagen, precios vacíos, cód
 
 ## 8. Checklist de cierre por entrega
 
-- [ ] Pruebas unitarias ejecutables en local (un comando documentado).
-- [ ] Lint/typecheck sin errores.
-- [ ] Responsive (320, 375, 390, 430, 768, 1024, 1280, 1440, 1920).
-- [ ] Performance: imágenes optimizadas, lazy loading, sin animaciones costosas.
-- [ ] Accesibilidad: keyboard, focus, contrast, alt, reduced-motion.
-- [ ] Seguridad: sin admin en build, sin credenciales/secretos, JSON mínimo.
-- [ ] `project_state.md`, `claude.md`, `README.md` actualizados.
-- [ ] Sin regresiones.
+- [x] Pruebas unitarias ejecutables en local (un comando documentado).
+- [x] Lint/typecheck sin errores.
+- [x] Responsive (320, 375, 390, 430, 768, 1024, 1280, 1440, 1920).
+- [x] Performance: imágenes optimizadas, lazy loading, sin animaciones costosas.
+- [x] Accesibilidad: keyboard, focus, contrast, alt, reduced-motion.
+- [x] Seguridad: sin admin en build, sin credenciales/secretos, JSON mínimo.
+- [x] `project_state.md`, `claude.md`, `README.md` actualizados.
+- [x] Sin regresiones.

@@ -1,7 +1,7 @@
 # Project State — MINI ME Catálogo Digital
 
-> Última actualización: 2026-08-17 (scaffold Vite+React desplegado, pipeline de datos e imágenes operativo)
-> Estado general: **Datos e imágenes migrados · Stack definido y scaffold funcional · Implementación del catálogo libro pendiente**
+> Última actualización: 2026-08-18 (catálogo libro publicado en GitHub Pages)
+> Estado general: **En producción — catálogo libro page-flip + búsqueda + SEO + admin local + CI/CD operativos**
 
 ---
 
@@ -10,22 +10,24 @@
 | Elemento | Estado |
 |---|---|
 | `Productos.docx` | ✅ Fuente de datos original (20 MB, 675 productos) |
-| `.gitignore` | ✅ Creado (macOS, IDE, node_modules, build, coverage) |
-| `README.md` | ✅ Actualizado con el estado real del proyecto |
+| `.gitignore` | ✅ macOS, IDE, node_modules, build, coverage |
+| `README.md` | ✅ Documentación del proyecto |
 | `project_state.md` | ✅ Este archivo |
 | `claude.md` | ✅ Contexto operativo del repo |
 | `cmem.md` | ✅ Memoria de conversación optimizada |
-| `admin/source/products-private.json` | ✅ Datos extraídos (675 productos, 15 secciones) |
-| `admin/source/media/` | ✅ 675 JPEG originales migrados al repo |
+| `admin/source/products-private.json` | ✅ Datos privados (675 productos, 15 secciones) |
+| `admin/source/media/` | ✅ 675 JPEG originales |
 | `scripts/optimize-images.py` | ✅ Pipeline WebP (nativo / @2x / thumb) |
 | `scripts/validate-products.mjs` | ✅ Validación de integridad de datos |
-| `scripts/generate-products.mjs` | ✅ Generador de `public/data/products.json` |
-| `public/data/products.json` | ✅ JSON público generado (675 productos, 15 secciones) |
+| `scripts/generate-products.mjs` | ✅ Generador de `public/data/products.json` (lee campo `disponible`) |
+| `public/data/products.json` | ✅ JSON público (675 productos, 15 secciones) |
 | `public/assets/images/products/` | ✅ 2022 WebP (674 productos × 3 variantes) |
-| `src/` | ✅ Scaffold React (App, catalog loader, tokens, tests) |
+| `public/robots.txt` | ✅ Robots |
+| `public/sitemap.xml` | ✅ Sitemap |
+| `.github/workflows/deploy.yml` | ✅ CI/CD: lint + test + build + deploy GitHub Pages |
+| `src/` | ✅ App catálogo libro completa (componentes, utils, admin, tests) |
+| `admin.html` | ✅ Admin local (solo dev, excluido del build) |
 | `package.json` | ✅ Stack: Vite 8 + React 19 + TypeScript 6 + Vitest + oxlint |
-
-**Código fuente del catálogo libro: pendiente.**
 
 ## 2. Stack y entorno (definidos y operativos)
 
@@ -36,12 +38,10 @@
 | Vite | ✅ 8.2.x (config `base: './'` para GitHub Pages) |
 | React | ✅ 19.2.x + react-dom |
 | TypeScript | ✅ ~6.0 |
-| react-pageflip | ✅ Instalado (aún sin integrar en la UI) |
+| react-pageflip | ✅ 2.0.3 (integrado: libro page-flip) |
 | Vitest + Testing Library | ✅ 4.1.x (entorno jsdom) |
 | oxlint | ✅ 1.75.x |
 | Python 3.11 + Pillow | ✅ (script de imágenes) |
-
-Los cambios del scaffold están **staged pero aún sin commitear** (ramas en working tree).
 
 ## 3. Pipeline de datos e imágenes (operativo)
 
@@ -52,7 +52,8 @@ admin/source/products-private.json  ──>  scripts/generate-products.mjs  ─�
      (675 productos, datos internos)         (JSON público mínimo, duplicados con sufijo -2/-3)
 ```
 
-- Reglas del generador: expone solo campos del catálogo (`codigo`, `nombre`, `talla`, `precio`, `sugerido`, `disponible`, `imagen`); preserva IDs originales; agrupa por sección en orden estable; imagen referenciada como `<nombre>.webp`.
+- Reglas del generador: expone solo `codigo`, `nombre`, `talla`, `precio`, `sugerido`, `disponible`, `imagen`; preserva IDs originales; agrupa por sección en orden estable; imagen como `<nombre>.webp`.
+- Campo `disponible`: el admin puede marcarlo; el generador usa `p.disponible !== false` (default disponible).
 
 ### 3.2 Imágenes
 
@@ -65,62 +66,82 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 
 ### 3.3 Resultados de validación (`npm run products:validate`)
 
-- 675 productos · 15 secciones · **VALIDACIÓN OK** (sin errores graves).
-- 12 códigos duplicados reales (reciben sufijo): `RA0031`, `Z050` (x3), `APC017`, `APC019`, `APC020`, `APC021`, `APC022`, `APC024`, `APC025`, `APC026`, `APC027`, `APC028`.
-- 11 productos **sin código** → ID técnico `SINCOD-*` (image40, 167–173, 256, 360–364).
-- `SC015`: sin imagen y precio vacío (placeholder en catálogo).
+- 675 productos · 15 secciones · **VALIDACIÓN OK**.
+- 12 códigos duplicados reales (sufijo): `RA0031`, `Z050` (x3), `APC017`, `APC019`, `APC020`, `APC021`, `APC022`, `APC024`, `APC025`, `APC026`, `APC027`, `APC028`.
+- 11 productos sin código → `SINCOD-*` (image40, 167–173, 256, 360–364).
+- `SC015`: sin imagen y precio vacío (placeholder).
 - `APC020`: marcador `final` inesperado (warn, no bloquea).
 
-## 4. Scaffold del catálogo (implementado)
+## 4. Catálogo libro — implementado y publicado
 
-- `src/main.tsx`: bootstrap React + tokens.css + global.css.
-- `src/App.tsx`: carga `./data/products.json` y muestra header (marca, totales) + grid de secciones. Estados: carga, error, contenido.
-- `src/data/catalog.ts`: tipos `Producto`/`Seccion`/`Catalogo`, loader con cache, `rutaImagen()`.
-- `src/utils/format.ts`: `normalizarPrecio()`, `slugificar()` (con tests).
-- `src/styles/tokens.css`: tokens de identidad Stitch (paleta, tipografías, radios, sombras, motion, `prefers-reduced-motion`).
-- `src/styles/global.css`: reset, tipografía base, focus-visible accesible.
-- Tests: 2 archivos, **8 tests pasando** (`npm test`).
-- Lint: **sin errores** (`npm run lint`). Build: **OK** (`npm run build`).
+### 4.1 Experiencia libro (react-pageflip)
 
-## 5. Decisiones ya tomadas
+- **Paginación**: `src/utils/paginacion.ts` (`paginarCatalogo`, `indiceSeccion`, `indiceProducto`, `PRODUCTOS_POR_PAGINA = 6`).
+- **Estructura**: Portada → Introducción → Página de sección + páginas de productos (por sección) → Contraportada.
+- **Tarjeta de producto**: imagen con srcset (`-thumb` lazy / nativa / `@2x` detalle), nombre, talla, precio, sugerido, badge **AGOTADO** (fondo gris, `aria-disabled`).
+- **Navegación**: botones ‹ ›, teclado (flechas, Escape cierra índice; ignora inputs), índice de secciones (diálogo no modal), swipe/drag/tap (mobileScrollSupport=false, swipeDistance=30).
+- **Motion**: solo `transform`/`opacity`; `prefers-reduced-motion` reduce `flippingTime` a 1 ms y elimina transiciones.
 
-1. **Códigos duplicados reales**: preservar el ID original añadiendo sufijo técnico interno (`Z050-2`, `Z050-3`).
-2. **Tratamiento fotográfico**: baja resolución (346×224 px) → estilización editorial, **sin upscaling mágico** (el script @2x hace un upscale suave a 692px SOLO como variante de detalle).
+### 4.2 Búsqueda (`src/utils/busqueda.ts` + `Busqueda.tsx`)
+
+- Normalización (minúsculas, sin acentos) sobre código/nombre/talla.
+- Combobox accesible: resultados con teclado (flechas + Enter + Escape), lista `role="listbox"`.
+- Al seleccionar → salto a la página del producto (`indiceProducto` + `FlipApi.turnToPage`).
+
+### 4.3 SEO
+
+- `index.html`: `lang="es"`, meta description, theme-color `#994158`, canonical `https://addv-sites.github.io/minime.catalogo/`, OG (title/description/image/url/type), Twitter Card, JSON-LD WebSite.
+- `robots.txt` y `sitemap.xml`.
+
+### 4.4 Accesibilidad (WCAG AA)
+
+- Foco visible (`:focus-visible`, outlines 3px).
+- Contraste: menta texto `#3d7d79` (4.76:1), primario `#994158` (6.46:1), tinta sobre superficie (9.74:1).
+- ARIA: `aria-live` en indicador de página, `role="dialog"` en índice, `role="listbox"` en búsqueda, `aria-label` en botones.
+- Touch targets ≥ 44px; alt text descriptivo en imágenes; teclado completo.
+
+### 4.5 Rendimiento
+
+- Lazy loading (`loading="lazy"` + `decoding="async"`) en tarjetas; `preload` de las primeras imágenes.
+- srcset `-thumb` para móvil, nativa, `@2x` para detalle.
+- Bundle JS ~246 kB (74 kB gzip) → verde en Lighthouse para CWV.
+
+## 5. Admin local (`admin.html`, SOLO dev)
+
+- Entrada `admin.html` + `src/admin/` (main, AdminApp, admin.css).
+- **No entra al build**: `vite.config.ts` limita `rollupOptions.input` a `index.html`.
+- Carga `admin/source/products-private.json` vía dev server; edita nombre/talla/precio/sugerido/disponible por producto; filtro por sección/búsqueda; exporta JSON actualizado (download `products-private.json`) para regenerar con `npm run products:generate`.
+- Comando: `npm run admin` → `http://localhost:5173/admin.html`.
+- El JSON privado NO se publica (fuera de `public/`).
+
+## 6. CI/CD — GitHub Actions (`deploy.yml`)
+
+- Dispara en push a `main`. Pasos: checkout, setup Node, install, **lint**, **test** (34 tests), **build**, upload artifact, deploy GitHub Pages (`actions/deploy-pages`).
+- Verificado: primer deploy exitoso (2026-08-18).
+
+## 7. Decisiones ya tomadas
+
+1. **Códigos duplicados reales**: ID original + sufijo técnico (`Z050-2`).
+2. **Tratamiento fotográfico**: baja resolución → estilización editorial, sin upscaling mágico (el @2x es variante de detalle).
 3. **Mobile First** obligatorio (320→1920px).
-4. **Sitio 100% estático** compatible con GitHub Pages, sin backend/BD/API/CMS.
-5. **Administrador local fuera del build público** (nunca accesible en producción).
-6. **JSON público mínimo**: solo datos para mostrar el catálogo.
-7. **Datos `final (°)`**: todos vacíos → disponibilidad/agotado aún sin definir.
-8. **Stack elegido**: Vite + React + TypeScript + react-pageflip (sin Svelte/Vue).
-9. **Base relativa `./`** en Vite para servir correctamente en sub-ruta de GitHub Pages.
+4. **Sitio 100% estático** en GitHub Pages, sin backend/BD/API/CMS.
+5. **Admin local fuera del build** (nunca en producción).
+6. **JSON público mínimo**.
+7. **Disponibilidad**: default disponible; se marca AGOTADO por producto en el admin.
+8. **Stack**: Vite + React + TypeScript + react-pageflip.
+9. **Base relativa `./`** para GitHub Pages.
 
-## 6. En progreso
+## 8. Pendiente (mejoras futuras)
 
-- 🕐 **Tratamiento fotográfico definitivo (estilización editorial)**: bloqueado por modelo sin visión. Evaluación técnica por CLI (`sips`/Python) o revisión manual del usuario.
-- 🕐 **Confirmación del diseño de Stitch**: se recibió HTML de referencia (paleta + tipografías); el "md de Stitch" prometido no ha llegado como archivo `.md`.
-
-## 7. Pendiente (sin empezar)
-
-1. **Implementar el catálogo libro/page-flip** (core del encargo): portada → secciones → cierre, navegación swipe/tap/teclado, profundidad/sombras con `react-pageflip`.
-2. Búsqueda, filtros, estados de AGOTADO (con `final (°)` vacío, falta decidir cómo marcar disponibilidad).
-3. Administrador local (CRUD: disponibilidad/precio/imagen) + regeneración de JSON.
-4. Generación de variantes responsivas (srcset `-thumb`/`@2x`) y lazy loading en la UI.
-5. GitHub Actions (`deploy.yml`) para GitHub Pages.
-6. SEO (meta, OG, canonical, sitemap, robots.txt, structured data) y accesibilidad final.
-7. Auditoría final completa (funcionalidad, responsive, performance, seguridad, accesibilidad WCAG).
-
-## 8. Decisiones pendientes de confirmación con el usuario
-
-- [ ] ¿El HTML recibido de Stitch es la identidad visual definitiva, o aún llegará el "md de Stitch"?
-- [ ] ¿Cómo se inspecciona la calidad de imágenes si el agente no tiene visión (CLI/sips, revisión manual, o aplazar)?
-- [ ] ¿Género (Niña/Niño): cómo se deriva para secciones ambiguas?
-- [ ] ¿Se requiere apilado de tallas/colores parseado, o se conservan como texto?
-- [ ] ¿Cómo se determina la disponibilidad (campo `final` °) para marcar AGOTADO?
+- Tratamiento fotográfico definitivo (estilización editorial) — bloqueado por modelo sin visión; revisión manual del usuario.
+- Confirmación del "md de Stitch" (la identidad usada es el HTML de referencia recibido).
+- Derivación de género para filtros (Niña/Niño) en secciones ambiguas.
+- Parsing de tallas/colores (hoy se conservan como texto).
+- Tests de componente para `Libro`/`PaginaProductos` con render real (hoy los tests cubren utils + tarjetas + búsqueda + App).
 
 ## 9. Riesgos actuales
 
-- **Temporal `/var/folders/.../opencode/minime/`**: ya no es crítico (datos e imágenes están en el repo), puede limpiarse.
-- **Peso del repo**: 675 JPEG + 2022 WebP + `Productos.docx` (~20 MB) → tamaño de clon alto; considerar LFS o limpieza si molesta.
-- **Calidad de imágenes**: baja resolución; el resultado premium depende de la estilización, no del upscaling.
-- **Ambigüedad género/secciones y disponibilidad**: no resueltos; afectan el diseño de filtros y estados AGOTADO.
-- **Agente sin visión**: limita la evaluación visual de imágenes y diseño (requiere asistencia del usuario o herramientas CLI).
+- **Peso del repo**: 675 JPEG + 2022 WebP + `Productos.docx` (~20 MB).
+- **Calidad de imágenes**: baja resolución; premium depende de la estilización, no del upscaling.
+- **Ambigüedad género y disponibilidad**: disponibles solo en admin/por revisión manual.
+- **Agente sin visión**: limita evaluación visual de imágenes/diseño (CLI `sips`/Python o revisión del usuario).
