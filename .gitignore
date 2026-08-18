@@ -13,3 +13,9 @@ build/
 
 # Logs
 *.log
+
+# Tests / cobertura
+coverage/
+
+# Temas del editor
+*.tsbuildinfo

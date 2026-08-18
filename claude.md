@@ -89,55 +89,77 @@ Este proyecto opera bajo el protocolo **addv-web-app** (skill instalada). Reglas
 - Iconos: Material Symbols Outlined.
 - Estética: catálogo editorial premium, Mobile First.
 
-## 5. Arquitectura planificada (referencia)
+## 5. Arquitectura implementada (en curso)
 
 ```text
 minime_cat/
-├── public/                 # Solo esto se despliega
-│   ├── assets/{images,icons,fonts}
-│   └── data/products.json  # JSON público
-├── src/{catalog,components,styles,utils}
-├── admin/                  # Local, NO se publica
-│   └── source/products-private.json   # Datos extraídos (675 productos)
-├── scripts/{extract-products,generate-data,optimize-images}
-├── .github/workflows/deploy.yml
+├── public/                        # Solo esto se despliega
+│   ├── assets/images/products/    # 2022 WebP (674×3: nativa, @2x, -thumb)
+│   ├── data/products.json         # JSON público del catálogo (675, 15 secciones)
+│   └── favicon.svg
+├── src/                           # Frontend (Vite + React + TS)
+│   ├── data/catalog.ts            # Tipos + loader del catálogo
+│   ├── utils/format.ts            # normalizarPrecio, slugificar
+│   ├── styles/tokens.css          # Tokens de identidad Stitch
+│   ├── styles/global.css          # Reset, tipografía, focus-visible
+│   ├── App.tsx / App.css          # Header + grid de secciones (scaffold)
+│   └── test/                      # Setup de pruebas
+├── admin/                         # Local, NO se publica
+│   └── source/
+│       ├── products-private.json  # Datos extraídos (675 productos)
+│       └── media/                 # 675 JPEG originales
+├── scripts/
+│   ├── validate-products.mjs      # Valida integridad de datos
+│   ├── generate-products.mjs      # Genera public/data/products.json
+│   └── optimize-images.py         # WebP: nativa / @2x / thumb
+├── .github/workflows/deploy.yml   # Pendiente
 ├── Productos.docx
 └── package.json
 ```
 
 - Admin → generador → `products.json` (separación datos públicos/privados).
 - El build genera únicamente archivos públicos, excluyendo admin.
-- Estado actual: `public/` con estructura base creada (`assets/images/`, `data/`), sin contenido; imágenes pendientes de migrar.
+- Vite `base: './'` (rutas relativas) para GitHub Pages.
+- Estado actual: pipeline datos + imágenes operativo; UI en scaffold (lista de secciones); **catálogo libro pendiente**.
 
-## 5.1 Script existente: `scripts/optimize-images.py`
+## 5.1 Scripts existentes
 
+### `scripts/optimize-images.py`
 Pipeline de imágenes (WebP): resolución nativa + variante `@2x` (692px, detalle) + `-thumb` (160px, lazy/preload).
-Uso: `python3 scripts/optimize-images.py <media_dir> [--dry-run]`. Requiere Pillow (`python3 -m pip install Pillow`).
+Uso: `python3 scripts/optimize-images.py <media_dir> [--dry-run]`. Requiere Pillow (`python3 -m pip install Pillow`). Ejecutado: 2022 WebP en `public/assets/images/products/`.
 
-## 6. Comandos frecuentes (cuando existan)
+### `scripts/generate-products.mjs`
+Genera `public/data/products.json` desde `admin/source/products-private.json`. Expone solo campos del catálogo; preserva IDs (duplicados → sufijo `-2/-3`); agrupa por sección en orden estable; imagen como `<nombre>.webp`.
+
+### `scripts/validate-products.mjs`
+Valida integridad de datos: duplicados reales, sin imagen, precios vacíos, códigos/nombres ausentes, consistencia de secciones. Salida no-cero si hay errores graves. Estado actual: VALIDACIÓN OK (12 duplicados, 11 SINCOD, SC015 sin imagen/precio, APC020 warn).
+
+## 6. Comandos frecuentes
 
 | Comando | Descripción | Estado |
 |---|---|---|
-| `npm install` | Instalar dependencias | ⏳ Pendiente de stack |
-| `npm run dev` | Desarrollo | ⏳ |
-| `npm run build` | Build estático | ⏳ |
-| `npm run preview` | Preview del build | ⏳ |
-| `npm run products:validate` | Validar productos | ⏳ |
-| `npm run products:generate` | Generar JSON | ⏳ |
-| `npm run images:optimize` | Optimizar imágenes | 🕐 Parcial: script `scripts/optimize-images.py` listo (requiere Pillow) |
-| `npm run admin` | Administrador local | ⏳ |
-| `npm test` | Pruebas unitarias | ⏳ |
+| `npm install` | Instalar dependencias | ✅ |
+| `npm run dev` | Desarrollo Vite | ✅ |
+| `npm run build` | Typecheck + build estático (`tsc -b && vite build`) | ✅ |
+| `npm run preview` | Preview del build | ✅ |
+| `npm run lint` | Lint (oxlint) | ✅ |
+| `npm test` / `npm run test:watch` | Pruebas unitarias (Vitest, 8 tests) | ✅ |
+| `npm run products:validate` | Validar productos | ✅ |
+| `npm run products:generate` | Generar JSON | ✅ |
+| `npm run images:optimize` | Optimizar imágenes (Pillow) | ✅ (2022 WebP generados) |
+| `npm run admin` | Administrador local | ⏳ Pendiente |
 
-**Stack aún por definir.** Entorno actual: sin Node, con Python 3.11, `sips`, `brew`. Evaluar Vite/React/Svelte/Vue + librería page-flip, o alternativa sin Node. ⚠️ El agente actual no tiene visión: la evaluación visual de imágenes/diseño requiere CLI (`sips`) o revisión manual del usuario.
+**Stack definido:** Vite 8 + React 19 + TypeScript 6 + Vitest 4 + oxlint + **react-pageflip** (instalado, aún sin integrar). Entorno: Node 24.19, npm 11.17, Python 3.11 + Pillow. ⚠️ El agente actual no tiene visión: la evaluación visual de imágenes/diseño requiere CLI (`sips`) o revisión manual del usuario.
 
 ## 7. Entorno de trabajo
 
 - Repo: `/Users/prolan/repos/minime_cat/`
 - IDE: IntelliJ (`.idea/`)
 - Git: remote `origin` → `https://github.com/addv-sites/minime.catalogo.git` (branch `main`).
-- Datos en repo: `admin/source/products-private.json` (675 productos).
-- Imágenes: 675 JPEG (~346×224 px) dentro de `Productos.docx` y/o temporal `/var/folders/.../opencode/minime/` (aún sin migrar al repo).
-- Temporal: `/var/folders/.../opencode/minime/` (`products_extracted.json`, imágenes en `sample/`).
+- Datos en repo: `admin/source/products-private.json` (675 productos) + `admin/source/media/` (675 JPEG).
+- Imágenes generadas: `public/assets/images/products/` (2022 WebP).
+- JSON público: `public/data/products.json` (675, 15 secciones).
+- Temporal `/var/folders/.../opencode/minime/`: ya no es crítico (datos e imágenes están en el repo); puede limpiarse.
 - Regla global del usuario: **responder siempre en español**.
 - ⚠️ **Modelo del agente sin visión**: no puede inspeccionar imágenes directamente; usar `sips`/Python para análisis técnico o pedir revisión al usuario.
 

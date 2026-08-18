@@ -1,0 +1,63 @@
+:root {
+  /* Paleta Stitch (identidad visual MINI ME) */
+  --color-primary: #994158;
+  --color-primary-container: #f58aa3;
+  --color-blush-highlight: #fadde1;
+  --color-tertiary: #71b6b3;
+  --color-tertiary-soft: #a9efec;
+  --color-surface: #fff8f3;
+  --color-ink: #4a3e3e;
+  --color-white: #ffffff;
+
+  /* Escala de texto */
+  --fs-2xs: 0.625rem;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: 1.75rem;
+  --fs-3xl: 2.25rem;
+  --fs-4xl: 3rem;
+
+  /* Radios */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 999px;
+
+  /* Sombras suaves (profundidad de libro) */
+  --shadow-sm: 0 1px 3px rgb(74 62 62 / 0.12);
+  --shadow-md: 0 6px 16px rgb(74 62 62 / 0.16);
+  --shadow-lg: 0 16px 40px rgb(74 62 62 / 0.22);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-med: 280ms;
+
+  /* Tipografías */
+  --font-body: 'Nunito Sans', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-accent: 'Quicksand', system-ui, -apple-system, sans-serif;
+
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-surface);
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

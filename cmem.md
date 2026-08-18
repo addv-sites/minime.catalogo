@@ -1,7 +1,7 @@
 # CMEM — Memoria de Conversación MINI ME
 
 > **Propósito**: memoria comprimida de todo lo platicado con el usuario sobre el catálogo MINI ME, para que cualquier agente (Claude, opencode) retome el trabajo con contexto completo sin volver a preguntar.
-> **Última actualización**: 2026-08-17
+> **Última actualización**: 2026-08-17 (scaffold Vite+React + pipeline datos/imágenes operativos)
 
 ---
 
@@ -14,68 +14,46 @@ El usuario quiere un **catálogo digital premium de ropa de bebé (MINI ME) con 
 ## Historial de la conversación
 
 ### 1. Instalación de herramientas
-- El usuario pidió instalar `add-web-app` (GitHub: `antonioprado-sketch/add-web-app`) → se instaló la **skill addv-web-app**.
-- El usuario pidió instalar `ruflo` → se instaló la skill **ruflo**.
-- El usuario pidió "solo la skill, si se requiere el resto sugierelo para instalar bajo demanda".
-- El usuario pidió que **siempre hable en español** → regla global (persistida en `~/.config/opencode/AGENTS.md`).
+- Se instaló la skill **addv-web-app** (protocolo corporativo).
+- Se instaló la skill **ruflo** (solo la skill; el resto bajo demanda).
+- Regla global: **responder siempre en español** (persistida en `~/.config/opencode/AGENTS.md`).
 
 ### 2. Prompt maestro (el encargo principal)
-El usuario entregó un **PROMPT MAESTRO** extenso (45 reglas) que define el proyecto MINI ME. Puntos clave:
-
-- **Rol**: equipo senior multidisciplinario (frontend, UX/UI, CX, motion, a11y, performance, arquitectura, seguridad, SEO).
-- **Objetivo**: catálogo editorial premium tipo libro físico, NO un grid genérico.
-- **Contexto**: marca MINI ME, ropa para bebé (niña/niño), explorar categorías, navegar productos, fotos, precios, agotados, buscar, filtrar, navegar como libro.
-- **Estático**: GitHub Pages, sin backend/BD/API/CMS/PHP/Node en producción.
-- **Analizar primero**: leer `Productos.docx` y el md de Stitch antes de programar.
-- **Identidad visual**: respetar estrictamente Stitch (colores, tipografías, espaciados, tratamiento fotográfico); NO reemplazarla por plantilla genérica.
-- **Mobile First** (320→1920px), touch/mouse/teclado.
-- **Experiencia libro físico**: page-flip con profundidad/sombras/perspectiva; swipe/drag/tap en mobile.
-- **Estructura**: portada → introducción/brand → secciones → cierre, ADAPTADA a los datos reales.
-- **JSON** como fuente de datos; modelo adaptado a columnas reales.
-- **Administrador local**: editar productos, disponibilidad, precio, imágenes; generar JSON; NO publicar en `/admin`.
-- **Seguridad realista**: no prometer cifrado que no puede existir; JSON público mínimo; admin separado.
-- **Imágenes**: extraer, optimizar, WebP/AVIF, thumbnails, lazy loading, sin destruir calidad.
-- **Performance**: lazy loading, responsive images, evitar JS pesado; page-flip no debe ser lento.
-- **UX/CX**: confianza, ternura, calidad, exclusividad, cuidado, deseabilidad; reducir carga cognitiva.
-- **Agotados**: se muestran con señal clara (AGOTADO), no se eliminan.
-- **Accesibilidad WCAG**: keyboard, focus, contraste, ARIA, alt, touch targets, `prefers-reduced-motion`.
-- **SEO**: semantic HTML, meta, OG, canonical, sitemap, robots, structured data (sin inventar).
-- **Validaciones** (IDs duplicados, precios, etc.) y **manejo de errores** elegante.
-- **Microinteracciones** sutiles y rápidas, no sobreanimar.
-- **Calidad de código**: limpio, modular, mantenible.
-- **README completo** (instalación, dev, admin, build, deploy).
-- **Scripts**: `products:validate`, `products:generate`, `images:optimize`, `admin`, `build`, `preview`.
-- **Auditoría final**: checklist de funcionalidad, responsive, performance, seguridad, accesibilidad.
-- **Regla 45**: LEE Productos.docx y Stitch antes de crear cualquier componente. Comprende → diseña → implementa → prueba → optimiza.
-- **Cierre del prompt**: "y espera por el md de stitch".
+45 reglas. Puntos clave: catálogo editorial premium tipo libro físico (NO grid genérico); estático en GitHub Pages (sin backend/BD/API/CMS/PHP/Node en producción); analizar `Productos.docx` y Stitch antes de programar; respetar estrictamente la identidad Stitch; Mobile First (320→1920px); page-flip con profundidad/sombras; animaciones solo `transform`/`opacity`; portada → introducción → secciones → cierre; JSON como fuente de datos; admin local fuera del build; seguridad realista; imágenes WebP/AVIF + thumbnails + lazy; agotados con señal clara (no se eliminan); WCAG; SEO; validaciones; microinteracciones sutiles; scripts `products:validate/generate`, `images:optimize`, `admin`, `build`, `preview`; auditoría final; **"y espera por el md de stitch"**.
 
 ### 3. Análisis de Productos.docx (completado)
-- Documento Word ~20 MB con **15 tablas / 675 productos / 675 imágenes JPEG (~346×224 px, ~29 KB, baja resolución)**.
-- Columnas por producto: `imagen | código+nombre | talla+colores | precio | precio sugerido | marcador ° (disponibilidad por variante)`.
-- 15 secciones reales (C, RA, EP, PB/PN, RO, B, K, Z, P, H, D, TPC, APC, SC, FC) — ver tabla en `claude.md`.
-- **Anomalías**: `SC015` sin imagen y sin precio; duplicados reales (`RA0031`, `Z050`, `APC017–028`); talla+colores mezclados en una celda; campo `final` (°) todo vacío.
-- **Decisiones**: conservar ID original con sufijo técnico para duplicados (`Z050-2`); sin upscaling (estilización editorial por baja resolución).
-- Datos extraídos a `products_extracted.json` (675 productos).
+- Word ~20 MB, **15 tablas / 675 productos / 675 imágenes JPEG (~346×224 px, baja resolución)**.
+- Columnas: `imagen | código+nombre | talla+colores | precio | sugerido | ° (disponibilidad por variante)`.
+- 15 secciones reales (ver tabla en `claude.md`).
+- **Anomalías**: `SC015` sin imagen/precio; 12 códigos duplicados reales (`RA0031`, `Z050` x3, `APC017/019/020/021/022/024/025/026/027/028`); 11 sin código (`SINCOD-*`); talla+colores mezclados; `final (°)` todo vacío; `APC020` marcador inesperado.
+- Datos extraídos a `admin/source/products-private.json` (675 productos, 158 KB).
 
 ### 4. Diseño de Stitch (recibido como HTML)
-- El usuario pegó el **HTML del diseño Stitch** (Catálogo Mini Me Mobile): config Tailwind con paleta completa, tipografías Nunito Sans / Plus Jakarta Sans / Quicksand, Material Symbols Outlined, estética editorial premium, "Mini Me - Catálogo Físico".
-- Se analizó la paleta: rosa vino (`#994158`, `#f58aa3`, `#FADDE1`), menta (`#71b6b3`, `#a9efec`), superficie cálida (`#fff8f3`), tinta (`#4A3E3E`).
-- **Pendiente**: el prompt maestro prometía un "md de Stitch"; llegó HTML. ¿Es suficiente o llegará el `.md`?
-### 5. Estado al momento del crash (Mac) y retoma
+- Paleta: rosa vino `#994158`, `#f58aa3`, `#FADDE1`; menta `#71b6b3`, `#a9efec`; superficie `#fff8f3`; tinta `#4A3E3E`.
+- Tipografías: Nunito Sans, Plus Jakarta Sans, Quicksand; iconos Material Symbols Outlined.
+- Estética editorial premium Mobile First.
+- **Pendiente**: el prompt maestro prometía un "md de Stitch"; llegó HTML. ¿Es suficiente o llega el `.md`?
 
-- Última acción: **evaluar la calidad de una imagen real** (`sample/C0001.png`) para decidir el tratamiento fotográfico.
-- Tras el crash se documentaron `README.md`, `project_state.md`, `claude.md`, `cmem.md`.
-- **Retoma**: se migraron los datos extraídos al repo (`admin/source/products-private.json`, 158 KB, 675 productos), se creó `scripts/optimize-images.py` (WebP nativo/@2x/thumb), la estructura base `public/` (`assets/images/`, `data/`), y `.gitignore`.
-- ⚠️ **Nuevo hallazgo**: el agente actual (modelo sin visión) **no puede inspeccionar imágenes**. La evaluación visual de `sample/C0001` quedó bloqueada → tratamiento fotográfico pendiente (CLI `sips`/Python o revisión manual del usuario).
-- Las **imágenes (675 JPEG)** siguen en el .docx / temporal; migrar antes de limpiar el temporal.
-- Se realizó el primer commit y push del repo al remote `addv-sites/minime.catalogo.git`.
+### 5. Retoma tras crash del Mac
+- Se documentó y migró datos al repo; primer commit+push del repo (`790f714`).
+
+### 6. Segmento siguiente: scaffold + pipeline (completado)
+- **Entorno**: se instaló Node 24.19 / npm 11.17 (antes no había).
+- **Stack elegido**: Vite 8 + React 19 + TypeScript 6 + Vitest 4 + oxlint + **react-pageflip** (instalado, aún sin integrar).
+- **Imágenes migradas al repo**: `admin/source/media/` (675 JPEG originales).
+- **Pipeline de datos**: `scripts/generate-products.mjs` → `public/data/products.json` (675 productos, 15 secciones, duplicados con sufijo `-2/-3`, base `./`).
+- **Pipeline de imágenes**: `scripts/optimize-images.py` ejecutado → 2022 WebP en `public/assets/images/products/` (674×3: nativa + `@2x` 692px + `-thumb` 160px).
+- **Scaffold UI**: `src/App.tsx` (header + grid de secciones), `catalog.ts` (loader + tipos), `tokens.css` (paleta Stitch), `global.css`, `format.ts`.
+- **Validación**: 675 productos / 15 secciones / VALIDACIÓN OK. Duplicados 12, SINCOD 11, SC015 sin imagen/precio, APC020 warn.
+- **Calidad**: 8 tests OK · lint OK · build OK.
+- ⚠️ **Cambios staged pero SIN commitear** hasta esta actualización de docs.
 
 ## Decisiones tomadas (acordadas)
 
 | # | Decisión |
 |---|---|
 | 1 | IDs duplicados → sufijo interno (`Z050-2`) sin alterar ID original |
-| 2 | Imágenes baja resolución → estilización editorial, NO upscaling |
+| 2 | Imágenes baja resolución → estilización editorial, NO upscaling (solo @2x suave para detalle) |
 | 3 | Mobile First obligatorio |
 | 4 | 100% estático / GitHub Pages / sin backend |
 | 5 | Admin local fuera del build público |
@@ -83,29 +61,48 @@ El usuario entregó un **PROMPT MAESTRO** extenso (45 reglas) que define el proy
 | 7 | `final (°)` vacío → disponibilidad aún sin definir |
 | 8 | Hablar siempre en español |
 | 9 | Protocolo addv-web-app: Analizar → Proponer → Confirmar → Implementar |
+| 10 | Stack: Vite + React + TS + react-pageflip |
+| 11 | Vite `base: './'` (rutas relativas para GitHub Pages) |
 
 ## Pendientes / bloqueos
 
-- [ ] **Tratamiento fotográfico definitivo**: bloqueado — agente sin visión (ver §5). Evaluar con `sips`/Python o revisión manual del usuario.
-- [ ] **Migrar imágenes (675 JPEG)** del temporal/`.docx` al repo o al pipeline de optimización.
+- [ ] **Catálogo libro/page-flip** (core): portada → secciones → cierre, navegación swipe/tap/teclado, profundidad/sombras con `react-pageflip`. La UI actual es solo un listado de secciones.
+- [ ] Búsqueda, filtros, estados AGOTADO (falta definir disponibilidad con `final` vacío).
+- [ ] Admin local CRUD + regeneración de JSON.
+- [ ] srcset responsivo (`-thumb`/`@2x`) + lazy loading en la UI.
+- [ ] GitHub Actions `deploy.yml` para GitHub Pages.
+- [ ] SEO (meta, OG, canonical, sitemap, robots, structured data).
+- [ ] Auditoría final (funcionalidad, responsive, performance, seguridad, accesibilidad).
+- [ ] **Tratamiento fotográfico definitivo**: bloqueado — agente sin visión; evaluar con `sips`/Python o revisión manual del usuario.
 - [ ] **Confirmar identidad visual**: ¿el HTML de Stitch es definitivo o llega el `.md`?
-- [ ] **Definir stack** frontend + librería page-flip (sin Node disponible → evaluar Python/sips/brew o instalar Node).
 - [ ] **Derivar género (Niña/Niño)** para secciones ambiguas.
 - [ ] **Parsear tallas/colores** o conservarlos como texto.
-- [ ] Implementación completa del catálogo + admin + build + deploy.
 
 ## Comandos y rutas clave
 
+| Comando | Descripción |
+|---|---|
+| `npm install` | Instalar dependencias |
+| `npm run dev` | Desarrollo Vite |
+| `npm run build` | Typecheck (`tsc -b`) + build estático |
+| `npm run preview` | Preview del build |
+| `npm run lint` | oxlint |
+| `npm test` / `npm run test:watch` | Vitest (8 tests) |
+| `npm run products:validate` | Validar `products-private.json` |
+| `npm run products:generate` | Generar `public/data/products.json` |
+| `npm run images:optimize` | Optimizar imágenes (requiere Pillow) |
+| `npm run admin` | Dev en modo admin (a implementar) |
+
 - Repo: `/Users/prolan/repos/minime_cat/`
-- Datos en repo: `admin/source/products-private.json` (675 productos)
+- Datos internos: `admin/source/products-private.json` (675)
+- Imágenes originales: `admin/source/media/` (675 JPEG)
+- WebP generados: `public/assets/images/products/` (2022)
+- JSON público: `public/data/products.json`
 - Fuente original: `Productos.docx` (raíz del repo)
-- Pipeline de imágenes: `scripts/optimize-images.py` (requiere Pillow)
-- Datos/imágenes temporales: `/var/folders/vy/gdlc5dlj6_d_rp8vjpx2f3rr0000gn/T/opencode/minime/`
 - Remote git: `https://github.com/addv-sites/minime.catalogo.git` (branch `main`)
-- Protocolo: skill `addv-web-app`
 
 ## Próximo paso recomendado
 
-1. **Decidir cómo evaluar las imágenes** (CLI `sips`/Python por el agente, o revisión manual del usuario) para cerrar el tratamiento fotográfico.
-2. **Migrar/optimizar imágenes** al repo con `scripts/optimize-images.py`.
-3. Proponer la **arquitectura técnica** (stack + page-flip) para aprobación del usuario (segmento 1 del protocolo).
+1. **Commit y push** de los cambios staged + docs actualizadas.
+2. **Proponer la arquitectura del catálogo libro** (segmento 1 del protocolo): estructura de páginas, integración `react-pageflip`, navegación y estados (AGOTADO), para aprobación del usuario.
+3. Resolver el tratamiento fotográfico (CLI `sips`/Python o revisión manual del usuario).

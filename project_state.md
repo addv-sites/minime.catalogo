@@ -1,7 +1,7 @@
 # Project State — MINI ME Catálogo Digital
 
-> Última actualización: 2026-08-17 (retomado tras crash de Mac; datos migrados al repo)
-> Estado general: **Análisis de datos completado · Datos migrados al repo · Implementación pendiente**
+> Última actualización: 2026-08-17 (scaffold Vite+React desplegado, pipeline de datos e imágenes operativo)
+> Estado general: **Datos e imágenes migrados · Stack definido y scaffold funcional · Implementación del catálogo libro pendiente**
 
 ---
 
@@ -10,91 +10,117 @@
 | Elemento | Estado |
 |---|---|
 | `Productos.docx` | ✅ Fuente de datos original (20 MB, 675 productos) |
-| `.gitignore` | ✅ Creado (macOS, IDE, node_modules, build) |
-| `README.md` | ✅ Creado (descripción, estado, estructura, próximos pasos) |
+| `.gitignore` | ✅ Creado (macOS, IDE, node_modules, build, coverage) |
+| `README.md` | ✅ Actualizado con el estado real del proyecto |
 | `project_state.md` | ✅ Este archivo |
-| `claude.md` | ✅ Creado (contexto operativo del repo) |
-| `cmem.md` | ✅ Creado (memoria de conversación optimizada) |
-| `admin/source/products-private.json` | ✅ **Datos extraídos migrados al repo (158 KB, 675 productos)** |
-| `scripts/optimize-images.py` | ✅ Script de optimización de imágenes (WebP/@2x/thumb) |
-| `public/` | ✅ Estructura base creada (`assets/images/`, `data/`) — aún vacía |
+| `claude.md` | ✅ Contexto operativo del repo |
+| `cmem.md` | ✅ Memoria de conversación optimizada |
+| `admin/source/products-private.json` | ✅ Datos extraídos (675 productos, 15 secciones) |
+| `admin/source/media/` | ✅ 675 JPEG originales migrados al repo |
+| `scripts/optimize-images.py` | ✅ Pipeline WebP (nativo / @2x / thumb) |
+| `scripts/validate-products.mjs` | ✅ Validación de integridad de datos |
+| `scripts/generate-products.mjs` | ✅ Generador de `public/data/products.json` |
+| `public/data/products.json` | ✅ JSON público generado (675 productos, 15 secciones) |
+| `public/assets/images/products/` | ✅ 2022 WebP (674 productos × 3 variantes) |
+| `src/` | ✅ Scaffold React (App, catalog loader, tokens, tests) |
+| `package.json` | ✅ Stack: Vite 8 + React 19 + TypeScript 6 + Vitest + oxlint |
 
-**No hay código fuente del catálogo todavía.**
+**Código fuente del catálogo libro: pendiente.**
 
-## 2. Migración desde el directorio temporal
+## 2. Stack y entorno (definidos y operativos)
 
-Los datos definitivos ya están migrados al repo en `admin/source/products-private.json`
-(equivalente exacto de `products_extracted.json`).
+| Herramienta | Estado |
+|---|---|
+| Node.js | ✅ v24.19.0 |
+| npm | ✅ 11.17.0 |
+| Vite | ✅ 8.2.x (config `base: './'` para GitHub Pages) |
+| React | ✅ 19.2.x + react-dom |
+| TypeScript | ✅ ~6.0 |
+| react-pageflip | ✅ Instalado (aún sin integrar en la UI) |
+| Vitest + Testing Library | ✅ 4.1.x (entorno jsdom) |
+| oxlint | ✅ 1.75.x |
+| Python 3.11 + Pillow | ✅ (script de imágenes) |
 
-Todavía residen en el temporal `/var/folders/vy/gdlc5dlj6_d_rp8vjpx2f3rr0000gn/T/opencode/minime/`:
-`extracted/`, `paras.txt`, `products_raw.json`, `products_extracted.json`, `sample/`.
+Los cambios del scaffold están **staged pero aún sin commitear** (ramas en working tree).
 
-⚠️ **Riesgo pendiente**: las **imágenes** (675 JPEG extraídos del .docx) siguen dentro del
-`.docx` y/o del temporal. Deben extraerse al repo (o directamente al pipeline de
-optimización) cuando se ejecute `scripts/optimize-images.py`.
+## 3. Pipeline de datos e imágenes (operativo)
 
-**Pendiente de limpieza**: el temporal puede borrarse una vez las imágenes estén seguras.
+### 3.1 Datos
 
-## 3. Evaluación de calidad de imágenes — nota importante
+```text
+admin/source/products-private.json  ──>  scripts/generate-products.mjs  ──>  public/data/products.json
+     (675 productos, datos internos)         (JSON público mínimo, duplicados con sufijo -2/-3)
+```
 
-El intento de inspección visual de `sample/C0001.png`/`.jpeg` quedó **bloqueado**:
-el modelo de agente actual **no admite entrada de imágenes**, por lo que NO se pudo
-evaluar visualmente la calidad fotográfica.
+- Reglas del generador: expone solo campos del catálogo (`codigo`, `nombre`, `talla`, `precio`, `sugerido`, `disponible`, `imagen`); preserva IDs originales; agrupa por sección en orden estable; imagen referenciada como `<nombre>.webp`.
 
-Alternativas disponibles (por decidir):
-- Inspección técnica por línea de comandos (dimensiones, formato, tamaño, exif) con `sips`/Python.
-- Revisión visual por parte del usuario (ver la imagen en Finder).
-- Aplazar la decisión del tratamiento fotográfico hasta tener stack + HTML real del catálogo.
+### 3.2 Imágenes
 
-La decisión de tratamiento sigue **abierta** (estilización editorial vs. otra), tal como
-se acordó: sin upscaling mágico de 346×224 px.
+```text
+admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  public/assets/images/products/
+     (675 JPEG ~346×224 px)              WebP: nativa + @2x (692px) + -thumb (160px)
+```
 
-## 4. Decisiones ya tomadas
+- Resultado: 674 productos × 3 variantes = **2022 WebP** (SC015 sin imagen).
 
-1. **Códigos duplicados reales** (`RA0031`, `Z050`, `APC017–028`): preservar el ID original añadiendo sufijo técnico interno (ej. `Z050-2`) — decisión conservadora, sin alterar IDs del documento.
-2. **Tratamiento fotográfico**: las imágenes son de baja resolución (346×224 px). No se pueden ampliar sin pixelar → **estilización editorial** (fondo, marco, tratamiento) en vez de upscaling.
-3. **Sin upscaling de imágenes.**
-4. **Diseño Mobile First** (paradigma obligatorio del prompt maestro).
-5. **Sitio 100% estático** compatible con GitHub Pages, sin backend/BD/API/CMS.
-6. **Administrador local fuera del build público** (nunca accesible en producción).
-7. **JSON público mínimo**: solo datos necesarios para mostrar el catálogo.
-8. **Datos "final (°)"**: campo checkbox por variante; todos vacíos → disponibilidad/agotado aún sin definir.
+### 3.3 Resultados de validación (`npm run products:validate`)
 
-## 5. En progreso
+- 675 productos · 15 secciones · **VALIDACIÓN OK** (sin errores graves).
+- 12 códigos duplicados reales (reciben sufijo): `RA0031`, `Z050` (x3), `APC017`, `APC019`, `APC020`, `APC021`, `APC022`, `APC024`, `APC025`, `APC026`, `APC027`, `APC028`.
+- 11 productos **sin código** → ID técnico `SINCOD-*` (image40, 167–173, 256, 360–364).
+- `SC015`: sin imagen y precio vacío (placeholder en catálogo).
+- `APC020`: marcador `final` inesperado (warn, no bloquea).
 
-- 🕐 **Tratamiento fotográfico definitivo**: bloqueado por modelo sin visión (ver §3). Evaluación técnica por CLI o decisión del usuario pendiente.
-- 🕐 **Confirmación del diseño de Stitch**: se recibió HTML de referencia (paleta + tipografías), pero el prompt maestro prometía un "md de Stitch" que aún no llega como archivo `.md`.
+## 4. Scaffold del catálogo (implementado)
 
-## 6. Pendiente (sin empezar)
+- `src/main.tsx`: bootstrap React + tokens.css + global.css.
+- `src/App.tsx`: carga `./data/products.json` y muestra header (marca, totales) + grid de secciones. Estados: carga, error, contenido.
+- `src/data/catalog.ts`: tipos `Producto`/`Seccion`/`Catalogo`, loader con cache, `rutaImagen()`.
+- `src/utils/format.ts`: `normalizarPrecio()`, `slugificar()` (con tests).
+- `src/styles/tokens.css`: tokens de identidad Stitch (paleta, tipografías, radios, sombras, motion, `prefers-reduced-motion`).
+- `src/styles/global.css`: reset, tipografía base, focus-visible accesible.
+- Tests: 2 archivos, **8 tests pasando** (`npm test`).
+- Lint: **sin errores** (`npm run lint`). Build: **OK** (`npm run build`).
 
-1. Definir arquitectura técnica (stack frontend, solución page-flip).
-2. Implementar catálogo público: libro/page-flip, navegación, búsqueda, filtros, estados de agotado.
-3. Implementar administrador local (CRUD simple: disponibilidad/precio/imagen) + generación de JSON.
-4. Pipeline de imágenes: extraer → optimizar → WebP/AVIF → thumbnails → lazy loading.
-5. Scripts de mantenimiento (`products:validate`, `products:generate`, `images:optimize`, etc.).
-6. Build estático + GitHub Actions (`deploy.yml`) para GitHub Pages.
-7. Validaciones de datos (IDs duplicados, precios inválidos, productos sin imagen...).
-8. Auditoría final completa (funcionalidad, responsive, performance, seguridad, accesibilidad, WCAG).
+## 5. Decisiones ya tomadas
 
-## 7. Decisiones pendientes de confirmación con el usuario
+1. **Códigos duplicados reales**: preservar el ID original añadiendo sufijo técnico interno (`Z050-2`, `Z050-3`).
+2. **Tratamiento fotográfico**: baja resolución (346×224 px) → estilización editorial, **sin upscaling mágico** (el script @2x hace un upscale suave a 692px SOLO como variante de detalle).
+3. **Mobile First** obligatorio (320→1920px).
+4. **Sitio 100% estático** compatible con GitHub Pages, sin backend/BD/API/CMS.
+5. **Administrador local fuera del build público** (nunca accesible en producción).
+6. **JSON público mínimo**: solo datos para mostrar el catálogo.
+7. **Datos `final (°)`**: todos vacíos → disponibilidad/agotado aún sin definir.
+8. **Stack elegido**: Vite + React + TypeScript + react-pageflip (sin Svelte/Vue).
+9. **Base relativa `./`** en Vite para servir correctamente en sub-ruta de GitHub Pages.
+
+## 6. En progreso
+
+- 🕐 **Tratamiento fotográfico definitivo (estilización editorial)**: bloqueado por modelo sin visión. Evaluación técnica por CLI (`sips`/Python) o revisión manual del usuario.
+- 🕐 **Confirmación del diseño de Stitch**: se recibió HTML de referencia (paleta + tipografías); el "md de Stitch" prometido no ha llegado como archivo `.md`.
+
+## 7. Pendiente (sin empezar)
+
+1. **Implementar el catálogo libro/page-flip** (core del encargo): portada → secciones → cierre, navegación swipe/tap/teclado, profundidad/sombras con `react-pageflip`.
+2. Búsqueda, filtros, estados de AGOTADO (con `final (°)` vacío, falta decidir cómo marcar disponibilidad).
+3. Administrador local (CRUD: disponibilidad/precio/imagen) + regeneración de JSON.
+4. Generación de variantes responsivas (srcset `-thumb`/`@2x`) y lazy loading en la UI.
+5. GitHub Actions (`deploy.yml`) para GitHub Pages.
+6. SEO (meta, OG, canonical, sitemap, robots.txt, structured data) y accesibilidad final.
+7. Auditoría final completa (funcionalidad, responsive, performance, seguridad, accesibilidad WCAG).
+
+## 8. Decisiones pendientes de confirmación con el usuario
 
 - [ ] ¿El HTML recibido de Stitch es la identidad visual definitiva, o aún llegará el "md de Stitch"?
 - [ ] ¿Cómo se inspecciona la calidad de imágenes si el agente no tiene visión (CLI/sips, revisión manual, o aplazar)?
-- [ ] ¿Género (Niña/Niño): cómo se deriva? Las secciones actuales no lo marcan explícitamente (ej. "Ropa Niña" vs "Ropa Niño" sí se infieren; otras secciones no).
+- [ ] ¿Género (Niña/Niño): cómo se deriva para secciones ambiguas?
 - [ ] ¿Se requiere apilado de tallas/colores parseado, o se conservan como texto?
-- [ ] Confirmación del stack a usar (¿plan: tecnologías propuestas en claude.md).
-
-## 8. Entorno de desarrollo detectado
-
-- **Sin Node.js / npm** en la máquina.
-- **Python 3.11** disponible.
-- **Pillow NO instalado** (no hay Node/Pillow para imágenes).
-- Disponibles: `sips`, `brew`, `python3`.
+- [ ] ¿Cómo se determina la disponibilidad (campo `final` °) para marcar AGOTADO?
 
 ## 9. Riesgos actuales
 
-- **Pérdida de imágenes extraídas**: residen en el `.docx` / temporal `/var/folders/.../opencode/minime/`. Migrar al repo o pipeline antes de limpiar el temporal.
-- **Sin Node**: si la arquitectura elegida requiere Node para build, habrá que instalarlo (nvm/brew) o elegir un stack sin Node.
+- **Temporal `/var/folders/.../opencode/minime/`**: ya no es crítico (datos e imágenes están en el repo), puede limpiarse.
+- **Peso del repo**: 675 JPEG + 2022 WebP + `Productos.docx` (~20 MB) → tamaño de clon alto; considerar LFS o limpieza si molesta.
 - **Calidad de imágenes**: baja resolución; el resultado premium depende de la estilización, no del upscaling.
-- **Ambigüedad género/secciones**: no está resuelto cómo derivar Niña/Niño para todas las secciones.
+- **Ambigüedad género/secciones y disponibilidad**: no resueltos; afectan el diseño de filtros y estados AGOTADO.
 - **Agente sin visión**: limita la evaluación visual de imágenes y diseño (requiere asistencia del usuario o herramientas CLI).
