@@ -113,6 +113,12 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 - srcset `-thumb` para móvil, nativa, `@2x` para detalle.
 - Bundle JS ~246 kB (74 kB gzip) → verde en Lighthouse para CWV.
 
+### 4.6 Pie de página (`App.tsx` + `App.css`)
+
+- Franja compacta fija al pie del layout 100svh (el libro se ajusta con `flex:1`).
+- Texto: **"Catálogo hecho por ADDV"** + enlace de contacto `mailto:info@addv.mx`.
+- Pendiente: reemplazar el texto por el logo de la empresa cuando esté disponible.
+
 ## 5. Admin local (`admin.html`, SOLO dev)
 
 - Entrada `admin.html` + `src/admin/` (main, AdminApp, admin.css).

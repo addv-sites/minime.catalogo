@@ -53,6 +53,12 @@ export default function App() {
         <Busqueda secciones={catalogo.secciones} onSeleccionar={irAProducto} />
       </header>
       <Libro catalogo={catalogo} apiRef={apiLibro} />
+      <footer className="app__pie">
+        <p className="app__pie-texto">Catálogo hecho por ADDV</p>
+        <a className="app__pie-enlace" href="mailto:info@addv.mx">
+          Contacto info@addv.mx
+        </a>
+      </footer>
     </main>
   )
 }
