@@ -10,19 +10,20 @@ El sitio es **100% estático** y está publicado en **GitHub Pages**, sin backen
 
 ## Estado actual
 
-> **Fase actual: En producción — catálogo libro page-flip + búsqueda + SEO + admin local + CI/CD operativos.**
+> **Fase actual: En producción — catálogo libro page-flip + búsqueda + filtro de disponibles + SEO + admin local + CI/CD operativos.**
 
 | Fase | Estado |
 |---|---|
-| Análisis de `Productos.docx` | ✅ Completado (675 productos, 15 secciones) |
+| Análisis de `Productos.docx` | ✅ Completado (689 productos, 15 secciones) |
 | Extracción de datos a JSON | ✅ `admin/source/products-private.json` |
 | Extracción de imágenes del .docx | ✅ Migradas al repo (`admin/source/media/`, 675 JPEG) |
 | Recepción del diseño de Stitch | ✅ Recibido (HTML de referencia, paleta y tipografías) |
 | Definición de stack | ✅ Vite 8 + React 19 + TypeScript 6 + Vitest + oxlint + react-pageflip |
-| Pipeline de datos | ✅ `generate-products.mjs` → `public/data/products.json` (675, 15 secciones) |
+| Pipeline de datos | ✅ `generate-products.mjs` → `public/data/products.json` (689, 15 secciones) |
 | Pipeline de imágenes | ✅ `optimize-images.py` → 2022 WebP (nativa / @2x / thumb) |
 | Catálogo libro (page-flip) | ✅ Portada → introducción → secciones → contraportada |
 | Búsqueda / estados AGOTADO | ✅ Búsqueda accesible + badge AGOTADO por producto |
+| Filtro "Ver solo disponibles" | ✅ Checkbox en cabecera (re-pagina el libro) |
 | Administrador local | ✅ `admin.html` (solo dev, excluido del build) |
 | SEO | ✅ Meta, OG, canonical, sitemap, robots.txt, structured data |
 | GitHub Actions (CI/CD) | ✅ lint + test + build + deploy a GitHub Pages |
@@ -40,10 +41,11 @@ El sitio es **100% estático** y está publicado en **GitHub Pages**, sin backen
 | `npm run build` | Typecheck (`tsc -b`) + build estático en `dist/` |
 | `npm run preview` | Preview del build |
 | `npm run lint` | Lint (oxlint) |
-| `npm test` | Pruebas unitarias (Vitest, 41 tests) |
+| `npm test` | Pruebas unitarias (Vitest, 48 tests) |
 | `npm run test:watch` | Tests en watch |
 | `npm run products:validate` | Validar `admin/source/products-private.json` |
 | `npm run products:generate` | Generar `public/data/products.json` |
+| `python3 scripts/update-costos.py` | Actualizar costos desde `Productos.docx` (precio/sugerido/final) |
 | `npm run images:optimize` | Optimizar imágenes a WebP (requiere Pillow) |
 | `npm run admin` | Admin local → `http://localhost:5173/admin.html` |
 
@@ -54,11 +56,11 @@ El sitio es **100% estático** y está publicado en **GitHub Pages**, sin backen
 Archivo Word (~20 MB) en la raíz del proyecto, fuente única y verdadera de productos.
 
 **Contenido analizado:**
-- 15 tablas con 675 productos.
+- 15 tablas con 689 productos (14 nuevos vs. la versión anterior del docx).
 - 675 imágenes JPEG (~346×224 px, ~29 KB, baja resolución).
-- Columnas por producto: `imagen | código+nombre | talla+colores | precio | precio sugerido | marcador ° (existencias en almacén)`.
+- Columnas por producto: `imagen | código+nombre | talla+colores | precio | precio sugerido | precio final (existencias y precios)`.
 
-### Secciones reales (675 productos)
+### Secciones reales (689 productos)
 
 | Sección | Prefijo | Nº prod. |
 |---|---|---|
@@ -94,20 +96,21 @@ Archivo Word (~20 MB) en la raíz del proyecto, fuente única y verdadera de pro
 }
 ```
 
-> **Mapeo al catálogo público** (`public/data/products.json`): el precio del catálogo es el **precio sugerido** (`sugerido`); las **existencias** se cuentan del campo `final` (nº de `°`). El JSON público expone solo `codigo | nombre | talla | precio | existencias | disponible | imagen`.
+> **Mapeo al catálogo público** (`public/data/products.json`): el precio del catálogo es el **precio sugerido** (`sugerido`); las **existencias** se cuentan del campo `final` contando **solo los `°` que no van seguidos de un número** (`°50`, `°65` son precios y se ignoran). El JSON público expone solo `codigo | nombre | talla | precio | existencias | disponible | imagen`.
 
 ### Anomalías documentadas del documento
 
 - **`SC015`** (COBIJA POLAR): sin imagen y con precio vacío.
 - **12 códigos duplicados reales**: `RA0031`, `Z050` (x3), `APC017/019/020/021/022/024/025/026/027/028`. Decisión conservadora: preservar el ID original añadiendo sufijo técnico interno (ej. `Z050-2`).
 - **11 productos sin código**: reciben ID técnico `SINCOD-*`.
+- **14 productos nuevos** (solo en el docx actualizado): `C0039`, `RA0125-131`, `PN042`, `RO092-096` → sin imagen (placeholder).
+- **`RA0110`**: se conserva (no aparece en el docx actualizado).
 - **Talla + colores mezclados** en una sola celda.
-- **Campo `final` (°)**: cantidad de existencias en almacén. El generador las cuenta (`°°°°` = 4); el texto `"60 bolsitas"` se lee como número (60). Total: 1542 existencias.
-- **`APC020`**: marcador `final` inesperado (warn).
+- **Campo `final` (Precio final)**: formato `Npz°PRECIO` (ej. `4pz°65°65°65°65`, `1pz°95`). Regla: contar solo `°` sin número. Total: 842 existencias → **278 productos AGOTADO** (~40%).
 
 ### Resultado de la validación
 
-`npm run products:validate` → **VALIDACIÓN OK**: 675 productos, 15 secciones, 12 duplicados, 11 sin código, `SC015` sin imagen/precio.
+`npm run products:validate` → **VALIDACIÓN OK**: 689 productos, 15 secciones, 12 duplicados, 11 sin código, 15 sin imagen (14 nuevos + `SC015`).
 
 ---
 
@@ -117,6 +120,7 @@ Archivo Word (~20 MB) en la raíz del proyecto, fuente única y verdadera de pro
 - **Imagen al compartir**: `public/og-image.png` (1280×640) en metas OG y Twitter Card para previsualización del link en GitHub Pages.
 - **Navegación**: botones ‹ ›, teclado (flechas; Escape cierra el índice; no interfiere al escribir), swipe/drag/tap, índice de secciones.
 - **Búsqueda**: por código, nombre o talla; con salto directo a la página del producto.
+- **Filtro "Ver solo disponibles"**: checkbox en la cabecera que muestra solo productos disponibles (re-pagina el libro) — útil porque ~40% del catálogo está AGOTADO.
 - **AGOTADO**: badge claro cuando `existencias = 0` o no disponible; el producto no se elimina.
 - **Detalle de producto (popup)**: al tocar/hacer clic en una tarjeta se abre un diálogo accesible con imagen `@2x`, talla completa, precio real, **existencias** y sección; permite **zoom con dos dedos**. Cierra por botón, Escape o clic en el fondo.
 - **Móvil**: 6 productos por página con márgenes compactos para que precios y detalles no se corten.
@@ -157,7 +161,7 @@ minime_cat/
 │
 ├── public/                        # Build público (lo único desplegado)
 │   ├── assets/images/products/    # 2022 WebP (674×3: nativa, @2x, -thumb)
-│   ├── data/products.json         # JSON público del catálogo (675, 15 secciones)
+│   ├── data/products.json         # JSON público del catálogo (689, 15 secciones)
 │   ├── robots.txt                 # SEO
 │   ├── sitemap.xml                # SEO
 │   └── favicon.svg
@@ -166,6 +170,7 @@ minime_cat/
 │   ├── data/catalog.ts            # Tipos + loader + rutaImagen/srcsetImagen
 │   ├── utils/format.ts            # normalizarPrecio, slugificar
 │   ├── utils/paginacion.ts        # paginarCatalogo, indiceSeccion, indiceProducto
+│   ├── utils/filtros.ts           # soloDisponibles (filtro "Ver solo disponibles")
 │   ├── utils/busqueda.ts          # buscarProductos, normalizarTexto
 │   ├── components/                # Libro, Portada, Sección, Productos, Tarjeta, Detalle, Búsqueda, Contraportada
 │   ├── admin/                     # Admin local (dev) — NO entra al build
@@ -177,12 +182,13 @@ minime_cat/
 ├── admin.html                     # Entrada del admin local (solo dev)
 ├── admin/                         # Administrador local (NO se publica)
 │   └── source/
-│       ├── products-private.json  # Datos extraídos (675 productos)
+│       ├── products-private.json  # Datos extraídos (689 productos)
 │       └── media/                 # 675 JPEG originales
 │
 ├── scripts/
 │   ├── validate-products.mjs      # Valida integridad de datos
 │   ├── generate-products.mjs      # Genera public/data/products.json
+│   ├── update-costos.py           # Actualiza costos desde Productos.docx (precio/sugerido/final)
 │   └── optimize-images.py         # WebP: nativa / @2x / thumb
 │
 ├── Productos.docx                 # Fuente de datos original

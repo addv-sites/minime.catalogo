@@ -56,6 +56,25 @@
   margin: 0;
 }
 
+.app__filtro {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-2xs);
+  font-weight: 700;
+  color: var(--color-primary);
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.app__filtro input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
 .app__pie {
   display: flex;
   align-items: center;

@@ -2,9 +2,9 @@
   "meta": {
     "marca": "MINI ME",
     "descripcion": "Catálogo digital premium de ropa para bebé",
-    "totalProductos": 675,
+    "totalProductos": 689,
     "totalSecciones": 15,
-    "generado": "2026-08-18T20:35:31.478Z"
+    "generado": "2026-08-20T22:34:45.939Z"
   },
   "secciones": [
     {
@@ -23,8 +23,8 @@
           "codigo": "C0001",
           "nombre": "Calcetín flor",
           "talla": "6-12 mesesAzulBlancoCamelcafe1-2 añosAzulBlancoCamelcafe",
-          "precio": "$50.00",
-          "existencias": 8,
+          "precio": "$50.00 par",
+          "existencias": 4,
           "disponible": true,
           "imagen": "image2.webp"
         },
@@ -32,35 +32,35 @@
           "codigo": "C0002",
           "nombre": "Calceta orejas ratón",
           "talla": "1-3 mesesVerdeNaranjaBlancoamarillo",
-          "precio": "$65.00",
-          "existencias": 4,
-          "disponible": true,
+          "precio": "$65.00 par",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image3.webp"
         },
         {
           "codigo": "C0003",
           "nombre": "Calceta alta moño",
           "talla": "1-2 añosCamelBlancoNegroRosacafé",
-          "precio": "$80.00",
-          "existencias": 5,
-          "disponible": true,
+          "precio": "$80.00 par",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image4.webp"
         },
         {
           "codigo": "C0004",
           "nombre": "Calceta alta oso",
           "talla": "añoscafécaqui1-3 añoscafécaqui",
-          "precio": "$85.00",
-          "existencias": 4,
-          "disponible": true,
+          "precio": "$85.00par",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image5.webp"
         },
         {
           "codigo": "C0005",
           "nombre": "Calceta moño grande",
           "talla": "#4CamelRosaBlanconegro#6CamelRosaBlanconegro",
-          "precio": "$75.00",
-          "existencias": 8,
+          "precio": "$75.00 par",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image6.webp"
         },
@@ -68,9 +68,9 @@
           "codigo": "C0006",
           "nombre": "Calceta antiderrapante oso",
           "talla": "1-3 añosCaféBlancoBeigeAzulrosa",
-          "precio": "$40.00",
-          "existencias": 5,
-          "disponible": true,
+          "precio": "$40.00 par",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image7.webp"
         },
         {
@@ -78,8 +78,8 @@
           "nombre": "Tin dino 3d",
           "talla": "0-6 meses",
           "precio": "$75.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image8.webp"
         },
         {
@@ -96,33 +96,33 @@
           "nombre": "Tin jirafa 3d",
           "talla": "0-6 meses",
           "precio": "$75.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image10.webp"
         },
         {
           "codigo": "C0010",
           "nombre": "Tin mini",
           "talla": "6-12 mesesBlancoRosaRosa clGrisbeige",
-          "precio": "$25.00",
-          "existencias": 10,
-          "disponible": true,
+          "precio": "$25.00 par",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image11.webp"
         },
         {
           "codigo": "C0011",
           "nombre": "Tin mini",
           "talla": "6-12 mesesBlancoNegroGrisAzulverde",
-          "precio": "$25.00",
-          "existencias": 10,
-          "disponible": true,
+          "precio": "$25.00 par",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image12.webp"
         },
         {
           "codigo": "C0012",
           "nombre": "Tin mini blanco",
           "talla": "6-12 meses  blanco",
-          "precio": "$25.00",
+          "precio": "$25.00 par",
           "existencias": 10,
           "disponible": true,
           "imagen": "image13.webp"
@@ -131,17 +131,17 @@
           "codigo": "C0013",
           "nombre": "Tin mini blanco/negro",
           "talla": "6-12 meses          Blanconegro",
-          "precio": "$25.00",
-          "existencias": 10,
-          "disponible": true,
+          "precio": "$25.00 par",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image14.webp"
         },
         {
           "codigo": "C0014",
           "nombre": "Tin mini",
           "talla": "6-12 mesesBlancoLilaPastelRosa clRosa fi",
-          "precio": "$25.00",
-          "existencias": 10,
+          "precio": "$25.00 par",
+          "existencias": 6,
           "disponible": true,
           "imagen": "image15.webp"
         },
@@ -150,8 +150,8 @@
           "nombre": "Calceta flor 3d blanca",
           "talla": "0-12 meses",
           "precio": "$80.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image16.webp"
         },
         {
@@ -159,8 +159,8 @@
           "nombre": "Calceta flor 3d rosa/blanca",
           "talla": "0-12 meses",
           "precio": "$80.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image17.webp"
         },
         {
@@ -168,8 +168,8 @@
           "nombre": "Calceta flor 3d blanca/café",
           "talla": "0-12 meses",
           "precio": "$80.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image18.webp"
         },
         {
@@ -177,15 +177,15 @@
           "nombre": "Calceta flor 3d café/rosa",
           "talla": "0-12 meses",
           "precio": "$80.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image19.webp"
         },
         {
           "codigo": "C0019",
           "nombre": "Calceta oso 3d",
           "talla": "años0-6 meses",
-          "precio": "$100.00",
+          "precio": "$100.00 par",
           "existencias": 2,
           "disponible": true,
           "imagen": "image20.webp"
@@ -194,8 +194,8 @@
           "codigo": "C0020",
           "nombre": "Calceta elefante 3d",
           "talla": "0-6 meses0-1 año",
-          "precio": "$100.00",
-          "existencias": 2,
+          "precio": "$100.00 par",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image21.webp"
         },
@@ -203,8 +203,8 @@
           "codigo": "C0021",
           "nombre": "Calceta oso café 3d",
           "talla": "año0-6 meses",
-          "precio": "$100.00",
-          "existencias": 2,
+          "precio": "$100.00 par",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image22.webp"
         },
@@ -212,17 +212,17 @@
           "codigo": "C0022",
           "nombre": "Calceta pingüino 3d",
           "talla": "6-12 meses0-6 meses",
-          "precio": "$100.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$100.00 par",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image23.webp"
         },
         {
           "codigo": "C0023",
           "nombre": "Calceta pato 3d",
           "talla": "6-12 meses0-6 meses",
-          "precio": "$100.00",
-          "existencias": 2,
+          "precio": "$100.00 par",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image24.webp"
         },
@@ -231,8 +231,8 @@
           "nombre": "Tin mariposa 3d",
           "talla": "0-1 año",
           "precio": "$85.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image25.webp"
         },
         {
@@ -240,16 +240,16 @@
           "nombre": "Tin mariposa 3d",
           "talla": "0-1 año",
           "precio": "$85.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image26.webp"
         },
         {
           "codigo": "C0026",
           "nombre": "Tin encaje",
           "talla": "1-2 añosBlancoNegroVerdeBeigeRosahueso",
-          "precio": "$50.00",
-          "existencias": 6,
+          "precio": "$50.00 par",
+          "existencias": 2,
           "disponible": true,
           "imagen": "image27.webp"
         },
@@ -257,17 +257,17 @@
           "codigo": "C0027",
           "nombre": "Calcetín carita oso",
           "talla": "1-3 añosAzulVerdenaranjablancorosa",
-          "precio": "$65.00",
-          "existencias": 5,
-          "disponible": true,
+          "precio": "$65.00 par",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image28.webp"
         },
         {
           "codigo": "C0028",
           "nombre": "Tin monitos",
           "talla": "AñosBlancoGrisrosa",
-          "precio": "$50.00",
-          "existencias": 3,
+          "precio": "$50.00 par",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image29.webp"
         },
@@ -275,8 +275,8 @@
           "codigo": "C0029",
           "nombre": "Tin moñitos flor",
           "talla": "AñosBeigeVerderosa",
-          "precio": "$50.00",
-          "existencias": 3,
+          "precio": "$50.00 par",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image30.webp"
         },
@@ -284,17 +284,17 @@
           "codigo": "C0030",
           "nombre": "Calcetín monstruo pequeño",
           "talla": "1-3 añosVerdeMoradoAzulañosverdemoradoazul",
-          "precio": "$65.00",
-          "existencias": 6,
-          "disponible": true,
+          "precio": "$65.00 par",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image31.webp"
         },
         {
           "codigo": "C0031",
           "nombre": "Calceta alta moño",
           "talla": "6-12 mesesNegroBlancoRosaCaféhueso",
-          "precio": "$80.00",
-          "existencias": 5,
+          "precio": "$80.00 par",
+          "existencias": 2,
           "disponible": true,
           "imagen": "image32.webp"
         },
@@ -302,8 +302,8 @@
           "codigo": "C0032",
           "nombre": "Calceta animalito",
           "talla": "0-6 mesessurtido",
-          "precio": "$35.00",
-          "existencias": 10,
+          "precio": "$35.00 par",
+          "existencias": 7,
           "disponible": true,
           "imagen": "image33.webp"
         },
@@ -311,8 +311,8 @@
           "codigo": "C0033",
           "nombre": "Calceta moñote",
           "talla": "2-3 añosNegroRosaRosa fBlancoHuesomenta",
-          "precio": "$40.00",
-          "existencias": 6,
+          "precio": "$40.00 par",
+          "existencias": 4,
           "disponible": true,
           "imagen": "image34.webp"
         },
@@ -320,8 +320,8 @@
           "codigo": "C0034",
           "nombre": "Calceta encaje",
           "talla": "1-2- añosNegroRosaRosa fBlancoHuesomenta",
-          "precio": "$40.00",
-          "existencias": 5,
+          "precio": "$40.00 par",
+          "existencias": 3,
           "disponible": true,
           "imagen": "image35.webp"
         },
@@ -329,8 +329,8 @@
           "codigo": "C0035",
           "nombre": "Tin bebe",
           "talla": "0-6 mesessurtido",
-          "precio": "$30.00",
-          "existencias": 10,
+          "precio": "$30.00 par",
+          "existencias": 7,
           "disponible": true,
           "imagen": "image36.webp"
         },
@@ -338,8 +338,8 @@
           "codigo": "C0036",
           "nombre": "Calceta carita oso",
           "talla": "6-12 mesessurtido",
-          "precio": "$35.00",
-          "existencias": 10,
+          "precio": "$35.00 par",
+          "existencias": 7,
           "disponible": true,
           "imagen": "image37.webp"
         },
@@ -347,7 +347,7 @@
           "codigo": "C0037",
           "nombre": "Calceta lisa",
           "talla": "0-6- mesessurtido",
-          "precio": "$35.00",
+          "precio": "$35.00 par",
           "existencias": 10,
           "disponible": true,
           "imagen": "image38.webp"
@@ -356,10 +356,19 @@
           "codigo": "C0038",
           "nombre": "Calceta olan transparente",
           "talla": "0-6 mesesMentaCamelRosaAmarilloblanco",
-          "precio": "$60.00 c/u",
-          "existencias": 5,
+          "precio": "$60.00 par",
+          "existencias": 2,
           "disponible": true,
           "imagen": "image39.webp"
+        },
+        {
+          "codigo": "C0039",
+          "nombre": "Calceta 3d",
+          "talla": "1-2 añosBallena perritoPulpoelefante",
+          "precio": "$100.00 par",
+          "existencias": 4,
+          "disponible": true,
+          "imagen": null
         }
       ]
     },
@@ -434,16 +443,16 @@
           "nombre": "Pañalero diseño",
           "talla": "0-3 meses",
           "precio": "$285.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image47.webp"
         },
         {
           "codigo": "RA01",
           "nombre": "Pañaleros surtido/asar rosas",
           "talla": "0-3 mesessurtido",
-          "precio": "$100.00",
-          "existencias": 10,
+          "precio": "$100.00 c/u",
+          "existencias": 4,
           "disponible": true,
           "imagen": "image74.webp"
         },
@@ -452,8 +461,8 @@
           "nombre": "Pañelero conejo beige",
           "talla": "0-3 meses",
           "precio": "$350.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image55.webp"
         },
         {
@@ -461,8 +470,8 @@
           "nombre": "Pañalero verde falda",
           "talla": "0-3 meses",
           "precio": "$385.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image78.webp"
         },
         {
@@ -470,8 +479,8 @@
           "nombre": "Pañalero falda aguacate",
           "talla": "0-3 meses",
           "precio": "$350.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image99.webp"
         },
         {
@@ -479,8 +488,8 @@
           "nombre": "Pañalero rosa calcetas altas",
           "talla": "1-3 meses",
           "precio": "$440.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image104.webp"
         },
         {
@@ -488,8 +497,8 @@
           "nombre": "Pañalero balnco cuello",
           "talla": "1-3 meses",
           "precio": "$335.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image54.webp"
         },
         {
@@ -497,8 +506,8 @@
           "nombre": "Pañalero corancitos gorro",
           "talla": "1-3 meses",
           "precio": "$260.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image52.webp"
         },
         {
@@ -506,8 +515,8 @@
           "nombre": "Pañalero vede conejo",
           "talla": "1-3 meses",
           "precio": "$345.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image51.webp"
         },
         {
@@ -515,17 +524,17 @@
           "nombre": "Pañalero conejo rosa",
           "talla": "1-3 meses",
           "precio": "$290.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image50.webp"
         },
         {
           "codigo": "RA0010",
           "nombre": "Pañalero olan",
           "talla": "1-3 mesesRosaBlancoazul",
-          "precio": "$150.00",
-          "existencias": 3,
-          "disponible": true,
+          "precio": "$150.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image49.webp"
         },
         {
@@ -533,8 +542,8 @@
           "nombre": "Pañero sandia",
           "talla": "3-6 meses",
           "precio": "$195.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image41.webp"
         },
         {
@@ -542,8 +551,8 @@
           "nombre": "Pañalero bolitas olan",
           "talla": "3-6 meses",
           "precio": "$255.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image46.webp"
         },
         {
@@ -551,8 +560,8 @@
           "nombre": "Pañalero conejors cafe",
           "talla": "3-6 meses",
           "precio": "$220.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image48.webp"
         },
         {
@@ -560,8 +569,8 @@
           "nombre": "Pañalero falda cuadros",
           "talla": "3-6 meses",
           "precio": "$375.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image53.webp"
         },
         {
@@ -578,8 +587,8 @@
           "nombre": "Pañalero flores manga",
           "talla": "3-6 meses",
           "precio": "$305.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image69.webp"
         },
         {
@@ -587,8 +596,8 @@
           "nombre": "Pañalero negro mangas cuello",
           "talla": "3-6 meses",
           "precio": "$390.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image70.webp"
         },
         {
@@ -596,8 +605,8 @@
           "nombre": "Pañalero fresa",
           "talla": "3-6 meses",
           "precio": "$215.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image71.webp"
         },
         {
@@ -614,8 +623,8 @@
           "nombre": "Pañalero rosa olan",
           "talla": "3-6 meses",
           "precio": "$275.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image76.webp"
         },
         {
@@ -623,8 +632,8 @@
           "nombre": "Pañalero rosa tul",
           "talla": "3-6 meses",
           "precio": "$285.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image83.webp"
         },
         {
@@ -632,8 +641,8 @@
           "nombre": "Vestido elegante",
           "talla": "3-6 meses",
           "precio": "$260.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image85.webp"
         },
         {
@@ -650,8 +659,8 @@
           "nombre": "Vestido verde moño gorro",
           "talla": "3-6 meses",
           "precio": "$445.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image90.webp"
         },
         {
@@ -659,8 +668,8 @@
           "nombre": "Pañalero mezclilla",
           "talla": "3-6 meses",
           "precio": "$190.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image93.webp"
         },
         {
@@ -668,8 +677,8 @@
           "nombre": "Pañalero café blanco manga larga",
           "talla": "3-6 meses",
           "precio": "$295.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image95.webp"
         },
         {
@@ -677,8 +686,8 @@
           "nombre": "Pañalero tul rosa manga larga",
           "talla": "3-6 meses",
           "precio": "$320.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image101.webp"
         },
         {
@@ -694,8 +703,8 @@
           "codigo": "RA0029",
           "nombre": "Pijama pañalero gorro",
           "talla": "3-6 mesesGrisMoradorosa",
-          "precio": "$205.00",
-          "existencias": 3,
+          "precio": "$205.00 c/u",
+          "existencias": 2,
           "disponible": true,
           "imagen": "image75.webp"
         },
@@ -704,8 +713,8 @@
           "nombre": "Pañalero conejo 3d",
           "talla": "6-9 meses",
           "precio": "$210.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image45.webp"
         },
         {
@@ -722,8 +731,8 @@
           "nombre": "Pañalero conejo rosa",
           "talla": "6-9 meses",
           "precio": "$295.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image91.webp"
         },
         {
@@ -731,8 +740,8 @@
           "nombre": "Pañalero flores",
           "talla": "9 meses",
           "precio": "$220.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image43.webp"
         },
         {
@@ -784,17 +793,17 @@
           "codigo": "RA0038",
           "nombre": "Pijama pantalón blusa",
           "talla": "18 -24 mesesGrisRosamorado",
-          "precio": "$200.00",
-          "existencias": 3,
-          "disponible": true,
+          "precio": "$200.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image77.webp"
         },
         {
           "codigo": "RA0039",
           "nombre": "Short moño",
           "talla": "1-2 añosRosaVerdeBlanconegro",
-          "precio": "$100.00",
-          "existencias": 4,
+          "precio": "$100.00 c/u",
+          "existencias": 3,
           "disponible": true,
           "imagen": "image66.webp"
         },
@@ -803,8 +812,8 @@
           "nombre": "Vestido verde gorro",
           "talla": "2-4 años",
           "precio": "$315.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image56.webp"
         },
         {
@@ -812,8 +821,8 @@
           "nombre": "Falda sueter rojo conejo 3d",
           "talla": "2-4 años",
           "precio": "$605.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image57.webp"
         },
         {
@@ -821,8 +830,8 @@
           "nombre": "Sueter cereza 3d",
           "talla": "2-4 años",
           "precio": "$350.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image59.webp"
         },
         {
@@ -847,9 +856,9 @@
           "codigo": "RA0045",
           "nombre": "Falda saco negro",
           "talla": "2-4 años",
-          "precio": "$455.00$",
-          "existencias": 1,
-          "disponible": true,
+          "precio": "$455.00",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image62.webp"
         },
         {
@@ -866,8 +875,8 @@
           "nombre": "Vestido mezclilla bolsa",
           "talla": "2-4 años",
           "precio": "$585.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image64.webp"
         },
         {
@@ -893,8 +902,8 @@
           "nombre": "Pants verde flores",
           "talla": "2-4 años",
           "precio": "$300.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image68.webp"
         },
         {
@@ -902,8 +911,8 @@
           "nombre": "Pantalón blusa moños 3d",
           "talla": "2-4 años",
           "precio": "$410.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image73.webp"
         },
         {
@@ -911,8 +920,8 @@
           "nombre": "Pants gris moño rosa",
           "talla": "2-4- años",
           "precio": "$360.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image79.webp"
         },
         {
@@ -920,17 +929,17 @@
           "nombre": "Vestido rosa conejo colgante",
           "talla": "2-4 años",
           "precio": "$395.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image84.webp"
         },
         {
           "codigo": "RA0054",
           "nombre": "Pijama ceda short",
           "talla": "2-4 añosRosa pastelRosa fuertelila",
-          "precio": "$230.00",
-          "existencias": 3,
-          "disponible": true,
+          "precio": "$230.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image88.webp"
         },
         {
@@ -938,8 +947,8 @@
           "nombre": "Falda short rosa blusa",
           "talla": "2-4 años",
           "precio": "$455.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image89.webp"
         },
         {
@@ -965,8 +974,8 @@
           "nombre": "Vestido colores bolsa",
           "talla": "2-4 años",
           "precio": "$300.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image96.webp"
         },
         {
@@ -974,8 +983,8 @@
           "nombre": "Pijama conejo ceda pantalón",
           "talla": "2-4 años",
           "precio": "$265.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image97.webp"
         },
         {
@@ -992,8 +1001,8 @@
           "nombre": "Falda blusa chaleco cuadros",
           "talla": "2-4 años",
           "precio": "$455.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image103.webp"
         },
         {
@@ -1010,8 +1019,8 @@
           "nombre": "Pantalón flores 3d sueter",
           "talla": "2-4 años",
           "precio": "$450.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image106.webp"
         },
         {
@@ -1027,9 +1036,9 @@
           "codigo": "RA0065",
           "nombre": "VESTIDO MOÑITOS BLANCO NEGRO",
           "talla": "2-3- AÑOS",
-          "precio": "175.00",
-          "existencias": 1,
-          "disponible": true,
+          "precio": "$175.00",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image113.webp"
         },
         {
@@ -1081,17 +1090,17 @@
           "codigo": "RA0071",
           "nombre": "MALLA FLOR",
           "talla": "2-4 AÑOSAZULCAFÉVERDEROSABLANCONEGRO",
-          "precio": "$80.00",
-          "existencias": 6,
-          "disponible": true,
+          "precio": "$80.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image112.webp"
         },
         {
           "codigo": "RA0072",
           "nombre": "MALLA CON PIES LISA",
           "talla": "AÑOSBLANCOROJOROSAVERDENEGROGRIS2-4 AÑOSBLANCOROJOROSAVERDENEGROGRIS",
-          "precio": "$95.00",
-          "existencias": 12,
+          "precio": "$95.00 c/u",
+          "existencias": 3,
           "disponible": true,
           "imagen": "image114.webp"
         },
@@ -1099,8 +1108,8 @@
           "codigo": "RA0073",
           "nombre": "PIJAMA FRESCA",
           "talla": "6-9 MESESCorazonesNegroCamel",
-          "precio": "$220.00",
-          "existencias": 3,
+          "precio": "$220.00 c/u",
+          "existencias": 2,
           "disponible": true,
           "imagen": "image115.webp"
         },
@@ -1127,8 +1136,8 @@
           "nombre": "PAÑALERO FLORES CALCETA MOÑO",
           "talla": "6-9 meses",
           "precio": "$510.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image118.webp"
         },
         {
@@ -1153,8 +1162,8 @@
           "codigo": "RA0079",
           "nombre": "CONJUNTO PANTALON BLUSA CUELLO BLANCO",
           "talla": "2-4 AÑOSGRISBEIGE",
-          "precio": "$400.00",
-          "existencias": 2,
+          "precio": "$400.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image121.webp"
         },
@@ -1163,8 +1172,8 @@
           "nombre": "CONJUNTO VESTIDO ABRIGO AZUL",
           "talla": "4-6 AÑOS",
           "precio": "$580.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image122.webp"
         },
         {
@@ -1199,8 +1208,8 @@
           "nombre": "PANTS ROSA FLORES",
           "talla": "2-4 AÑOS",
           "precio": "$320.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image126.webp"
         },
         {
@@ -1208,8 +1217,8 @@
           "nombre": "CONJUNTO VESTIDO ABRIGO NEGRO",
           "talla": "2-4 AÑOS",
           "precio": "$480.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image127.webp"
         },
         {
@@ -1217,8 +1226,8 @@
           "nombre": "PANTS CONEJO ROSA",
           "talla": "9-12 MESES",
           "precio": "$320.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image128.webp"
         },
         {
@@ -1226,8 +1235,8 @@
           "nombre": "PANTS GRIS GAP",
           "talla": "1-2 AÑOS",
           "precio": "$320.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image129.webp"
         },
         {
@@ -1244,8 +1253,8 @@
           "nombre": "MAMELUCO MENTA GORRO BABERO",
           "talla": "6-9 MESES",
           "precio": "$300.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image131.webp"
         },
         {
@@ -1253,16 +1262,16 @@
           "nombre": "CONJUNTO VESTIDO ABRIGO BEIGE",
           "talla": "2-4 AÑOS",
           "precio": "$480.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image132.webp"
         },
         {
           "codigo": "RA0091",
           "nombre": "VESTIDO FLORES",
           "talla": "2-4 AÑOSBLANCO6-9 MESESAZUL",
-          "precio": "$300.00",
-          "existencias": 2,
+          "precio": "$300.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image133.webp"
         },
@@ -1270,8 +1279,8 @@
           "codigo": "RA0092",
           "nombre": "VESTIDO TUL CHALECO",
           "talla": "AÑOBEIGE2-4 AÑOSROSA",
-          "precio": "$500.00",
-          "existencias": 2,
+          "precio": "$500.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image134.webp"
         },
@@ -1280,8 +1289,8 @@
           "nombre": "PANTALON SUETER PELUDO",
           "talla": "4-6 AÑOS",
           "precio": "$720.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image135.webp"
         },
         {
@@ -1289,8 +1298,8 @@
           "nombre": "FALDA SUETER CHALECO PELUDO LADRILLO",
           "talla": "1-3 AÑOS",
           "precio": "$520.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image136.webp"
         },
         {
@@ -1307,15 +1316,15 @@
           "nombre": "CONJUNTO FALDA CHALECO PELUDO TABACO",
           "talla": "2-4 AÑOS",
           "precio": "$490.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image138.webp"
         },
         {
           "codigo": "RA0097",
           "nombre": "ABRIGO GORRA",
           "talla": "2-4 AÑOSGRISAZUL",
-          "precio": "$570.00",
+          "precio": "$570.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image139.webp"
@@ -1334,8 +1343,8 @@
           "nombre": "VESTIDO ROSA CHALECO PELUDO",
           "talla": "3-6 AÑOS",
           "precio": "$530.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image141.webp"
         },
         {
@@ -1343,8 +1352,8 @@
           "nombre": "PANTALON BLUSA CHALECO PELUDO BEIGE",
           "talla": "2-4 AÑOS",
           "precio": "$530.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image142.webp"
         },
         {
@@ -1361,15 +1370,15 @@
           "nombre": "ABRIGO ARCOIRIS PELUDO",
           "talla": "2-4 AÑOS",
           "precio": "$500.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image144.webp"
         },
         {
           "codigo": "RA0103",
           "nombre": "ABRIGO PELUDO OSO",
           "talla": "2-4 AÑOSROSAAÑOBLANCO",
-          "precio": "$450.00",
+          "precio": "$450.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image145.webp"
@@ -1379,15 +1388,15 @@
           "nombre": "ABRIGO PELUDO ZORRO",
           "talla": "2-4 AÑOS",
           "precio": "$480.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image146.webp"
         },
         {
           "codigo": "RA0105",
           "nombre": "CONJUNTO MALLA Y BLUSA",
           "talla": "1 AÑOBOLITASMOÑO",
-          "precio": "$400.00",
+          "precio": "$400.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image147.webp"
@@ -1397,17 +1406,17 @@
           "nombre": "CHALECO TORNAZOL ROSA",
           "talla": "2-4 AÑOS",
           "precio": "$360.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image148.webp"
         },
         {
           "codigo": "RA0107",
           "nombre": "CONJUNTO FALDA SUETER CRISTAL",
           "talla": "2-4 AÑOSROSABEIGE",
-          "precio": "$380.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$380.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image149.webp"
         },
         {
@@ -1424,8 +1433,8 @@
           "nombre": "PANS ROSA BEIGE",
           "talla": "0-3 meses",
           "precio": "$350.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image151.webp"
         },
         {
@@ -1469,7 +1478,7 @@
           "nombre": "MALLA LARGA FLOR",
           "talla": "1-2 añosNEGRABLANCAROSAcafeGRISNARANJA",
           "precio": "$80.00 c/u",
-          "existencias": 6,
+          "existencias": 3,
           "disponible": true,
           "imagen": "image156.webp"
         },
@@ -1477,7 +1486,7 @@
           "codigo": "RA0115",
           "nombre": "CONJUNTO PANTALON MOÑO",
           "talla": "12-18 meses",
-          "precio": "$350.00",
+          "precio": "$130.00",
           "existencias": 1,
           "disponible": true,
           "imagen": "image157.webp"
@@ -1522,7 +1531,7 @@
           "codigo": "RA0120",
           "nombre": "PANTIMEDIA",
           "talla": "AñoBlancaGrisBeigeRosaNaranjaLadrillonegra",
-          "precio": "$140.00",
+          "precio": "$140.00 c/u",
           "existencias": 7,
           "disponible": true,
           "imagen": "image162.webp"
@@ -1549,8 +1558,8 @@
           "codigo": "RA0123",
           "nombre": "VESTIDO ELEGANTE BEIGE",
           "talla": "6-9 MESES2-3 AÑOS",
-          "precio": "$400.00",
-          "existencias": 2,
+          "precio": "$400.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image165.webp"
         },
@@ -1558,10 +1567,73 @@
           "codigo": "RA0124",
           "nombre": "PAÑALERO AMARILLO",
           "talla": "0-3 MESES",
-          "precio": "$120.00",
+          "precio": "$120.00 c/u",
           "existencias": 3,
           "disponible": true,
           "imagen": "image166.webp"
+        },
+        {
+          "codigo": "RA0125",
+          "nombre": "PAÑALERO SHORT FLORES",
+          "talla": "3-6 meses",
+          "precio": "$400.00",
+          "existencias": 1,
+          "disponible": true,
+          "imagen": null
+        },
+        {
+          "codigo": "RA0126",
+          "nombre": "CONJUNTO SHOR LIMON",
+          "talla": "",
+          "precio": "$400.00",
+          "existencias": 1,
+          "disponible": true,
+          "imagen": null
+        },
+        {
+          "codigo": "RA0127",
+          "nombre": "CONJUNTO SHOR FLORES",
+          "talla": "",
+          "precio": "$400.00",
+          "existencias": 1,
+          "disponible": true,
+          "imagen": null
+        },
+        {
+          "codigo": "RA0128",
+          "nombre": "CONJUNTO SHORT GORRO",
+          "talla": "",
+          "precio": "$400.00",
+          "existencias": 1,
+          "disponible": true,
+          "imagen": null
+        },
+        {
+          "codigo": "RA0129",
+          "nombre": "PIJAMA MUÑECA TUL",
+          "talla": "3-6 MESES",
+          "precio": "$500.00",
+          "existencias": 1,
+          "disponible": true,
+          "imagen": null
+        },
+        {
+          "codigo": "RA0130",
+          "nombre": "PIJAMA MUÑECA FLORES",
+          "talla": "2-4 AÑOS",
+          "precio": "$480.00",
+          "existencias": 1,
+          "disponible": true,
+          "imagen": null
+        },
+        {
+          "codigo": "RA0131",
+          "nombre": "PAÑALERO SHORT GORRO FLORES",
+          "talla": "",
+          "precio": "$400.00",
+          "existencias": 1,
+          "disponible": true,
+          "imagen": null
         }
       ]
     },
@@ -1573,8 +1645,8 @@
           "nombre": "SONAJAS ELEFANTE",
           "talla": "",
           "precio": "$235.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image174.webp"
         },
         {
@@ -1582,8 +1654,8 @@
           "nombre": "SONAJAS OSO",
           "talla": "",
           "precio": "$235.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image175.webp"
         },
         {
@@ -1591,8 +1663,8 @@
           "nombre": "SONAJAS PERRITO",
           "talla": "",
           "precio": "$235.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image176.webp"
         },
         {
@@ -1618,8 +1690,8 @@
           "nombre": "SONAJA CONEJO",
           "talla": "",
           "precio": "$140.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image179.webp"
         },
         {
@@ -1654,8 +1726,8 @@
           "nombre": "MANTA APEGO CONEJO BEIGE",
           "talla": "",
           "precio": "$120.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image183.webp"
         },
         {
@@ -1663,8 +1735,8 @@
           "nombre": "MANTA APEGO CONEJO AZUL/GRIS",
           "talla": "",
           "precio": "$120.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image184.webp"
         },
         {
@@ -1672,8 +1744,8 @@
           "nombre": "MANTA APEGO CONEJO ROSA",
           "talla": "",
           "precio": "$120.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image185.webp"
         },
         {
@@ -1699,8 +1771,8 @@
           "nombre": "MODEDERA RATON AZUL",
           "talla": "",
           "precio": "$95.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image188.webp"
         },
         {
@@ -1708,8 +1780,8 @@
           "nombre": "MODEDERA RATON ROSA",
           "talla": "",
           "precio": "$95.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image189.webp"
         },
         {
@@ -1726,8 +1798,8 @@
           "nombre": "MODEDERA RATON VERDE",
           "talla": "",
           "precio": "$95.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image191.webp"
         },
         {
@@ -1735,8 +1807,8 @@
           "nombre": "MODEDERA POLLO ROSA",
           "talla": "",
           "precio": "$85.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image192.webp"
         },
         {
@@ -1744,8 +1816,8 @@
           "nombre": "MODEDERA POLLO AZUL",
           "talla": "",
           "precio": "$85.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image193.webp"
         },
         {
@@ -1753,8 +1825,8 @@
           "nombre": "MODEDERA/SONAJA POLLITO AMARILLO",
           "talla": "",
           "precio": "$195.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image194.webp"
         },
         {
@@ -1762,8 +1834,8 @@
           "nombre": "MODEDERA/SONAJA POLLITO ROSA",
           "talla": "",
           "precio": "$195.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image195.webp"
         },
         {
@@ -1771,8 +1843,8 @@
           "nombre": "MODEDERA/SONAJA POLLITO AZUL",
           "talla": "",
           "precio": "$195.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image196.webp"
         },
         {
@@ -1780,8 +1852,8 @@
           "nombre": "MODEDERA CONEJO AZUL",
           "talla": "",
           "precio": "$95.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image197.webp"
         },
         {
@@ -1815,7 +1887,7 @@
           "codigo": "EP028",
           "nombre": "CUCHARA OSO SILICON",
           "talla": "ROSAAZULVERDE",
-          "precio": "$35.00",
+          "precio": "$35.00 c/u",
           "existencias": 3,
           "disponible": true,
           "imagen": "image201.webp"
@@ -1824,7 +1896,7 @@
           "codigo": "EP029",
           "nombre": "CUCHARITA SILICON",
           "talla": "AZULBEIGEROSA",
-          "precio": "$35.00",
+          "precio": "$35.00 c/u",
           "existencias": 3,
           "disponible": true,
           "imagen": "image202.webp"
@@ -1870,8 +1942,8 @@
           "nombre": "RODILLERA CARITA ROSA",
           "talla": "",
           "precio": "$80.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image207.webp"
         },
         {
@@ -1896,8 +1968,8 @@
           "codigo": "EP037",
           "nombre": "RODILLERA BOLITAS",
           "talla": "ROSAGRISNEGROAZUL",
-          "precio": "$80.00",
-          "existencias": 5,
+          "precio": "$80.00 c/u",
+          "existencias": 4,
           "disponible": true,
           "imagen": "image210.webp"
         },
@@ -1905,8 +1977,8 @@
           "codigo": "EP038",
           "nombre": "PLATO ONDO",
           "talla": "GATOLEON",
-          "precio": "$60.00",
-          "existencias": 2,
+          "precio": "$60.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image211.webp"
         },
@@ -1914,8 +1986,8 @@
           "codigo": "EP039",
           "nombre": "VASO ENTRENAMIENTO",
           "talla": "ROSAAZUL",
-          "precio": "$60.00",
-          "existencias": 2,
+          "precio": "$60.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image212.webp"
         },
@@ -1923,8 +1995,8 @@
           "codigo": "EP040",
           "nombre": "PORTA LECHE EN POLVO",
           "talla": "ROSAAZUL",
-          "precio": "$75.00",
-          "existencias": 4,
+          "precio": "$75.00 c/u",
+          "existencias": 2,
           "disponible": true,
           "imagen": "image213.webp"
         },
@@ -1932,8 +2004,8 @@
           "codigo": "EP041",
           "nombre": "CUCHARITA APACHURRABLE",
           "talla": "ROSAVERDEAZUL",
-          "precio": "$30.00",
-          "existencias": 3,
+          "precio": "$30.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image214.webp"
         }
@@ -1956,8 +2028,8 @@
           "nombre": "PAÑALERA GRIS",
           "talla": "",
           "precio": "$495.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image215.webp"
         },
         {
@@ -1965,8 +2037,8 @@
           "nombre": "PAÑALERA BLANCA",
           "talla": "",
           "precio": "$495.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image216.webp"
         },
         {
@@ -1974,8 +2046,8 @@
           "nombre": "PAÑALERA ARCO",
           "talla": "",
           "precio": "$495.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image217.webp"
         },
         {
@@ -1983,8 +2055,8 @@
           "nombre": "PAÑALERA OSO",
           "talla": "",
           "precio": "$430.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image218.webp"
         },
         {
@@ -1992,8 +2064,8 @@
           "nombre": "PAÑALERA FLOR",
           "talla": "",
           "precio": "$400.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image219.webp"
         },
         {
@@ -2037,8 +2109,8 @@
           "nombre": "PORTA TOALLITAS OSO TELA",
           "talla": "",
           "precio": "$105.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image224.webp"
         },
         {
@@ -2054,8 +2126,8 @@
           "codigo": "PB012",
           "nombre": "BOLSA ORGANIZADOR OSO TELA",
           "talla": "",
-          "precio": "$110.00",
-          "existencias": 2,
+          "precio": "$110.00 juego",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image226.webp"
         },
@@ -2073,15 +2145,15 @@
           "nombre": "BOLSA ORGANIZADOR SELVA TELA",
           "talla": "",
           "precio": "$80.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image228.webp"
         },
         {
           "codigo": "PB015",
           "nombre": "PORTATOALLITAS PLASTICO",
           "talla": "CAFÉROSABEIGE",
-          "precio": "$60.00",
+          "precio": "$60.00 c/u",
           "existencias": 3,
           "disponible": true,
           "imagen": "image229.webp"
@@ -2091,8 +2163,8 @@
           "nombre": "PORTA TOALLITAS MAR PLASTICO",
           "talla": "",
           "precio": "$95.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image230.webp"
         },
         {
@@ -2100,8 +2172,8 @@
           "nombre": "PORTA TOALLITAS CONEJO PLASTICO",
           "talla": "",
           "precio": "$95.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image231.webp"
         },
         {
@@ -2109,8 +2181,8 @@
           "nombre": "PORTA TOALLITAS CONEJO PLASTICO",
           "talla": "",
           "precio": "$95.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image232.webp"
         },
         {
@@ -2145,8 +2217,8 @@
           "nombre": "PORTA TOALLITAS PINGUINO PLASTICO",
           "talla": "",
           "precio": "$95.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image236.webp"
         },
         {
@@ -2154,8 +2226,8 @@
           "nombre": "PORTA TOALLITAS GALAXIA PLASTICO",
           "talla": "",
           "precio": "$95.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image237.webp"
         },
         {
@@ -2163,8 +2235,8 @@
           "nombre": "PORTA TOALLITAS ANIMALES PLASTICO",
           "talla": "",
           "precio": "$95.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image238.webp"
         },
         {
@@ -2181,33 +2253,33 @@
           "nombre": "PORTA TOALLITAS LUNA PLASTICO",
           "talla": "",
           "precio": "$95.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image240.webp"
         },
         {
           "codigo": "PB027",
           "nombre": "PORTA TOALLITAS PLASTICO DURO",
           "talla": "ROSAAZUL",
-          "precio": "$60.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$60.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image241.webp"
         },
         {
           "codigo": "PB028",
           "nombre": "PORTA TOALLITAS PLASTICO DURO",
           "talla": "ROSAAZUL",
-          "precio": "$65.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$65.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image242.webp"
         },
         {
           "codigo": "PB029",
           "nombre": "BOLSA DE MALLA ORGANIZADORA",
           "talla": "TIBURONOSO",
-          "precio": "$60.00",
+          "precio": "$60.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image243.webp"
@@ -2226,8 +2298,8 @@
           "nombre": "BOLSA ORGANIZADORA BLANCA/CAFE",
           "talla": "",
           "precio": "$355.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image245.webp"
         },
         {
@@ -2289,8 +2361,8 @@
           "nombre": "PAÑALERA BOLSA MINI MOÑO ROSA",
           "talla": "",
           "precio": "$280.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image252.webp"
         },
         {
@@ -2298,8 +2370,8 @@
           "nombre": "PAÑALERA OSO CUADRADA",
           "talla": "",
           "precio": "$325.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image253.webp"
         },
         {
@@ -2307,8 +2379,8 @@
           "nombre": "PAÑALERA JUMBO ANIMALITOS BLANCA",
           "talla": "",
           "precio": "$400.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image254.webp"
         },
         {
@@ -2316,9 +2388,18 @@
           "nombre": "PAÑALERA ORGANIZADORA BABY",
           "talla": "CAQUI",
           "precio": "$510.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image255.webp"
+        },
+        {
+          "codigo": "PN042",
+          "nombre": "MOCHILA INFANTIL",
+          "talla": "OSOCONEJODINOSAURIO",
+          "precio": "$320.00 c/u",
+          "existencias": 2,
+          "disponible": true,
+          "imagen": null
         }
       ]
     },
@@ -2374,8 +2455,8 @@
           "codigo": "RO01",
           "nombre": "Pañaleros diseño",
           "talla": "3-6 MESESAMARILLOLEONANIMALESRAYASAZUL CIELO",
-          "precio": "$150.00",
-          "existencias": 5,
+          "precio": "$150.00 c/u",
+          "existencias": 3,
           "disponible": true,
           "imagen": "image264.webp"
         },
@@ -2384,8 +2465,8 @@
           "nombre": "Overol león conjunto",
           "talla": "0-3 MESES",
           "precio": "$330.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image276.webp"
         },
         {
@@ -2401,8 +2482,8 @@
           "codigo": "RO002",
           "nombre": "Pañalero short",
           "talla": "MESESMonstruoDinos miniLíneas azules",
-          "precio": "$200.00",
-          "existencias": 3,
+          "precio": "$200.00 c/U",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image281.webp"
         },
@@ -2419,8 +2500,8 @@
           "codigo": "RO003",
           "nombre": "Pañalero overol gris elefantes",
           "talla": "0-3MESES3-6 MESES",
-          "precio": "$240.00",
-          "existencias": 2,
+          "precio": "$240.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image303.webp"
         },
@@ -2437,9 +2518,9 @@
           "codigo": "RO004",
           "nombre": "Pañalero overol verde elefantes",
           "talla": "0-3MESES3-6 MESES",
-          "precio": "$240.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$240.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image304.webp"
         },
         {
@@ -2456,16 +2537,16 @@
           "nombre": "Pañalero short galaxia",
           "talla": "0-3 MESES",
           "precio": "$200.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image312.webp"
         },
         {
           "codigo": "RO006",
           "nombre": "overol short osos",
           "talla": "3-6 MESES1-3 MESES",
-          "precio": "$325.00",
-          "existencias": 2,
+          "precio": "$325.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image259.webp"
         },
@@ -2473,8 +2554,8 @@
           "codigo": "RO06",
           "nombre": "Pañalero diseño",
           "talla": "3-6 MESESElefanteGrisCamelBlanco líneaselefantitos",
-          "precio": "$150.00",
-          "existencias": 5,
+          "precio": "$150.00 c/u",
+          "existencias": 2,
           "disponible": true,
           "imagen": "image266.webp"
         },
@@ -2483,8 +2564,8 @@
           "nombre": "Pañalero mezclilla leon",
           "talla": "1-3 MESES",
           "precio": "$285.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image272.webp"
         },
         {
@@ -2500,7 +2581,7 @@
           "codigo": "RO008",
           "nombre": "Overol short dino",
           "talla": "1-3 MESESDinodinos",
-          "precio": "$175.00",
+          "precio": "$175.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image302.webp"
@@ -2509,7 +2590,7 @@
           "codigo": "RO08",
           "nombre": "Pañalero blanco",
           "talla": "3-6 MESES",
-          "precio": "$150.00",
+          "precio": "$150.00 c/u",
           "existencias": 5,
           "disponible": true,
           "imagen": "image316.webp"
@@ -2527,7 +2608,7 @@
           "codigo": "RO09",
           "nombre": "short",
           "talla": "2-3 AÑOSAzulVerdecafe",
-          "precio": "$80.00",
+          "precio": "$80.00 c/u",
           "existencias": 3,
           "disponible": true,
           "imagen": "image295.webp"
@@ -2546,16 +2627,16 @@
           "nombre": "Pans gris",
           "talla": "6-9 MESES",
           "precio": "$100.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image280.webp"
         },
         {
           "codigo": "RO11",
           "nombre": "Maya diseño",
           "talla": "6-12 MESESLíneas clarasGrisBlanca bolitasBlancaLíneas gris",
-          "precio": "$120.00",
-          "existencias": 5,
+          "precio": "$120.00 c/u",
+          "existencias": 2,
           "disponible": true,
           "imagen": "image265.webp"
         },
@@ -2564,16 +2645,16 @@
           "nombre": "Conjunto pañalero short oso",
           "talla": "3-6 MESES",
           "precio": "$250.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image273.webp"
         },
         {
           "codigo": "RO12",
           "nombre": "Pans agujeta",
           "talla": "3-6 MESESVERDEGRISNEGRO",
-          "precio": "$135.00",
-          "existencias": 3,
+          "precio": "$135.00 c/u",
+          "existencias": 2,
           "disponible": true,
           "imagen": "image258.webp"
         },
@@ -2582,8 +2663,8 @@
           "nombre": "Pañalero short oso",
           "talla": "3-6 MESES",
           "precio": "$330.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image275.webp"
         },
         {
@@ -2600,8 +2681,8 @@
           "nombre": "Overol mesclilla rayas",
           "talla": "3-6 MESES",
           "precio": "$365.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image301.webp"
         },
         {
@@ -2618,8 +2699,8 @@
           "nombre": "Conjunto vintage short blanco moño",
           "talla": "3-6 MESES",
           "precio": "$320.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image307.webp"
         },
         {
@@ -2627,16 +2708,16 @@
           "nombre": "Overol gris",
           "talla": "3-6 MESES",
           "precio": "$245.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image308.webp"
         },
         {
           "codigo": "RO018",
           "nombre": "Overol short gris cafe",
           "talla": "3-6 MESES6-9 MESES",
-          "precio": "$370.00",
-          "existencias": 2,
+          "precio": "$370.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image311.webp"
         },
@@ -2645,8 +2726,8 @@
           "nombre": "Conjunto short café oso",
           "talla": "3-6 MESES",
           "precio": "$285.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image313.webp"
         },
         {
@@ -2654,8 +2735,8 @@
           "nombre": "Overon blanco",
           "talla": "3-6 MESES",
           "precio": "$245.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image315.webp"
         },
         {
@@ -2663,8 +2744,8 @@
           "nombre": "Pañalero rana",
           "talla": "6-9 MESES",
           "precio": "$270.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image278.webp"
         },
         {
@@ -2690,8 +2771,8 @@
           "nombre": "Overol pato conjunto",
           "talla": "9-12 MESES",
           "precio": "$410.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image274.webp"
         },
         {
@@ -2744,8 +2825,8 @@
           "nombre": "Conjunto dino short corbata",
           "talla": "1-2 AÑOS",
           "precio": "$580.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image292.webp"
         },
         {
@@ -2753,8 +2834,8 @@
           "nombre": "Conjunto oso short corbata",
           "talla": "2-3 AÑOS",
           "precio": "$380.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image267.webp"
         },
         {
@@ -2780,8 +2861,8 @@
           "nombre": "Conjunto vintage azul tirantes",
           "talla": "2-3 AÑOS",
           "precio": "$570.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image279.webp"
         },
         {
@@ -2789,8 +2870,8 @@
           "nombre": "Conjunto short cinturón camel",
           "talla": "2-4 AÑOS",
           "precio": "$340.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image282.webp"
         },
         {
@@ -2807,8 +2888,8 @@
           "nombre": "Short playera dino",
           "talla": "2-4 AÑOS",
           "precio": "$350.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image284.webp"
         },
         {
@@ -2816,8 +2897,8 @@
           "nombre": "Conjunto short oso panda",
           "talla": "2-4 AÑOS",
           "precio": "$440.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image285.webp"
         },
         {
@@ -2825,8 +2906,8 @@
           "nombre": "Conjunto colegial café corbata",
           "talla": "2-4 AÑOS",
           "precio": "$780.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image286.webp"
         },
         {
@@ -2834,8 +2915,8 @@
           "nombre": "Pans oso blanco",
           "talla": "2-4 AÑOS",
           "precio": "$560.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image287.webp"
         },
         {
@@ -2843,8 +2924,8 @@
           "nombre": "Conjunto pantalon camisa dino",
           "talla": "2-3 AÑOS",
           "precio": "$530.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image288.webp"
         },
         {
@@ -2852,17 +2933,17 @@
           "nombre": "Conjunto short negro",
           "talla": "18-24 MESES",
           "precio": "$365.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image289.webp"
         },
         {
           "codigo": "RO044",
           "nombre": "Pijama seda oso",
           "talla": "2-4 AÑOSBlancoAzulnegro",
-          "precio": "$245.00",
-          "existencias": 3,
-          "disponible": true,
+          "precio": "$245.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image290.webp"
         },
         {
@@ -2870,8 +2951,8 @@
           "nombre": "Conjunto pantalón negro/verde coreano",
           "talla": "2-3 AÑOS",
           "precio": "$440.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image291.webp"
         },
         {
@@ -2896,8 +2977,8 @@
           "codigo": "RO048",
           "nombre": "Playera oso manga larga",
           "talla": "2-4 AÑOSAzulAmarilloverde",
-          "precio": "$165.00",
-          "existencias": 3,
+          "precio": "$165.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image310.webp"
         },
@@ -2924,8 +3005,8 @@
           "nombre": "CONJUNTO PAÑALERO AZUL",
           "talla": "12-18 MESES",
           "precio": "$310.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image319.webp"
         },
         {
@@ -2978,8 +3059,8 @@
           "nombre": "PANTS GRIS BEEP",
           "talla": "2-4 AÑOS",
           "precio": "$320.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image325.webp"
         },
         {
@@ -2987,8 +3068,8 @@
           "nombre": "PANTS GRIS OSO",
           "talla": "1-3 MESES",
           "precio": "$320.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image326.webp"
         },
         {
@@ -3032,16 +3113,16 @@
           "nombre": "CONJUNTO CAFÉ NARANJA",
           "talla": "2-4 AÑOS",
           "precio": "$560.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image331.webp"
         },
         {
           "codigo": "RO064",
           "nombre": "PANTS BEISBOL",
           "talla": "2-4 AÑOSGRISAZUL",
-          "precio": "$400.00",
-          "existencias": 2,
+          "precio": "$400.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image332.webp"
         },
@@ -3050,8 +3131,8 @@
           "nombre": "CONJUNTO CHAMARRA JEEP",
           "talla": "2-4 AÑOS",
           "precio": "$380.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image333.webp"
         },
         {
@@ -3059,8 +3140,8 @@
           "nombre": "PANS CARITAS",
           "talla": "2-4 AÑOS",
           "precio": "$300.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image334.webp"
         },
         {
@@ -3068,8 +3149,8 @@
           "nombre": "CONJUNTO TIRANTES OSO GRIS",
           "talla": "2-4 AÑOS",
           "precio": "$450.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image335.webp"
         },
         {
@@ -3095,8 +3176,8 @@
           "nombre": "CONJUNTO SHORT PANTALON PLAYERA",
           "talla": "3-6 meses",
           "precio": "$320.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image338.webp"
         },
         {
@@ -3113,8 +3194,8 @@
           "nombre": "OVEROL PERRITO VERDE",
           "talla": "6-9 meses",
           "precio": "$250.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image340.webp"
         },
         {
@@ -3167,8 +3248,8 @@
           "nombre": "CONJUNTO OBEROL AZUL OSO",
           "talla": "1-3 MESES",
           "precio": "$465.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image346.webp"
         },
         {
@@ -3221,8 +3302,8 @@
           "nombre": "CONJUNTO OSOS SHORT",
           "talla": "12 MESES",
           "precio": "$285.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image352.webp"
         },
         {
@@ -3238,7 +3319,7 @@
           "codigo": "RO086",
           "nombre": "CONJUNTO SHORT OSOS BOLSA",
           "talla": "12MESESAZULCELESTE",
-          "precio": "$350.00",
+          "precio": "$350.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image354.webp"
@@ -3247,7 +3328,7 @@
           "codigo": "RO087",
           "nombre": "CONJUNTO ELEGANTE",
           "talla": "2-4 AÑOSARENABEIGE",
-          "precio": "$315.00",
+          "precio": "$315.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image355.webp"
@@ -3256,7 +3337,7 @@
           "codigo": "RO088",
           "nombre": "CONJUNTO PAÑALERO TIRANTES",
           "talla": "6MESESAZULCAMEL",
-          "precio": "$395.00",
+          "precio": "$395.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image356.webp"
@@ -3265,7 +3346,7 @@
           "codigo": "RO089",
           "nombre": "CONJUNTO PALAERO MANTA GORRO",
           "talla": "6 MESESAZULBEIGE",
-          "precio": "$300.00",
+          "precio": "$300.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image357.webp"
@@ -3274,7 +3355,7 @@
           "codigo": "RO090",
           "nombre": "CONJUNTO SHOR DINOSAURIO",
           "talla": "12 MESESBLANCOCAFÉ",
-          "precio": "$350.00",
+          "precio": "$350.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image358.webp"
@@ -3284,9 +3365,54 @@
           "nombre": "CONJUNTO SHOR LINEAS",
           "talla": "12 MESES",
           "precio": "$350.00",
+          "existencias": 0,
+          "disponible": false,
+          "imagen": "image359.webp"
+        },
+        {
+          "codigo": "RO092",
+          "nombre": "PIJAMA PELUCHE DINO",
+          "talla": "18 MESES",
+          "precio": "$480.00",
           "existencias": 1,
           "disponible": true,
-          "imagen": "image359.webp"
+          "imagen": null
+        },
+        {
+          "codigo": "RO093",
+          "nombre": "PAÑALERO PIJAMA MENTA",
+          "talla": "3-6 meses",
+          "precio": "$300.00",
+          "existencias": 1,
+          "disponible": true,
+          "imagen": null
+        },
+        {
+          "codigo": "RO094",
+          "nombre": "CONJUNTO PANST LEON",
+          "talla": "0-3 meses",
+          "precio": "$400.00",
+          "existencias": 1,
+          "disponible": true,
+          "imagen": null
+        },
+        {
+          "codigo": "RO095",
+          "nombre": "PIJAMA PELUCHE BALLENA",
+          "talla": "3-6 MESES",
+          "precio": "$480.00",
+          "existencias": 1,
+          "disponible": true,
+          "imagen": null
+        },
+        {
+          "codigo": "RO096",
+          "nombre": "PIJAMA DINO VERDE PELUCHE",
+          "talla": "6-9 meses MESES",
+          "precio": "$480.00",
+          "existencias": 1,
+          "disponible": true,
+          "imagen": null
         },
         {
           "codigo": "RO0126",
@@ -3306,17 +3432,17 @@
           "codigo": "B001",
           "nombre": "BABERO OSO",
           "talla": "",
-          "precio": "$40.00",
-          "existencias": 5,
-          "disponible": true,
+          "precio": "$40.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image365.webp"
         },
         {
           "codigo": "B002",
           "nombre": "BABERO OLAN",
           "talla": "AZULVERDEGRISNARANJAROJOCELESTEVERDE OLIV",
-          "precio": "$55.00",
-          "existencias": 8,
+          "precio": "$55.00 c/u",
+          "existencias": 4,
           "disponible": true,
           "imagen": "image366.webp"
         },
@@ -3324,8 +3450,8 @@
           "codigo": "B003",
           "nombre": "BABERO CUADRADO DISEÑO",
           "talla": "SURTIDO",
-          "precio": "$35.00",
-          "existencias": 10,
+          "precio": "$35.00 c/u",
+          "existencias": 3,
           "disponible": true,
           "imagen": "image367.webp"
         },
@@ -3333,8 +3459,8 @@
           "codigo": "B004",
           "nombre": "BABERO TRIANGULO",
           "talla": "SURTIDO",
-          "precio": "$45.00",
-          "existencias": 10,
+          "precio": "$45.00 c/u",
+          "existencias": 7,
           "disponible": true,
           "imagen": "image368.webp"
         },
@@ -3342,7 +3468,7 @@
           "codigo": "B005",
           "nombre": "BABERO OSO CUADRADO",
           "talla": "CAMELVERDEGRIS",
-          "precio": "$65.00",
+          "precio": "$65.00 c/u",
           "existencias": 6,
           "disponible": true,
           "imagen": "image369.webp"
@@ -3351,8 +3477,8 @@
           "codigo": "B006",
           "nombre": "BABERO OLAN DISEÑO",
           "talla": "SURTIDO",
-          "precio": "$80.00",
-          "existencias": 8,
+          "precio": "$80.00 c/u",
+          "existencias": 4,
           "disponible": true,
           "imagen": "image370.webp"
         },
@@ -3360,16 +3486,16 @@
           "codigo": "B007",
           "nombre": "BABERO DINO CUADRADO",
           "talla": "ROJOVERDEVERDECBLANCOAZUL",
-          "precio": "$60.00",
-          "existencias": 5,
-          "disponible": true,
+          "precio": "$60.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image371.webp"
         },
         {
           "codigo": "B008",
           "nombre": "BABERO TRIANGULO",
           "talla": "SURTIDO",
-          "precio": "$45.00",
+          "precio": "$45.00 c/u",
           "existencias": 10,
           "disponible": true,
           "imagen": "image372.webp"
@@ -3378,17 +3504,17 @@
           "codigo": "B009",
           "nombre": "BABERO MINI DISEÑO",
           "talla": "CONEJO CORAZONLIMON",
-          "precio": "$65.00",
-          "existencias": 3,
-          "disponible": true,
+          "precio": "$65.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image373.webp"
         },
         {
           "codigo": "B010",
           "nombre": "BABERO TRIANGULO AZUL",
           "talla": "OSOLINEASELEFANTESPACEOSO AZUL CIELO",
-          "precio": "$55.00",
-          "existencias": 5,
+          "precio": "$55.00 c/u",
+          "existencias": 2,
           "disponible": true,
           "imagen": "image374.webp"
         },
@@ -3396,8 +3522,8 @@
           "codigo": "B011",
           "nombre": "BABERO POMPON",
           "talla": "BLANCOBEIGEROSA CROSA",
-          "precio": "$75.00",
-          "existencias": 4,
+          "precio": "$75.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image375.webp"
         }
@@ -3411,8 +3537,8 @@
           "nombre": "DIADEMA CANCETIN MOÑO NEGRO",
           "talla": "6-12 MESES",
           "precio": "$105.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image376.webp"
         },
         {
@@ -3420,17 +3546,17 @@
           "nombre": "DIADEMA CANCETIN MOÑO ROJO",
           "talla": "6-12 MESES",
           "precio": "$105.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image377.webp"
         },
         {
           "codigo": "K003",
           "nombre": "TURBANTE CANCETIN FLOR",
           "talla": "0-3MESES CAFÉ0-3MESESBEIGE4-12MESESBEIGE",
-          "precio": "$265.00",
-          "existencias": 3,
-          "disponible": true,
+          "precio": "$265.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image378.webp"
         },
         {
@@ -3438,8 +3564,8 @@
           "nombre": "DIADEMA LENTES BEIGE",
           "talla": "",
           "precio": "$120.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image379.webp"
         },
         {
@@ -3447,8 +3573,8 @@
           "nombre": "DIADEMA LENTES CAFE",
           "talla": "",
           "precio": "$120.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image380.webp"
         },
         {
@@ -3456,8 +3582,8 @@
           "nombre": "DIADEMA LENTES ROSA",
           "talla": "",
           "precio": "$120.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image381.webp"
         },
         {
@@ -3465,8 +3591,8 @@
           "nombre": "DIADEMA ZAPATITO CANCETIN MOÑO ROSA",
           "talla": "0-1 AÑOS",
           "precio": "$185.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image382.webp"
         },
         {
@@ -3474,8 +3600,8 @@
           "nombre": "DIADEMA ZAPATITO CANCETIN CORONA BEIGE",
           "talla": "0-1 AÑOS",
           "precio": "$185.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image383.webp"
         },
         {
@@ -3483,8 +3609,8 @@
           "nombre": "DIADEMA ABEJITA CALCETIN",
           "talla": "0-6 MESES",
           "precio": "$160.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image384.webp"
         },
         {
@@ -3492,17 +3618,17 @@
           "nombre": "DIADEMA CALCETIN FLOR AZUL",
           "talla": "#4",
           "precio": "$105.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image385.webp"
         },
         {
           "codigo": "K011",
           "nombre": "DIADEMA CALCETIN FLOR AZUL",
           "talla": "#1#5",
-          "precio": "$105.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$105.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image386.webp"
         },
         {
@@ -3510,8 +3636,8 @@
           "nombre": "KIT GORRITO GUANTE CALCETINES GRIS",
           "talla": "R/N",
           "precio": "$140.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image387.webp"
         },
         {
@@ -3519,8 +3645,8 @@
           "nombre": "KIT GORRITO GUANTE CALCETINES ROSA",
           "talla": "R/N",
           "precio": "$140.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image388.webp"
         },
         {
@@ -3528,8 +3654,8 @@
           "nombre": "KIT GORRITO GUANTE CALCETINES BLANCO",
           "talla": "R/N",
           "precio": "$140.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image389.webp"
         },
         {
@@ -3537,8 +3663,8 @@
           "nombre": "CALCETITAS ALTAS CON DIADEMA MOÑO ROSA",
           "talla": "0-12 MESES",
           "precio": "$130.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image390.webp"
         },
         {
@@ -3555,8 +3681,8 @@
           "nombre": "CALCETITAS ALTAS CON DIADEMA MOÑO NEGRO",
           "talla": "0-12 MESES",
           "precio": "$130.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image392.webp"
         },
         {
@@ -3564,8 +3690,8 @@
           "nombre": "CALCETITAS ALTAS CON DIADEMA MOÑO BEIGE",
           "talla": "0-12 MESES",
           "precio": "$130.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image393.webp"
         },
         {
@@ -3573,8 +3699,8 @@
           "nombre": "CALCETITAS ALTAS CON DIADEMA MOÑO CAMEL",
           "talla": "0-12 MESES",
           "precio": "$130.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image394.webp"
         },
         {
@@ -3582,8 +3708,8 @@
           "nombre": "CALCETITAS ALTAS CON DIADEMA MOÑO GRIS",
           "talla": "0-12 MESES",
           "precio": "$130.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image395.webp"
         },
         {
@@ -3600,8 +3726,8 @@
           "nombre": "SUPER KIT DINO",
           "talla": "RN",
           "precio": "$370.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image397.webp"
         },
         {
@@ -3609,7 +3735,7 @@
           "nombre": "Turbante calcetin moño",
           "talla": "RosaMentaGrisrosa",
           "precio": "$200.00 c/u",
-          "existencias": 4,
+          "existencias": 2,
           "disponible": true,
           "imagen": "image398.webp"
         },
@@ -3636,16 +3762,16 @@
           "nombre": "Kit calceta liston diadema rosa",
           "talla": "0-6 MESES",
           "precio": "$160.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image401.webp"
         },
         {
           "codigo": "K027",
           "nombre": "Kit calcetin diadema flor",
           "talla": "0-12 MESESRosablanco",
-          "precio": "$165.00",
-          "existencias": 2,
+          "precio": "$165.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image402.webp"
         }
@@ -3659,8 +3785,8 @@
           "nombre": "PANTUNFLAS CONEJITO",
           "talla": "12cm",
           "precio": "$415.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image403.webp"
         },
         {
@@ -3677,8 +3803,8 @@
           "nombre": "ZAPATITO RATON CAFE",
           "talla": "11cm",
           "precio": "$215.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image405.webp"
         },
         {
@@ -3695,8 +3821,8 @@
           "nombre": "ZAPATITO MOÑO BLANCO",
           "talla": "11cm",
           "precio": "$180.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image407.webp"
         },
         {
@@ -3704,8 +3830,8 @@
           "nombre": "ZAPATITO MOÑO GRIS",
           "talla": "11cm",
           "precio": "$180.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image408.webp"
         },
         {
@@ -3713,8 +3839,8 @@
           "nombre": "ZAPATITO MOÑO NEGRO",
           "talla": "11cm",
           "precio": "$180.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image409.webp"
         },
         {
@@ -3722,8 +3848,8 @@
           "nombre": "ZAPATITO MOÑO ROSA",
           "talla": "11cm",
           "precio": "$180.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image410.webp"
         },
         {
@@ -3731,8 +3857,8 @@
           "nombre": "ZAPATITO FLOR BLANCO",
           "talla": "19cm",
           "precio": "$180.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image411.webp"
         },
         {
@@ -3740,8 +3866,8 @@
           "nombre": "ZAPATITO FLOR GRIS",
           "talla": "19cm",
           "precio": "$180.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image412.webp"
         },
         {
@@ -3749,8 +3875,8 @@
           "nombre": "ZAPATITO FLOR ROSA",
           "talla": "19cm",
           "precio": "$180.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image413.webp"
         },
         {
@@ -3758,8 +3884,8 @@
           "nombre": "ZAPATITO FLOR NEGRO",
           "talla": "19cm",
           "precio": "$180.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image414.webp"
         },
         {
@@ -3767,8 +3893,8 @@
           "nombre": "TENI CALCETIN DRAGON GRIS",
           "talla": "12CM",
           "precio": "$270.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image415.webp"
         },
         {
@@ -3776,8 +3902,8 @@
           "nombre": "TENI CALCETIN DRAGON CAFE",
           "talla": "12CM",
           "precio": "$270.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image416.webp"
         },
         {
@@ -3838,8 +3964,8 @@
           "codigo": "Z021",
           "nombre": "BOTA JIRAFA",
           "talla": "M 0-6 MESESL 6-18 MESES",
-          "precio": "$205.00",
-          "existencias": 2,
+          "precio": "$205.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image423.webp"
         },
@@ -3847,8 +3973,8 @@
           "codigo": "Z022",
           "nombre": "BOTA ROSA",
           "talla": "M 0-6 MESESL 6-18 MESES",
-          "precio": "$205.00",
-          "existencias": 2,
+          "precio": "$205.00  c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image424.webp"
         },
@@ -3856,8 +3982,8 @@
           "codigo": "Z023",
           "nombre": "BOTA AZUL",
           "talla": "M 0-6 MESESL 6-18 MESES",
-          "precio": "$$205.00",
-          "existencias": 2,
+          "precio": "$$205.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image425.webp"
         },
@@ -3865,8 +3991,8 @@
           "codigo": "Z024",
           "nombre": "ZAPATITO CALCETIN OSO 3D",
           "talla": "0-6 meses6-12 meses12-18 meses",
-          "precio": "$155.00",
-          "existencias": 3,
+          "precio": "$155.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image426.webp"
         },
@@ -3874,7 +4000,7 @@
           "codigo": "Z025",
           "nombre": "ZAPATITO CALCETIN AZUL",
           "talla": "0-4 meses4-8 meses",
-          "precio": "$105.00",
+          "precio": "$105.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image427.webp"
@@ -3883,17 +4009,17 @@
           "codigo": "Z026",
           "nombre": "PANTUNFLAS OSO BEIGE",
           "talla": "SM",
-          "precio": "$125.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$125.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image428.webp"
         },
         {
           "codigo": "Z027",
           "nombre": "PANTUNFLAS OSO CAFÉ",
           "talla": "SM",
-          "precio": "$125.00",
-          "existencias": 2,
+          "precio": "$125.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image429.webp"
         },
@@ -3902,8 +4028,8 @@
           "nombre": "HUARACHES OSO",
           "talla": "10.50 cm",
           "precio": "$250.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image430.webp"
         },
         {
@@ -3911,8 +4037,8 @@
           "nombre": "TENIS NEGROS",
           "talla": "11cm",
           "precio": "$180.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image431.webp"
         },
         {
@@ -3938,8 +4064,8 @@
           "nombre": "ZAPATITO SUELA DURA AZUL",
           "talla": "20cm",
           "precio": "$175.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image434.webp"
         },
         {
@@ -3947,8 +4073,8 @@
           "nombre": "ZAPATITO SUELA DURA BEIGE",
           "talla": "20cm",
           "precio": "$175.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image435.webp"
         },
         {
@@ -3956,8 +4082,8 @@
           "nombre": "ZAPATITO SUELA DURA ROSA",
           "talla": "20cm",
           "precio": "$175.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image436.webp"
         },
         {
@@ -3965,8 +4091,8 @@
           "nombre": "ZAPATITO SUELA DURA CAFÉ",
           "talla": "20cm",
           "precio": "$175.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image437.webp"
         },
         {
@@ -3983,8 +4109,8 @@
           "nombre": "HUARACHE RATON",
           "talla": "10.50 cm",
           "precio": "$235.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image439.webp"
         },
         {
@@ -3992,8 +4118,8 @@
           "nombre": "PANTUNFLA RANA",
           "talla": "22cm",
           "precio": "$375.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image440.webp"
         },
         {
@@ -4001,8 +4127,8 @@
           "nombre": "PANTUNFLA CONEJO",
           "talla": "24cm",
           "precio": "$375.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image441.webp"
         },
         {
@@ -4010,16 +4136,16 @@
           "nombre": "PANTUNFLA OSO",
           "talla": "28cm",
           "precio": "$375.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image442.webp"
         },
         {
           "codigo": "Z041",
           "nombre": "PANTUNFLA CALCETIN OSO",
           "talla": "19cm21cm",
-          "precio": "$195.00",
-          "existencias": 2,
+          "precio": "$195.00  c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image443.webp"
         },
@@ -4028,8 +4154,8 @@
           "nombre": "TENI OSO",
           "talla": "14cm",
           "precio": "$310.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image444.webp"
         },
         {
@@ -4117,7 +4243,7 @@
           "codigo": "Z050-3",
           "nombre": "CROCSOSO",
           "talla": "15 CMAMARILLO NARANJAVERDE",
-          "precio": "$95.00",
+          "precio": "$95.00 c/u",
           "existencias": 5,
           "disponible": true,
           "imagen": "image454.webp"
@@ -4135,8 +4261,8 @@
           "codigo": "Z052",
           "nombre": "CROCS CAPIBARA",
           "talla": "13 CmMORADO14 cmAMARILLO",
-          "precio": "$125.00",
-          "existencias": 2,
+          "precio": "$125.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image456.webp"
         },
@@ -4144,7 +4270,7 @@
           "codigo": "Z053",
           "nombre": "HUARACHE COCODRIO",
           "talla": "14CmVERDEAMARILLO",
-          "precio": "$95.00",
+          "precio": "$95.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image457.webp"
@@ -4153,8 +4279,8 @@
           "codigo": "Z054",
           "nombre": "HUARACHE CROCS",
           "talla": "12CMcocodriloVerdeAzulAqua14cmastronautaAmarillorosa16cm conejoRosa",
-          "precio": "$95.00",
-          "existencias": 6,
+          "precio": "$95.00 c/u",
+          "existencias": 4,
           "disponible": true,
           "imagen": "image458.webp"
         },
@@ -4172,8 +4298,8 @@
           "nombre": "Zapatito flor blanco",
           "talla": "11cm",
           "precio": "$160.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image460.webp"
         },
         {
@@ -4208,8 +4334,8 @@
           "nombre": "Zapatito mezclilla flor",
           "talla": "10.5cm",
           "precio": "$200.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image464.webp"
         },
         {
@@ -4235,8 +4361,8 @@
           "nombre": "Zapatito negro tul",
           "talla": "11cm",
           "precio": "$180.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image467.webp"
         },
         {
@@ -4316,8 +4442,8 @@
           "nombre": "Zapatito gris flor",
           "talla": "10.5cm",
           "precio": "$145.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image476.webp"
         }
       ]
@@ -4329,25 +4455,25 @@
           "codigo": "P001",
           "nombre": "CONEJITA VESTIDO AZUL",
           "talla": "",
-          "precio": "$200.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$200.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image477.webp"
         },
         {
           "codigo": "P002",
           "nombre": "CONEJITA VESTIDO ROSA",
           "talla": "",
-          "precio": "$200.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$200.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image478.webp"
         },
         {
           "codigo": "P003",
           "nombre": "CONEJO SHORT AZUL",
           "talla": "",
-          "precio": "$190.00",
+          "precio": "$190.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image479.webp"
@@ -4357,25 +4483,25 @@
           "nombre": "CONEJO SHORT VERDE",
           "talla": "",
           "precio": "$190.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image480.webp"
         },
         {
           "codigo": "P005",
           "nombre": "CONEJO BLANCO",
           "talla": "",
-          "precio": "$180.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$180.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image481.webp"
         },
         {
           "codigo": "P006",
           "nombre": "CONEJO ROSA",
           "talla": "",
-          "precio": "$180.00",
-          "existencias": 2,
+          "precio": "$180.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image482.webp"
         },
@@ -4383,8 +4509,8 @@
           "codigo": "P007",
           "nombre": "CONEJO CHICO",
           "talla": "Blancobeige",
-          "precio": "$55.00",
-          "existencias": 4,
+          "precio": "$55.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image483.webp"
         },
@@ -4392,17 +4518,17 @@
           "codigo": "P008",
           "nombre": "CONEJO MINI COLGANTE",
           "talla": "BlancoGriscafe",
-          "precio": "$35.00",
-          "existencias": 3,
-          "disponible": true,
+          "precio": "$35.00  c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image484.webp"
         },
         {
           "codigo": "P009",
           "nombre": "CONEJO BOLITA MINI",
           "talla": "surtido",
-          "precio": "$45.00",
-          "existencias": 9,
+          "precio": "$45.00  c/u",
+          "existencias": 3,
           "disponible": true,
           "imagen": "image485.webp"
         },
@@ -4411,8 +4537,8 @@
           "nombre": "MUÑECA CABELLO VERDE",
           "talla": "",
           "precio": "$440.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image486.webp"
         },
         {
@@ -4420,8 +4546,8 @@
           "nombre": "MUÑECA CABELLO MORADO",
           "talla": "",
           "precio": "$440.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image487.webp"
         },
         {
@@ -4429,8 +4555,8 @@
           "nombre": "MUÑECA CABELLO AZUL",
           "talla": "",
           "precio": "$440.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image488.webp"
         },
         {
@@ -4446,8 +4572,8 @@
           "codigo": "P014",
           "nombre": "Conejo peludo",
           "talla": "PurpuraGrisbeige",
-          "precio": "$245.00",
-          "existencias": 3,
+          "precio": "$245.00  c/u",
+          "existencias": 2,
           "disponible": true,
           "imagen": "image490.webp"
         },
@@ -4465,8 +4591,8 @@
           "nombre": "Ovejita chica",
           "talla": "",
           "precio": "$160.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image492.webp"
         },
         {
@@ -4474,17 +4600,17 @@
           "nombre": "Elefante chico",
           "talla": "",
           "precio": "$160.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image493.webp"
         },
         {
           "codigo": "P018",
           "nombre": "Catarina mini",
           "talla": "",
-          "precio": "$135.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$135.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image494.webp"
         },
         {
@@ -4492,8 +4618,8 @@
           "nombre": "Panda chico",
           "talla": "",
           "precio": "$160.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image495.webp"
         },
         {
@@ -4519,8 +4645,8 @@
           "nombre": "Gusano mini",
           "talla": "",
           "precio": "$135.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image498.webp"
         },
         {
@@ -4545,7 +4671,7 @@
           "codigo": "P025",
           "nombre": "Oso peludo",
           "talla": "Marrónbeige",
-          "precio": "$230.00",
+          "precio": "$230.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image501.webp"
@@ -4554,8 +4680,8 @@
           "codigo": "P026",
           "nombre": "Patito miniatura",
           "talla": "",
-          "precio": "$95.00 c/u$390.00 juego",
-          "existencias": 5,
+          "precio": "$95.00 c/u",
+          "existencias": 3,
           "disponible": true,
           "imagen": "image502.webp"
         },
@@ -4563,8 +4689,8 @@
           "codigo": "P027",
           "nombre": "Capibara miniatura",
           "talla": "",
-          "precio": "$95.00 c/u$465.00 juego",
-          "existencias": 5,
+          "precio": "$95.00 c/u",
+          "existencias": 2,
           "disponible": true,
           "imagen": "image503.webp"
         },
@@ -4581,8 +4707,8 @@
           "codigo": "P029",
           "nombre": "Gatito miniatura",
           "talla": "RosaBlancoGrisNaranjabeige",
-          "precio": "$95.00 c/u$465.00 juego",
-          "existencias": 5,
+          "precio": "$95.00 c/u",
+          "existencias": 3,
           "disponible": true,
           "imagen": "image505.webp"
         },
@@ -4590,17 +4716,17 @@
           "codigo": "P030",
           "nombre": "Dinosaurios miniatura",
           "talla": "VerdeRosaAzulNaranjabeige",
-          "precio": "$95.00 c/u$465.00 juego",
-          "existencias": 5,
-          "disponible": true,
+          "precio": "$95.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image506.webp"
         },
         {
           "codigo": "P031",
           "nombre": "Estrellitas miniaturas",
           "talla": "",
-          "precio": "$35.00",
-          "existencias": 12,
+          "precio": "$35.00 c/u",
+          "existencias": 4,
           "disponible": true,
           "imagen": "image507.webp"
         },
@@ -4608,9 +4734,9 @@
           "codigo": "P032",
           "nombre": "Pingüinos disfraz",
           "talla": "Verderosa",
-          "precio": "$100.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$100.00  c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image508.webp"
         },
         {
@@ -4627,16 +4753,16 @@
           "nombre": "Capibara mediano",
           "talla": "",
           "precio": "$170.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image510.webp"
         },
         {
           "codigo": "P035",
           "nombre": "Abejita mini",
           "talla": "",
-          "precio": "$105.00",
-          "existencias": 4,
+          "precio": "$105.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image511.webp"
         },
@@ -4645,8 +4771,8 @@
           "nombre": "Abejita chica",
           "talla": "",
           "precio": "$135.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image512.webp"
         },
         {
@@ -4654,8 +4780,8 @@
           "nombre": "Pingüino mediano",
           "talla": "",
           "precio": "$175.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image513.webp"
         },
         {
@@ -4663,18 +4789,27 @@
           "nombre": "Puerquito mediano",
           "talla": "",
           "precio": "$175.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image514.webp"
         },
         {
           "codigo": "P039",
           "nombre": "Dinos mini",
           "talla": "Rosaverde",
-          "precio": "$80.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$80.00  c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image515.webp"
+        },
+        {
+          "codigo": "PC023",
+          "nombre": "DIADEMA DELGADA DETALLE BEIGE",
+          "talla": "ROSABEIGEMARRON",
+          "precio": "$45.00 c/u",
+          "existencias": 0,
+          "disponible": false,
+          "imagen": "image616.webp"
         }
       ]
     },
@@ -4712,17 +4847,17 @@
           "codigo": "H004",
           "nombre": "KIT CEPILLO DIENTES SILICONA",
           "talla": "AZULNARANJA",
-          "precio": "$265.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$265.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image519.webp"
         },
         {
           "codigo": "H005",
           "nombre": "CEPILLO DE DIENTES ABC",
           "talla": "ROSAMORADOAZULVERDEAMARILLO",
-          "precio": "$20.00",
-          "existencias": 10,
+          "precio": "$20.00  c/u",
+          "existencias": 5,
           "disponible": true,
           "imagen": "image520.webp"
         },
@@ -4730,8 +4865,8 @@
           "codigo": "H006",
           "nombre": "CEPILLO DE DIENTES FLOR",
           "talla": "ROSAAZULMORADO",
-          "precio": "$50.00",
-          "existencias": 3,
+          "precio": "$50.00 c/u",
+          "existencias": 2,
           "disponible": true,
           "imagen": "image521.webp"
         },
@@ -4739,16 +4874,16 @@
           "codigo": "H007",
           "nombre": "CEPILLO DE DIENTES DINOSAURIO",
           "talla": "AMARILLOVERDE",
-          "precio": "$85.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$85.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image522.webp"
         },
         {
           "codigo": "H008",
           "nombre": "Cepillo de dientes huella",
           "talla": "ROSAAZUL",
-          "precio": "$55.00",
+          "precio": "$55.00  c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image523.webp"
@@ -4757,8 +4892,8 @@
           "codigo": "H009",
           "nombre": "CORTAUÑAS ANIMALITOS 3D",
           "talla": "POLLITODINOSAURIOCONEJOOSOBORREGO",
-          "precio": "$50.00",
-          "existencias": 5,
+          "precio": "$50.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image524.webp"
         },
@@ -4766,8 +4901,8 @@
           "codigo": "H010",
           "nombre": "JUEGO TIJERAS Y CORTAUÑAS",
           "talla": "AZULROSA",
-          "precio": "$65.00",
-          "existencias": 2,
+          "precio": "$65.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image525.webp"
         },
@@ -4775,8 +4910,8 @@
           "codigo": "H011",
           "nombre": "JUEGO CEPILLO PEINE BAMBU",
           "talla": "",
-          "precio": "$125.00",
-          "existencias": 2,
+          "precio": "$125.00  c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image526.webp"
         },
@@ -4784,8 +4919,8 @@
           "codigo": "H012",
           "nombre": "MINI CEPILLO ANIMALES 3D",
           "talla": "RANARANAELEFANTECONEJO",
-          "precio": "$35.00",
-          "existencias": 4,
+          "precio": "$35.00 c/u",
+          "existencias": 3,
           "disponible": true,
           "imagen": "image527.webp"
         },
@@ -4793,17 +4928,17 @@
           "codigo": "H013",
           "nombre": "TOALLITAS DE ALGODON",
           "talla": "SURTIDO",
-          "precio": "$50.00",
-          "existencias": 5,
-          "disponible": true,
+          "precio": "$50.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image528.webp"
         },
         {
           "codigo": "H014",
           "nombre": "TOALLITAS DE ALGODÓN CON DISEÑO",
           "talla": "SURTIDO",
-          "precio": "$50.00",
-          "existencias": 10,
+          "precio": "$50.00 c/u",
+          "existencias": 9,
           "disponible": true,
           "imagen": "image529.webp"
         },
@@ -4820,7 +4955,7 @@
           "codigo": "H016",
           "nombre": "INSERTO PARA PAÑALES REUTILIZABLES",
           "talla": "BLANCOS",
-          "precio": "$70.00",
+          "precio": "$70.00 c/u",
           "existencias": 10,
           "disponible": true,
           "imagen": "image531.webp"
@@ -4829,7 +4964,7 @@
           "codigo": "H017",
           "nombre": "PAÑALES DE TELA REUTILIZABLES",
           "talla": "0 AÑOS +ZORRO BLANCONARANJABLANCOZORRO GRIS",
-          "precio": "$190.00",
+          "precio": "$190.00 c/u",
           "existencias": 4,
           "disponible": true,
           "imagen": "image532.webp"
@@ -4838,7 +4973,7 @@
           "codigo": "H018",
           "nombre": "PAÑALES DE TELA REUTILIZABLES",
           "talla": "0 AÑOS +DINOSVERDEFANTASMA",
-          "precio": "$210.00",
+          "precio": "$210.00 c/u",
           "existencias": 3,
           "disponible": true,
           "imagen": "image533.webp"
@@ -4847,7 +4982,7 @@
           "codigo": "H019",
           "nombre": "PAÑALES DE TELA REUTILIZABLES",
           "talla": "0 AÑOS +OSOPUERCOESPINANIMALES",
-          "precio": "$135.00",
+          "precio": "$135.00 c/u",
           "existencias": 3,
           "disponible": true,
           "imagen": "image534.webp"
@@ -4856,7 +4991,7 @@
           "codigo": "H020",
           "nombre": "PAÑALES DE TELA REUTILIZABLES",
           "talla": "0 AÑOS + ELEFANTEVERDECANGURO",
-          "precio": "$145.00",
+          "precio": "$145.00 c/u",
           "existencias": 3,
           "disponible": true,
           "imagen": "image535.webp"
@@ -4865,8 +5000,8 @@
           "codigo": "H021",
           "nombre": "PAÑALES DE TELA REUTILIZABLES",
           "talla": "0 AÑOS +ROSASOLARCOIRIS",
-          "precio": "$155.00",
-          "existencias": 3,
+          "precio": "$155.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image536.webp"
         },
@@ -4874,7 +5009,7 @@
           "codigo": "H022",
           "nombre": "PEINE Y CEPILLO",
           "talla": "AmarilloAzulrosa",
-          "precio": "$75.00",
+          "precio": "$75.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image537.webp"
@@ -4883,16 +5018,16 @@
           "codigo": "H023",
           "nombre": "PEINE ESPEJO CONEJO",
           "talla": "ROSAMORADOAZUL",
-          "precio": "$35.00",
-          "existencias": 3,
-          "disponible": true,
+          "precio": "$35.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image538.webp"
         },
         {
           "codigo": "H024",
           "nombre": "CEPILLO ESPEJO",
           "talla": "AZULROSA",
-          "precio": "$50.00",
+          "precio": "$50.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image539.webp"
@@ -4906,8 +5041,8 @@
           "codigo": "D001",
           "nombre": "CAJITA BAMBU PRIMER DIENTE NIÑA",
           "talla": "",
-          "precio": "$110.00",
-          "existencias": 2,
+          "precio": "$110.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image540.webp"
         },
@@ -4915,7 +5050,7 @@
           "codigo": "D002",
           "nombre": "CAJITA BAMBU PRIMER DIENTE GORRO",
           "talla": "",
-          "precio": "$110.00",
+          "precio": "$110.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image541.webp"
@@ -4924,7 +5059,7 @@
           "codigo": "D003",
           "nombre": "CAJITA BAMBU PRIMER DIENTE NIÑO",
           "talla": "",
-          "precio": "$110.00",
+          "precio": "$110.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image542.webp"
@@ -4934,16 +5069,16 @@
           "nombre": "CAJITA BAMBU PRIMER DIENTE HADA",
           "talla": "",
           "precio": "$110.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image543.webp"
         },
         {
           "codigo": "D005",
           "nombre": "CAJITA BAMBU PRIMER DIENTE PLANO LISO",
           "talla": "",
-          "precio": "$110.00",
-          "existencias": 2,
+          "precio": "$110.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image544.webp"
         },
@@ -4951,7 +5086,7 @@
           "codigo": "D006",
           "nombre": "CAJITA BAMBU PRIMER DIENTE CARITA",
           "talla": "",
-          "precio": "$110.00",
+          "precio": "$110.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image545.webp"
@@ -4960,7 +5095,7 @@
           "codigo": "D007",
           "nombre": "CAJITA BAMBU PRIMER DIENTE 3D",
           "talla": "",
-          "precio": "$110.00",
+          "precio": "$110.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image546.webp"
@@ -4969,9 +5104,9 @@
           "codigo": "D008",
           "nombre": "CAJITA BAMBU CORDON UMBILICAL",
           "talla": "",
-          "precio": "$110.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$110.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image547.webp"
         },
         {
@@ -4979,8 +5114,8 @@
           "nombre": "DIARIO BEBE",
           "talla": "",
           "precio": "$415.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image548.webp"
         },
         {
@@ -4997,8 +5132,8 @@
           "nombre": "SOPORTE PARA PULCERA NACIMIENTO FAMILIA",
           "talla": "",
           "precio": "$70.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image550.webp"
         },
         {
@@ -5006,8 +5141,8 @@
           "nombre": "SOPORTE PARA PULCERA NACIMIENTO FAMILIA",
           "talla": "",
           "precio": "$70.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image551.webp"
         },
         {
@@ -5015,16 +5150,16 @@
           "nombre": "SOPORTE PARA PULCERA NACIMIENTO CORAZON",
           "talla": "",
           "precio": "$70.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image552.webp"
         },
         {
           "codigo": "D014",
           "nombre": "CUADRO KOALA",
           "talla": "",
-          "precio": "$60.00",
-          "existencias": 2,
+          "precio": "$60.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image553.webp"
         },
@@ -5032,8 +5167,8 @@
           "codigo": "D015",
           "nombre": "CUADRO JIRAFA",
           "talla": "",
-          "precio": "$60.00",
-          "existencias": 2,
+          "precio": "$60.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image554.webp"
         },
@@ -5041,7 +5176,7 @@
           "codigo": "D016",
           "nombre": "ALCANCIA MINI KOALA",
           "talla": "",
-          "precio": "$60.00",
+          "precio": "$60.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image555.webp"
@@ -5050,8 +5185,8 @@
           "codigo": "D017",
           "nombre": "ALCANCIA MINI KOALA",
           "talla": "",
-          "precio": "$60.00",
-          "existencias": 2,
+          "precio": "$60.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image556.webp"
         },
@@ -5059,8 +5194,8 @@
           "codigo": "D018",
           "nombre": "ALCANCIA MINI UNICORNIO",
           "talla": "",
-          "precio": "$60.00",
-          "existencias": 2,
+          "precio": "$60.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image557.webp"
         },
@@ -5068,7 +5203,7 @@
           "codigo": "D019",
           "nombre": "GANCHO PARA CARREOLA FLOR",
           "talla": "BeigeRosacafe",
-          "precio": "$80.00",
+          "precio": "$80.00 c/u",
           "existencias": 3,
           "disponible": true,
           "imagen": "image558.webp"
@@ -5077,7 +5212,7 @@
           "codigo": "D021",
           "nombre": "Clip para cobija",
           "talla": "RosaCafébeige",
-          "precio": "$85.00",
+          "precio": "$85.00 c/u",
           "existencias": 6,
           "disponible": true,
           "imagen": "image560.webp"
@@ -5086,7 +5221,7 @@
           "codigo": "D022",
           "nombre": "BOLSA CONEJO PELUDO",
           "talla": "BLANCOCAFÉROSA",
-          "precio": "$120.00",
+          "precio": "$120.00 c/u",
           "existencias": 3,
           "disponible": true,
           "imagen": "image561.webp"
@@ -5095,8 +5230,8 @@
           "codigo": "D023",
           "nombre": "BOLSA CONEJO SALTON",
           "talla": "VERDEROSABEIGE",
-          "precio": "$110.00",
-          "existencias": 3,
+          "precio": "$110.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image562.webp"
         },
@@ -5104,8 +5239,8 @@
           "codigo": "D024",
           "nombre": "BOLSA CARITA CONEJO",
           "talla": "BEIGEMARRON",
-          "precio": "$145.00",
-          "existencias": 2,
+          "precio": "$145.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image563.webp"
         },
@@ -5113,8 +5248,8 @@
           "codigo": "D025",
           "nombre": "Lentes sol unixes",
           "talla": "Flor caféFlor naranjaCorazón naranjaCorazón huesoOso naranjaOso grisNaranjaAmarilloNegroVerdeAzulgris",
-          "precio": "$40.00",
-          "existencias": 12,
+          "precio": "$40.00 c/u",
+          "existencias": 3,
           "disponible": true,
           "imagen": "image564.webp"
         },
@@ -5122,8 +5257,8 @@
           "codigo": "D026",
           "nombre": "CAJITAS ORGANIZADORAS",
           "talla": "ALEATORIO",
-          "precio": "$25.00 C/U",
-          "existencias": 6,
+          "precio": "$30.00 c/u",
+          "existencias": 4,
           "disponible": true,
           "imagen": "image565.webp"
         },
@@ -5131,8 +5266,8 @@
           "codigo": "D027",
           "nombre": "LIBRO MINI COLOREAR",
           "talla": "ALEATORIO",
-          "precio": "$20.00",
-          "existencias": 16,
+          "precio": "$20.00 c/u",
+          "existencias": 14,
           "disponible": true,
           "imagen": "image566.webp"
         },
@@ -5140,7 +5275,7 @@
           "codigo": "D028",
           "nombre": "LIBROS MEDIANOS COLOREAR",
           "talla": "ALEATORIO",
-          "precio": "$40.00",
+          "precio": "$40.00 c/u",
           "existencias": 5,
           "disponible": true,
           "imagen": "image567.webp"
@@ -5149,7 +5284,7 @@
           "codigo": "D029",
           "nombre": "LIBROS GRANDES COLOREAR",
           "talla": "ALEATORIO",
-          "precio": "$40.00",
+          "precio": "$40.00 c/u",
           "existencias": 3,
           "disponible": true,
           "imagen": "image568.webp"
@@ -5159,16 +5294,16 @@
           "nombre": "LIBRO DE LECTURA",
           "talla": "ALEATORIO",
           "precio": "$40.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image569.webp"
         },
         {
           "codigo": "D031",
           "nombre": "BOLSITA SILICON",
           "talla": "KITTYMINEMELODY",
-          "precio": "$65.00",
-          "existencias": 5,
+          "precio": "$65.00 c/u",
+          "existencias": 3,
           "disponible": true,
           "imagen": "image570.webp"
         },
@@ -5176,7 +5311,7 @@
           "codigo": "D032",
           "nombre": "LENTES PINCITAS",
           "talla": "NEGROROSA",
-          "precio": "$70.00",
+          "precio": "$70.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image571.webp"
@@ -5185,8 +5320,8 @@
           "codigo": "D033",
           "nombre": "PORTARETRATOS",
           "talla": "Azul beige",
-          "precio": "$30.00",
-          "existencias": 3,
+          "precio": "$30.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image572.webp"
         },
@@ -5194,8 +5329,8 @@
           "codigo": "D0120",
           "nombre": "GANCHO PARA CARREOLA OSO",
           "talla": "OSO CAFÉOSO BEIGE",
-          "precio": "$55.00",
-          "existencias": 2,
+          "precio": "$55.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image559.webp"
         }
@@ -5208,7 +5343,7 @@
           "codigo": "TPC001",
           "nombre": "CAJITA PARA GUARDAR CHUPON ROSA",
           "talla": "",
-          "precio": "$30.00",
+          "precio": "$30.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image573.webp"
@@ -5217,8 +5352,8 @@
           "codigo": "TPC002",
           "nombre": "CAJITA PARA GUARDAR CHUPON AZUL",
           "talla": "",
-          "precio": "$30.00",
-          "existencias": 2,
+          "precio": "$30.00  c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image574.webp"
         },
@@ -5226,8 +5361,8 @@
           "codigo": "TPC003",
           "nombre": "CAJITA PARA GUARDAR CHUPON TRASPARENTE",
           "talla": "",
-          "precio": "$30.00",
-          "existencias": 2,
+          "precio": "$30.00  c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image575.webp"
         },
@@ -5235,7 +5370,7 @@
           "codigo": "TPC004",
           "nombre": "CAJITA PARA CHUPON",
           "talla": "Blancogris",
-          "precio": "$75.00",
+          "precio": "$75.00 c/u",
           "existencias": 2,
           "disponible": true,
           "imagen": "image576.webp"
@@ -5271,8 +5406,8 @@
           "codigo": "TPC008",
           "nombre": "PORTA CHUPON SILICON OSO GRIS CLARO",
           "talla": "",
-          "precio": "$90.00",
-          "existencias": 2,
+          "precio": "$90.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image580.webp"
         },
@@ -5281,16 +5416,16 @@
           "nombre": "PORTA CHUPON SILICON OSO VERDE",
           "talla": "",
           "precio": "$90.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image581.webp"
         },
         {
           "codigo": "TPC010",
           "nombre": "PORTA CHUPON SILICON CONEJO ROSA",
           "talla": "",
-          "precio": "$90.00",
-          "existencias": 2,
+          "precio": "$90.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image582.webp"
         },
@@ -5299,8 +5434,8 @@
           "nombre": "PORTA CHUPON SILICON ESTRELLA MORADO",
           "talla": "",
           "precio": "$130.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image583.webp"
         },
         {
@@ -5317,8 +5452,8 @@
           "nombre": "PORTA CHUPON SILICON ESTRELLA ROSA",
           "talla": "",
           "precio": "$130.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image585.webp"
         },
         {
@@ -5335,16 +5470,16 @@
           "nombre": "PORTA CHUPON SILICON CIERRE AZUL",
           "talla": "",
           "precio": "$130.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image587.webp"
         },
         {
           "codigo": "TPC016",
           "nombre": "PORTACHUPON OSO CLIP",
           "talla": "Cafébeige",
-          "precio": "$100.00",
-          "existencias": 4,
+          "precio": "$100.00 c/u",
+          "existencias": 3,
           "disponible": true,
           "imagen": "image588.webp"
         },
@@ -5353,15 +5488,15 @@
           "nombre": "PORTACHUPON FLOR CLIP",
           "talla": "",
           "precio": "$65.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image589.webp"
         },
         {
           "codigo": "TPC018",
           "nombre": "PORTACHUPON MARGARITAS CLIP",
           "talla": "BlancoBlanco/beige",
-          "precio": "$65.00",
+          "precio": "$65.00 c/u",
           "existencias": 6,
           "disponible": true,
           "imagen": "image590.webp"
@@ -5371,15 +5506,15 @@
           "nombre": "PORTA CHUPON ESTRELLA CLIP",
           "talla": "blanco",
           "precio": "$90.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image591.webp"
         },
         {
           "codigo": "TPC020",
           "nombre": "PORTACHUPON SOLICON CLIP",
           "talla": "VerdeGrisazul",
-          "precio": "$50.00",
+          "precio": "$50.00 c/u",
           "existencias": 3,
           "disponible": true,
           "imagen": "image592.webp"
@@ -5388,8 +5523,8 @@
           "codigo": "TPC021",
           "nombre": "CHUPON DIVERTIDO",
           "talla": "Bigotelabios",
-          "precio": "$60.00",
-          "existencias": 2,
+          "precio": "$60.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image593.webp"
         }
@@ -5403,8 +5538,8 @@
           "nombre": "GORRO OSO OSCURO",
           "talla": "",
           "precio": "$170.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image594.webp"
         },
         {
@@ -5430,8 +5565,8 @@
           "nombre": "GORRA RATON GRIS CLARO",
           "talla": "",
           "precio": "$150.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image597.webp"
         },
         {
@@ -5448,8 +5583,8 @@
           "nombre": "GORRA OSO BEIGE",
           "talla": "",
           "precio": "$130.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image599.webp"
         },
         {
@@ -5457,25 +5592,25 @@
           "nombre": "GORRITO OSO FRIO",
           "talla": "",
           "precio": "$125.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image600.webp"
         },
         {
           "codigo": "APC008",
           "nombre": "GORRITO POMPONES FRIO",
           "talla": "BlancoNegrobeige",
-          "precio": "$70.00",
-          "existencias": 3,
-          "disponible": true,
+          "precio": "$70.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image601.webp"
         },
         {
           "codigo": "APC009",
           "nombre": "GORRITO POMPON FRIO",
           "talla": "BlancoNegrobeige",
-          "precio": "$80.00",
-          "existencias": 3,
+          "precio": "$80.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image602.webp"
         },
@@ -5483,8 +5618,8 @@
           "codigo": "APC010",
           "nombre": "GORRITO DINO FRIO",
           "talla": "NegroBlancobeige",
-          "precio": "$175.00",
-          "existencias": 3,
+          "precio": "$175.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image603.webp"
         },
@@ -5492,17 +5627,17 @@
           "codigo": "APC011",
           "nombre": "GORRITO OSO FRIO",
           "talla": "BlancoCaféBeigeamarillo",
-          "precio": "$55.00",
-          "existencias": 4,
-          "disponible": true,
+          "precio": "$55.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image604.webp"
         },
         {
           "codigo": "APC012",
           "nombre": "DIADEMA",
           "talla": "RosaLilablanca",
-          "precio": "$40.00",
-          "existencias": 3,
+          "precio": "$40.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image605.webp"
         },
@@ -5510,18 +5645,18 @@
           "codigo": "APC013",
           "nombre": "DIADEMAS GRUESAS",
           "talla": "SURTIDO",
-          "precio": "$20.00",
-          "existencias": 10,
-          "disponible": true,
+          "precio": "$20.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image606.webp"
         },
         {
           "codigo": "APC014",
           "nombre": "DIADEMAD DELGADAS",
           "talla": "Moño grandeFlorMoño lisoMoño encajeMoñito chico",
-          "precio": "$30.00",
-          "existencias": 10,
-          "disponible": true,
+          "precio": "$30.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image607.webp"
         },
         {
@@ -5529,8 +5664,8 @@
           "nombre": "PASADOR FLORCOLORES",
           "talla": "SURTIDO",
           "precio": "$35.00 par",
-          "existencias": 7,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image608.webp"
         },
         {
@@ -5538,7 +5673,7 @@
           "nombre": "PASADOR  FLORCAFES",
           "talla": "SURTIDO PAR",
           "precio": "$35.00 par",
-          "existencias": 6,
+          "existencias": 2,
           "disponible": true,
           "imagen": "image609.webp"
         },
@@ -5555,8 +5690,8 @@
           "codigo": "APC017-2",
           "nombre": "PASADOR DISEÑOS",
           "talla": "SURTIDO",
-          "precio": "$10.00",
-          "existencias": 17,
+          "precio": "$10.00 c/u",
+          "existencias": 13,
           "disponible": true,
           "imagen": "image622.webp"
         },
@@ -5564,7 +5699,7 @@
           "codigo": "APC018",
           "nombre": "LIGUITAS MOÑO",
           "talla": "SURTIDO",
-          "precio": "$10.00",
+          "precio": "$10.00 c/u",
           "existencias": 12,
           "disponible": true,
           "imagen": "image611.webp"
@@ -5583,7 +5718,7 @@
           "nombre": "PINCITAS FLORECITAS MINI",
           "talla": "SURTIDO5 bolsas con 10pzas.",
           "precio": "$10 bolsa",
-          "existencias": 5,
+          "existencias": 1,
           "disponible": true,
           "imagen": "image623.webp"
         },
@@ -5600,8 +5735,8 @@
           "codigo": "APC020-2",
           "nombre": "LIGUITAS MINI DISEÑOS VARIOS",
           "talla": "SURTIDO60 bolsitas conpar",
-          "precio": "$3.00 bolsita",
-          "existencias": 60,
+          "precio": "$25.00 c/u",
+          "existencias": 6,
           "disponible": true,
           "imagen": "image624.webp"
         },
@@ -5618,7 +5753,7 @@
           "codigo": "APC021-2",
           "nombre": "LIGUITAS TRANSPARENTES",
           "talla": "10 bolsasBolsita con 50 liguitas",
-          "precio": "$10.00 bolsa",
+          "precio": "$10.00 c/u",
           "existencias": 10,
           "disponible": true,
           "imagen": "image625.webp"
@@ -5663,7 +5798,7 @@
           "codigo": "APC024-2",
           "nombre": "BOLSITAS LIGUITAS PLASTICAS",
           "talla": "ROSACOLORES",
-          "precio": "$35.00",
+          "precio": "$35.00 c/u",
           "existencias": 4,
           "disponible": true,
           "imagen": "image628.webp"
@@ -5681,7 +5816,7 @@
           "codigo": "APC025-2",
           "nombre": "PIOJITOS",
           "talla": "ESTRELLACONEJO CORONA",
-          "precio": "$35.00",
+          "precio": "$35.00 c/u",
           "existencias": 6,
           "disponible": true,
           "imagen": "image629.webp"
@@ -5699,7 +5834,7 @@
           "codigo": "APC026-2",
           "nombre": "CUCA CEREZACUCA ESTRELLA",
           "talla": "ESTRELLACEREZA",
-          "precio": "$20.00 PAR$40.00 PAR",
+          "precio": "$20.00 PAR estrella$40.00 PAR cereza",
           "existencias": 2,
           "disponible": true,
           "imagen": "image630.webp"
@@ -5717,8 +5852,8 @@
           "codigo": "APC027-2",
           "nombre": "DIADEMA GRUESA MOÑO",
           "talla": "GRISUVAROSAHUESOBLANCO",
-          "precio": "$35.00",
-          "existencias": 5,
+          "precio": "$35.00 c/u",
+          "existencias": 2,
           "disponible": true,
           "imagen": "image631.webp"
         },
@@ -5736,7 +5871,7 @@
           "nombre": "MOÑO MEDIANO",
           "talla": "SURTIDO PAR",
           "precio": "$30.00 par",
-          "existencias": 5,
+          "existencias": 4,
           "disponible": true,
           "imagen": "image632.webp"
         },
@@ -5745,7 +5880,7 @@
           "nombre": "MOÑO MEDIANO",
           "talla": "SURTIDO PAR",
           "precio": "$65.00 par",
-          "existencias": 4,
+          "existencias": 1,
           "disponible": true,
           "imagen": "image633.webp"
         },
@@ -5753,8 +5888,8 @@
           "codigo": "APC030",
           "nombre": "DIADEMA GRUESA MOÑO",
           "talla": "ROSAFLORESROSA FROSA TRASPROSA F TRANSBLANCA TRANSP",
-          "precio": "$45.00",
-          "existencias": 6,
+          "precio": "$45.00 c/u",
+          "existencias": 5,
           "disponible": true,
           "imagen": "image634.webp"
         },
@@ -5763,7 +5898,7 @@
           "nombre": "MOÑITO MINI",
           "talla": "SURTIDO PAR",
           "precio": "$20.00 par",
-          "existencias": 5,
+          "existencias": 4,
           "disponible": true,
           "imagen": "image635.webp"
         },
@@ -5771,8 +5906,8 @@
           "codigo": "APC032",
           "nombre": "DIADEMA GRUESA MOÑO",
           "talla": "SURTIDO",
-          "precio": "$35.00",
-          "existencias": 5,
+          "precio": "$35.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image636.webp"
         },
@@ -5780,8 +5915,8 @@
           "codigo": "APC033",
           "nombre": "DIADEMA DELGADA BEBE MOÑO",
           "talla": "SURTIDO",
-          "precio": "$30.00",
-          "existencias": 10,
+          "precio": "$30.00 c/u",
+          "existencias": 5,
           "disponible": true,
           "imagen": "image637.webp"
         },
@@ -5789,7 +5924,7 @@
           "codigo": "APC034",
           "nombre": "LIGA DOBLE FLOR",
           "talla": "SURTIDO",
-          "precio": "$20.00",
+          "precio": "$20.00 c/u",
           "existencias": 5,
           "disponible": true,
           "imagen": "image638.webp"
@@ -5799,7 +5934,7 @@
           "nombre": "DONAS",
           "talla": "SURTIDO",
           "precio": "$15.00 C/U",
-          "existencias": 10,
+          "existencias": 8,
           "disponible": true,
           "imagen": "image639.webp"
         },
@@ -5808,7 +5943,7 @@
           "nombre": "MOÑO MEDIANO",
           "talla": "Surtido",
           "precio": "$60.00 PAR",
-          "existencias": 4,
+          "existencias": 3,
           "disponible": true,
           "imagen": "image640.webp"
         },
@@ -5825,8 +5960,8 @@
           "codigo": "APC038",
           "nombre": "GORRO DINO",
           "talla": "NegraLadrilloMostazaBeigeBlanca",
-          "precio": "$80.00",
-          "existencias": 5,
+          "precio": "$80.00 c/u",
+          "existencias": 3,
           "disponible": true,
           "imagen": "image642.webp"
         },
@@ -5834,8 +5969,8 @@
           "codigo": "APC039",
           "nombre": "SOMBRERO DINO",
           "talla": "MentaBlanca",
-          "precio": "$105.00",
-          "existencias": 2,
+          "precio": "$105.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image643.webp"
         },
@@ -5843,8 +5978,8 @@
           "codigo": "APC040",
           "nombre": "SOMBRERO OLAN",
           "talla": "RosaFlor",
-          "precio": "$190.00",
-          "existencias": 2,
+          "precio": "$190.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image644.webp"
         },
@@ -5852,19 +5987,10 @@
           "codigo": "APC041",
           "nombre": "TURBANTE FLOR",
           "talla": "BlancoBeigeRosa",
-          "precio": "$70.00",
-          "existencias": 3,
+          "precio": "$70.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image645.webp"
-        },
-        {
-          "codigo": "PC023",
-          "nombre": "DIADEMA DELGADA DETALLE BEIGE",
-          "talla": "ROSABEIGEMARRON",
-          "precio": "$45.00",
-          "existencias": 3,
-          "disponible": true,
-          "imagen": "image616.webp"
         }
       ]
     },
@@ -5875,9 +6001,9 @@
           "codigo": "SC001",
           "nombre": "SABANITA DE ALGODON",
           "talla": "LUNAARCOIRISSOL",
-          "precio": "$210.00",
-          "existencias": 3,
-          "disponible": true,
+          "precio": "$210.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image646.webp"
         },
         {
@@ -5885,8 +6011,8 @@
           "nombre": "SABANITA DE ALGODÓN BORREGO",
           "talla": "",
           "precio": "$210.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image647.webp"
         },
         {
@@ -5894,16 +6020,16 @@
           "nombre": "SABANITA DE ALGODÓNPATO",
           "talla": "",
           "precio": "$210.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image648.webp"
         },
         {
           "codigo": "SC004",
           "nombre": "SABANITA DE ALGODON",
           "talla": "PUERCO ESPINAZUL ANIMALESAMARILLO JIRAFA",
-          "precio": "$210.00",
-          "existencias": 3,
+          "precio": "$210.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image649.webp"
         },
@@ -5911,8 +6037,8 @@
           "codigo": "SC005",
           "nombre": "SABANITA DE ALGODON",
           "talla": "GRISGRIS PUNTITOSBLANCO CORAZONES",
-          "precio": "$210.00",
-          "existencias": 3,
+          "precio": "$210.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image650.webp"
         },
@@ -5921,8 +6047,8 @@
           "nombre": "COBIJA SONAJA DINO",
           "talla": "",
           "precio": "$420.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image651.webp"
         },
         {
@@ -5974,8 +6100,8 @@
           "codigo": "SC012",
           "nombre": "COBERTOR POLAR",
           "talla": "PINGÜINOOSOELEFANTEUNICORNIOOSO PANDA",
-          "precio": "$375.00",
-          "existencias": 5,
+          "precio": "$375.00 c/u",
+          "existencias": 4,
           "disponible": true,
           "imagen": "image657.webp"
         },
@@ -5983,7 +6109,7 @@
           "codigo": "SC013",
           "nombre": "COBIJITA  MINI",
           "talla": "ROJAAZULROSABLANCAGRIS",
-          "precio": "$60.00",
+          "precio": "$60.00 c/u",
           "existencias": 5,
           "disponible": true,
           "imagen": "image658.webp"
@@ -5992,8 +6118,8 @@
           "codigo": "SC014",
           "nombre": "COBIJA TEJIDO",
           "talla": "GRISROSA",
-          "precio": "$300.00",
-          "existencias": 2,
+          "precio": "$300.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": "image659.webp"
         },
@@ -6001,8 +6127,8 @@
           "codigo": "SC015",
           "nombre": "COBIJA POLAR",
           "talla": "AMARILLA BLANCAVERDE",
-          "precio": "$120.00",
-          "existencias": 3,
+          "precio": "$120.00 c/u",
+          "existencias": 1,
           "disponible": true,
           "imagen": null
         },
@@ -6010,7 +6136,7 @@
           "codigo": "SC016",
           "nombre": "JUEGO ABANITA ALGODON",
           "talla": "ROSAVERDEAZULBEIGE",
-          "precio": "$265.00",
+          "precio": "$265.00 par",
           "existencias": 4,
           "disponible": true,
           "imagen": "image660.webp"
@@ -6019,7 +6145,7 @@
           "codigo": "SC017",
           "nombre": "SABANITA",
           "talla": "ROSA JIRAFAROSA ARCOIRISROSA NUBESMORADO ARCOIRISMORADO JIRAFAMORADO NUBES",
-          "precio": "$160.00",
+          "precio": "$160.00 c/u",
           "existencias": 6,
           "disponible": true,
           "imagen": "image661.webp"
@@ -6043,8 +6169,8 @@
           "nombre": "CANGURERA GRIS OSO",
           "talla": "",
           "precio": "$565.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image663.webp"
         },
         {
@@ -6052,8 +6178,8 @@
           "nombre": "CANGURERA NEGRA OSO",
           "talla": "",
           "precio": "$565.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image664.webp"
         },
         {
@@ -6070,8 +6196,8 @@
           "nombre": "CANGURERA AZUL",
           "talla": "",
           "precio": "$365.00",
-          "existencias": 1,
-          "disponible": true,
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image666.webp"
         },
         {
@@ -6141,9 +6267,9 @@
           "codigo": "FC012",
           "nombre": "ANDADORNEGROAMARILLO",
           "talla": "",
-          "precio": "$200.00",
-          "existencias": 2,
-          "disponible": true,
+          "precio": "$200.00 c/u",
+          "existencias": 0,
+          "disponible": false,
           "imagen": "image674.webp"
         },
         {

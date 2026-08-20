@@ -8,7 +8,7 @@ Este archivo es el contexto persistente para cualquier agente (Claude, opencode,
 
 **MINI ME** — catálogo digital premium de ropa para bebé, experiencia tipo **libro/catálogo físico** con page-flip, mobile-first, 100% estático, desplegable en **GitHub Pages**.
 
-Fuente de datos única: `Productos.docx` (675 productos, 15 secciones).
+Fuente de datos única: `Productos.docx` (689 productos, 15 secciones).
 
 ## 2. Protocolo de trabajo obligatorio
 
@@ -53,6 +53,8 @@ Este proyecto opera bajo el protocolo **addv-web-app** (skill instalada). Reglas
 }
 ```
 
+> **Regla de precios/existencias (2026-08-20)**: el precio del catálogo = `sugerido`. Las existencias se leen del campo `final` (Precio final) contando **solo los `°` que no van seguidos de un número** (`°50`, `°65`, `°°47.5` = precios, se ignoran). Ej.: `1pz°`=1 · `2pz°°`=2 · `1pz°95`=0 · `2pz°30°`=1.
+
 ### 4.2 Secciones (prefijo de código → nombre)
 
 | Prefijo | Sección | Nº |
@@ -77,8 +79,9 @@ Este proyecto opera bajo el protocolo **addv-web-app** (skill instalada). Reglas
 
 - `SC015`: sin imagen, precio vacío.
 - Duplicados reales: `RA0031`, `Z050`, `APC017–028` → sufijo interno sin alterar ID original (`Z050-2`).
+- 14 productos nuevos del docx actualizado sin imagen (`C0039`, `RA0125-131`, `PN042`, `RO092-096`).
 - Talla+colores mezclados en una celda.
-- Campo `final` (°) = disponibilidad por variante, todo vacío.
+- Campo `final` en formato `Npz°PRECIO` (precios y existencias revueltos por celda); regla: contar solo `°` sin número.
 
 ### 4.4 Identidad visual (Stitch, HTML recibido)
 
@@ -96,7 +99,7 @@ minime_cat/
 ├── .github/workflows/deploy.yml   # CI/CD: lint + test + build + GitHub Pages
 ├── public/                        # Solo esto se despliega
 │   ├── assets/images/products/    # 2022 WebP (674×3: nativa, @2x, -thumb)
-│   ├── data/products.json         # JSON público del catálogo (675, 15 secciones)
+│   ├── data/products.json         # JSON público del catálogo (689, 15 secciones)
 │   ├── robots.txt                 # SEO
 │   ├── sitemap.xml                # SEO
 │   └── favicon.svg
@@ -122,7 +125,7 @@ minime_cat/
 ├── admin.html                     # Entrada del admin local (dev, excluida del build)
 ├── admin/                         # Local, NO se publica
 │   └── source/
-│       ├── products-private.json  # Datos extraídos (675 productos)
+│       ├── products-private.json  # Datos extraídos (689 productos)
 │       └── media/                 # 675 JPEG originales
 ├── scripts/
 │   ├── validate-products.mjs      # Valida integridad de datos
@@ -143,8 +146,11 @@ minime_cat/
 Pipeline de imágenes (WebP): resolución nativa + variante `@2x` (692px, detalle) + `-thumb` (160px, lazy/preload).
 Uso: `python3 scripts/optimize-images.py <media_dir> [--dry-run]`. Requiere Pillow (`python3 -m pip install Pillow`). Ejecutado: 2022 WebP en `public/assets/images/products/`.
 
+### `scripts/update-costos.py`
+Actualiza costos desde `Productos.docx` (2026-08-20): extrae las tablas y re-mapea por código `precio`, `sugerido` y `final`, conservando `nombre`/`talla`/`imagen`/`disponible`; agrega productos nuevos con placeholder; sección por prefijo de código. Uso: `python3 scripts/update-costos.py`. Regla de existencias documentada arriba (solo `°` sin número).
+
 ### `scripts/generate-products.mjs`
-Genera `public/data/products.json` desde `admin/source/products-private.json`. Expone solo campos del catálogo; preserva IDs (duplicados → sufijo `-2/-3`); agrupa por sección en orden estable; imagen como `<nombre>.webp`. Campo `disponible`: usa `p.disponible !== false` (default disponible; el admin lo puede marcar).
+Genera `public/data/products.json` desde `admin/source/products-private.json`. Expone solo campos del catálogo; preserva IDs (duplicados → sufijo `-2/-3`); agrupa por sección en orden estable; imagen como `<nombre>.webp`. Campo `disponible`: usa `p.disponible !== false` **y** `existencias > 0`. Existencias = contar solo `°` sin número en `final`.
 
 ### `scripts/validate-products.mjs`
 Valida integridad de datos: duplicados reales, sin imagen, precios vacíos, códigos/nombres ausentes, consistencia de secciones. Salida no-cero si hay errores graves. Estado actual: VALIDACIÓN OK (12 duplicados, 11 SINCOD, SC015 sin imagen/precio, APC020 warn).
@@ -159,7 +165,7 @@ Valida integridad de datos: duplicados reales, sin imagen, precios vacíos, cód
 | `npm run build` | Typecheck + build estático (`tsc -b && vite build`) | ✅ |
 | `npm run preview` | Preview del build | ✅ |
 | `npm run lint` | Lint (oxlint) | ✅ |
-| `npm test` / `npm run test:watch` | Pruebas unitarias (Vitest, 41 tests) | ✅ |
+| `npm test` / `npm run test:watch` | Pruebas unitarias (Vitest, 48 tests) | ✅ |
 | `npm run products:validate` | Validar productos | ✅ |
 | `npm run products:generate` | Generar JSON | ✅ |
 | `npm run images:optimize` | Optimizar imágenes (Pillow) | ✅ (2022 WebP generados) |
@@ -172,9 +178,9 @@ Valida integridad de datos: duplicados reales, sin imagen, precios vacíos, cód
 - Repo: `/Users/prolan/repos/minime_cat/`
 - IDE: IntelliJ (`.idea/`)
 - Git: remote `origin` → `https://github.com/addv-sites/minime.catalogo.git` (branch `main`).
-- Datos en repo: `admin/source/products-private.json` (675 productos) + `admin/source/media/` (675 JPEG).
+- Datos en repo: `admin/source/products-private.json` (689 productos) + `admin/source/media/` (675 JPEG).
 - Imágenes generadas: `public/assets/images/products/` (2022 WebP).
-- JSON público: `public/data/products.json` (675, 15 secciones).
+- JSON público: `public/data/products.json` (689, 15 secciones).
 - Temporal `/var/folders/.../opencode/minime/`: ya no es crítico (datos e imágenes están en el repo); puede limpiarse.
 - Regla global del usuario: **responder siempre en español**.
 - ⚠️ **Modelo del agente sin visión**: no puede inspeccionar imágenes directamente; usar `sips`/Python para análisis técnico o pedir revisión al usuario.

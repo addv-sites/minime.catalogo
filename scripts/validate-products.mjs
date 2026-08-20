@@ -32,7 +32,7 @@ function main() {
     if (!p.nombre) problems.push({ nivel: 'warn', msg: `${code || 'SINCOD'}: sin nombre`, p })
     if (!p.imagen) problems.push({ nivel: 'warn', msg: `${code}: sin imagen (placeholder en catálogo)`, p })
     if (!p.precio) problems.push({ nivel: 'warn', msg: `${code}: precio vacío`, p })
-    if (p.final && /[^\s°]/.test(p.final)) problems.push({ nivel: 'warn', msg: `${code}: marcador final inesperado`, p })
+    if (p.final && /[^0-9A-Za-z°.\s$]/.test(p.final)) problems.push({ nivel: 'warn', msg: `${code}: marcador final inesperado`, p })
   }
 
   const duplicados = [...seen].filter(([code, c]) => code !== '' && c > 1)

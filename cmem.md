@@ -1,7 +1,7 @@
 # CMEM — Memoria de Conversación MINI ME
 
 > **Propósito**: memoria comprimida de todo lo platicado con el usuario sobre el catálogo MINI ME, para que cualquier agente (Claude, opencode) retome el trabajo con contexto completo sin volver a preguntar.
-> **Última actualización**: 2026-08-18 (precios = sugerido, existencias desde `final`, docs + push)
+> **Última actualización**: 2026-08-20 (nuevos costos desde docx + regla existencias `°` sin número + filtro disponibles)
 
 ---
 
@@ -68,6 +68,17 @@ El usuario quiere un **catálogo digital premium de ropa de bebé (MINI ME) con 
 - UI: popup de detalle muestra "X piezas en existencia" (`detalle__existencias`, menta); tarjeta badge AGOTADO según `disponible`.
 - Tests actualizados (43 OK) · lint OK · build OK. JSON público verificado sin `sugerido`.
 
+### 16. Segmento I — Nuevos costos + regla de existencias (COMPLETADO, publicado)
+- **Productos.docx actualizado por el usuario** (2026-08-20): nueva columna `Precio final` con formato `Npz°PRECIO` (ej. `4pz°65°65°65°65`, `1pz°95`, `8pz°50 °°47.5 ... °`); respaldo en `Productos.back.docx`.
+- **REGLA NUEVA (dada por el usuario, vigente)**:
+  1. **Precio mostrado en catálogo = `precio sugerido`** (el costo final). Sin cambio.
+  2. **Existencias** = se leen del campo `precio final` (`final`), contando **SOLO los `°` que no van seguidos de un número**. Los `°` pegados a un número (`°50`, `°65`, `°°47.5`) son PRECIOS y se IGNORAN. Cada `°` solitario (o `°` seguido de `°`) = 1 existencia. Ej.: `1pz°` = 1; `2pz°°` = 2; `1pz°95` = 0; `2pz°30°` = 1.
+- **Implementación**:
+  - `scripts/update-costos.py` (nuevo): extrae `Productos.docx` → actualiza `precio/sugerido/final` por código (conserva nombre/talla/imagen/disponible); agrega productos nuevos con imagen placeholder; fallback de sección por prefijo de código.
+  - `contarExistencias` actualizado con la regla en `generate-products.mjs` y en el admin (`AdminApp.tsx`); validación de `final` relajada en `validate-products.mjs`.
+  - **Filtro "Ver solo disponibles"** (checkbox en cabecera): `src/utils/filtros.ts` (`soloDisponibles`), `App.tsx` con `key` para remontar el libro, CSS. Tests: `filtros.test.ts` + test del toggle.
+- **Resultado publicado**: 689 productos · 15 secciones · 842 existencias · **278 AGOTADO (≈40%)** · 15 sin imagen (14 nuevos + SC015). 10 cambios REALES de precio (APC020 $3→$25, RA0115 $350→$130, APC022 $134→$30, APC019 $10→$35, RA0031 $295→$270, etc.). 48 tests OK · lint OK · build OK.
+
 ### 15. Segmento H — Portada con portada.png + og-image (completado)
 - **Portada**: `portada.png` (1254×1254, transparencia, aportada por el usuario) como **fondo completo** de la portada → optimizada a `src/assets/portada.webp` (~132 KB, RGBA) con `object-fit: cover`; texto MINI ME/tagline y gradiente rosa de respaldo con `z-index` encima. Se retiró `logo.jpg`/`portada-logo.webp`.
 - **OG image**: `public/og-image.png` (1280×640, aportada por el usuario) → meta `og:image` + `twitter:image` (card `summary_large_image`) con URL absoluta del sitio publicado.
@@ -90,6 +101,8 @@ El usuario quiere un **catálogo digital premium de ropa de bebé (MINI ME) con 
 | 12 | **Precio del catálogo = `precio sugerido`** (el real) |
 | 13 | **Existencias** = nº de `°` en `final` (texto numérico → número) |
 | 14 | **AGOTADO si `existencias = 0`** (además de `disponible=false`) |
+| 15 | **Existencias = solo `°` sin número** en `final` (`°NNN` = precio, se ignora) |
+| 16 | **Filtro "Ver solo disponibles"** en cabecera (book se re-pagina) |
 
 ## Pendientes / bloqueos
 
@@ -107,9 +120,10 @@ El usuario quiere un **catálogo digital premium de ropa de bebé (MINI ME) con 
 | `npm run build` | Typecheck (`tsc -b`) + build estático |
 | `npm run preview` | Preview del build |
 | `npm run lint` | oxlint |
-| `npm test` / `npm run test:watch` | Vitest (43 tests) |
+| `npm test` / `npm run test:watch` | Vitest (48 tests) |
 | `npm run products:validate` | Validar `products-private.json` |
 | `npm run products:generate` | Generar `public/data/products.json` |
+| `python3 scripts/update-costos.py` | Actualizar costos desde `Productos.docx` |
 | `npm run images:optimize` | Optimizar imágenes (requiere Pillow) |
 | `npm run admin` | Admin local → `http://localhost:5173/admin.html` |
 

@@ -16,11 +16,18 @@ interface ProductoPrivado {
 const DATA_URL = './admin/source/products-private.json'
 
 function contarExistencias(p: ProductoPrivado): number {
+  // Regla: se cuentan SOLO los '°' que no van seguidos de un dígito.
+  // '°50', '°65', '°°47.5' → los '°' pegados a un número son precios, se ignoran.
   const final = (p.final || '').trim()
   if (!final) return 0
-  if (final.includes('°')) return final.split('°').length - 1
-  const m = final.match(/\d+/)
-  return m ? Number(m[0]) : 0
+  let n = 0
+  for (let i = 0; i < final.length; i++) {
+    if (final[i] === '°') {
+      const siguiente = final[i + 1]
+      if (!siguiente || !/[0-9]/.test(siguiente)) n++
+    }
+  }
+  return n
 }
 
 export function AdminApp() {

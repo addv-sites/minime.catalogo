@@ -17,5 +17,9 @@ build/
 # Tests / cobertura
 coverage/
 
+# Python
+__pycache__/
+*.pyc
+
 # Temas del editor
 *.tsbuildinfo

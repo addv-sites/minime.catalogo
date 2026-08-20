@@ -1,7 +1,7 @@
 # Project State — MINI ME Catálogo Digital
 
-> Última actualización: 2026-08-18 (catálogo libro publicado en GitHub Pages)
-> Estado general: **En producción — catálogo libro page-flip + búsqueda + SEO + admin local + CI/CD operativos**
+> Última actualización: 2026-08-20 (nuevos costos desde `Productos.docx` + regla de existencias + filtro "Ver solo disponibles")
+> Estado general: **En producción — catálogo libro page-flip + búsqueda + filtro disponibles + SEO + admin local + CI/CD operativos**
 
 ---
 
@@ -16,12 +16,13 @@
 | `claude.md` | ✅ Contexto operativo del repo |
 | `cmem.md` | ✅ Memoria de conversación optimizada |
 | `inicia.sh` | ✅ Script de arranque del entorno local (`./inicia.sh` → instala deps + `npm run dev`) |
-| `admin/source/products-private.json` | ✅ Datos privados (675 productos, 15 secciones) |
+| `admin/source/products-private.json` | ✅ Datos privados (689 productos, 15 secciones) |
 | `admin/source/media/` | ✅ 675 JPEG originales |
 | `scripts/optimize-images.py` | ✅ Pipeline WebP (nativo / @2x / thumb) |
 | `scripts/validate-products.mjs` | ✅ Validación de integridad de datos |
-| `scripts/generate-products.mjs` | ✅ Generador de `public/data/products.json` (lee campo `disponible`) |
-| `public/data/products.json` | ✅ JSON público (675 productos, 15 secciones) |
+| `scripts/generate-products.mjs` | ✅ Generador de `public/data/products.json` (regla existencias: `°` sin número) |
+| `scripts/update-costos.py` | ✅ Actualiza costos (`precio/sugerido/final`) desde `Productos.docx` |
+| `public/data/products.json` | ✅ JSON público (689 productos, 15 secciones) |
 | `public/assets/images/products/` | ✅ 2022 WebP (674 productos × 3 variantes) |
 | `public/robots.txt` | ✅ Robots |
 | `public/sitemap.xml` | ✅ Sitemap |
@@ -50,13 +51,14 @@
 
 ```text
 admin/source/products-private.json  ──>  scripts/generate-products.mjs  ──>  public/data/products.json
-     (675 productos, datos internos)         (JSON público mínimo, duplicados con sufijo -2/-3)
+     (689 productos, datos internos)         (JSON público mínimo, duplicados con sufijo -2/-3)
 ```
 
+- **Actualización de costos (2026-08-20)**: `scripts/update-costos.py` lee `Productos.docx` y actualiza por código `precio`, `sugerido` y `final` (conserva `nombre`/`talla`/`imagen`/`disponible`); agrega productos nuevos con placeholder; sección por prefijo de código (fallback).
 - Reglas del generador: expone solo `codigo`, `nombre`, `talla`, `precio`, `existencias`, `disponible`, `imagen`; preserva IDs originales (duplicados → sufijo `-2/-3`); agrupa por sección en orden estable; imagen como `<nombre>.webp`.
 - Campo `precio` = valor real del campo privado `sugerido` (precio del catálogo); si `sugerido` está vacío se usa `precio` como fallback.
-- Campo `existencias`: se deriva del campo privado `final` contando los caracteres `°` (ej. `°°°°` = 4). Caso texto `"60 bolsitas"` → se extrae el número (60). Total: 1542 existencias.
-- Campo `disponible`: `disponible !== false` **y** `existencias > 0` (14 productos quedan AGOTADO, los SINCOD sin `final`).
+- **Regla de existencias (nueva)**: se cuentan **SOLO los `°` que no van seguidos de un número** del campo privado `final` (columna "Precio final"). Los `°` pegados a un número (`°50`, `°65`, `°°47.5`) son PRECIOS y se ignoran. Ej.: `1pz°` = 1 · `2pz°°` = 2 · `1pz°95` = 0 · `2pz°30°` = 1. Total: **842 existencias**.
+- Campo `disponible`: `disponible !== false` **y** `existencias > 0` (**278 productos AGOTADO** ≈ 40%).
 
 ### 3.2 Imágenes
 
@@ -69,11 +71,11 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 
 ### 3.3 Resultados de validación (`npm run products:validate`)
 
-- 675 productos · 15 secciones · **VALIDACIÓN OK**.
-- 12 códigos duplicados reales (sufijo): `RA0031`, `Z050` (x3), `APC017`, `APC019`, `APC020`, `APC021`, `APC022`, `APC024`, `APC025`, `APC026`, `APC027`, `APC028`.
+- 689 productos · 15 secciones · **VALIDACIÓN OK**.
+- 12 códigos duplicados reales (sufijo): `RA0031`, `Z050` (x3), `APC017`–`APC028` (varios).
 - 11 productos sin código → `SINCOD-*` (image40, 167–173, 256, 360–364).
-- `SC015`: sin imagen y precio vacío (placeholder).
-- `APC020`: marcador `final` inesperado (warn, no bloquea).
+- 15 productos sin imagen (placeholder): `SC015` + 14 nuevos del docx (`C0039`, `RA0125-131`, `PN042`, `RO092-096`).
+- `RA0110`: conservado (no aparece en el docx nuevo).
 
 ## 4. Catálogo libro — implementado y publicado
 
@@ -95,25 +97,31 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 - Combobox accesible: resultados con teclado (flechas + Enter + Escape), lista `role="listbox"`.
 - Al seleccionar → salto a la página del producto (`indiceProducto` + `FlipApi.turnToPage`).
 
-### 4.3 SEO
+### 4.3 Filtro "Ver solo disponibles" (`src/utils/filtros.ts` + `App.tsx`)
+
+- Checkbox accesible en la cabecera: filtra secciones/productos con `disponible = true` (descarta secciones vacías) y re-pagina el libro (remount con `key`).
+- `meta.totalProductos`/`totalSecciones` se recalculan con los valores filtrados; la búsqueda opera sobre el catálogo visible.
+- Motivo: ~40% de productos quedan AGOTADO (regla de existencias); el filtro permite recorrer el catálogo sin agotados.
+
+### 4.4 SEO
 
 - `index.html`: `lang="es"`, meta description, theme-color `#994158`, canonical `https://addv-sites.github.io/minime.catalogo/`, OG (title/description/image/url/type), Twitter Card (`summary_large_image`), JSON-LD WebSite. **Imagen de compartir**: `public/og-image.png` (1280×640, OG/Twitter).
 - `robots.txt` y `sitemap.xml`.
 
-### 4.4 Accesibilidad (WCAG AA)
+### 4.5 Accesibilidad (WCAG AA)
 
 - Foco visible (`:focus-visible`, outlines 3px).
 - Contraste: menta texto `#3d7d79` (4.76:1), primario `#994158` (6.46:1), tinta sobre superficie (9.74:1).
 - ARIA: `aria-live` en indicador de página, `role="dialog"` en índice, `role="listbox"` en búsqueda, `aria-label` en botones.
 - Touch targets ≥ 44px; alt text descriptivo en imágenes; teclado completo.
 
-### 4.5 Rendimiento
+### 4.6 Rendimiento
 
 - Lazy loading (`loading="lazy"` + `decoding="async"`) en tarjetas; `preload` de las primeras imágenes.
 - srcset `-thumb` para móvil, nativa, `@2x` para detalle.
 - Bundle JS ~246 kB (74 kB gzip) → verde en Lighthouse para CWV.
 
-### 4.6 Pie de página (`App.tsx` + `App.css`)
+### 4.7 Pie de página (`App.tsx` + `App.css`)
 
 - Franja compacta fija al pie del layout 100svh (el libro se ajusta con `flex:1`).
 - Texto: **"Catálogo hecho por ADDV"** + enlace de contacto `mailto:info@addv.mx`.
@@ -129,7 +137,7 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 
 ## 6. CI/CD — GitHub Actions (`deploy.yml`)
 
-- Dispara en push a `main`. Pasos: checkout, setup Node, install, **lint**, **test** (34 tests), **build**, upload artifact, deploy GitHub Pages (`actions/deploy-pages`).
+- Dispara en push a `main`. Pasos: checkout, setup Node, install, **lint**, **test** (48 tests), **build**, upload artifact, deploy GitHub Pages (`actions/deploy-pages`).
 - Verificado: primer deploy exitoso (2026-08-18).
 
 ## 7. Decisiones ya tomadas

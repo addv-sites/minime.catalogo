@@ -3,11 +3,13 @@ import { cargarCatalogo, type Catalogo } from './data/catalog'
 import { Libro, type FlipApi } from './components/Libro'
 import { Busqueda } from './components/Busqueda'
 import { indiceProducto, paginarCatalogo } from './utils/paginacion'
+import { soloDisponibles } from './utils/filtros'
 import './App.css'
 
 export default function App() {
   const [catalogo, setCatalogo] = useState<Catalogo | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [soloDisponiblesActivo, setSoloDisponiblesActivo] = useState(false)
   const apiLibro = useRef<FlipApi | null>(null)
 
   useEffect(() => {
@@ -16,7 +18,15 @@ export default function App() {
       .catch((e: unknown) => setError(e instanceof Error ? e.message : 'Error desconocido'))
   }, [])
 
-  const paginas = useMemo(() => (catalogo ? paginarCatalogo(catalogo.secciones) : []), [catalogo])
+  const catalogoVisible = useMemo(
+    () => (catalogo && soloDisponiblesActivo ? soloDisponibles(catalogo) : catalogo),
+    [catalogo, soloDisponiblesActivo],
+  )
+
+  const paginas = useMemo(
+    () => (catalogoVisible ? paginarCatalogo(catalogoVisible.secciones) : []),
+    [catalogoVisible],
+  )
 
   if (error) {
     return (
@@ -27,7 +37,7 @@ export default function App() {
     )
   }
 
-  if (!catalogo) {
+  if (!catalogo || !catalogoVisible) {
     return (
       <main className="app">
         <h1 className="app__brand">MINI ME</h1>
@@ -45,14 +55,22 @@ export default function App() {
     <main className="app">
       <header className="app__barra">
         <div className="app__cabecera">
-          <p className="app__brand">{catalogo.meta.marca}</p>
+          <p className="app__brand">{catalogoVisible.meta.marca}</p>
           <p className="app__totales">
-            {catalogo.meta.totalProductos} productos · {catalogo.meta.totalSecciones} secciones
+            {catalogoVisible.meta.totalProductos} productos · {catalogoVisible.meta.totalSecciones} secciones
           </p>
         </div>
-        <Busqueda secciones={catalogo.secciones} onSeleccionar={irAProducto} />
+        <label className="app__filtro">
+          <input
+            type="checkbox"
+            checked={soloDisponiblesActivo}
+            onChange={(e) => setSoloDisponiblesActivo(e.target.checked)}
+          />
+          <span>Ver solo disponibles</span>
+        </label>
+        <Busqueda secciones={catalogoVisible.secciones} onSeleccionar={irAProducto} />
       </header>
-      <Libro catalogo={catalogo} apiRef={apiLibro} />
+      <Libro key={soloDisponiblesActivo ? 'disponibles' : 'catalogo'} catalogo={catalogoVisible} apiRef={apiLibro} />
       <footer className="app__pie">
         <p className="app__pie-texto">Catálogo hecho por ADDV</p>
         <a className="app__pie-enlace" href="https://addv.mx" target="_blank" rel="noopener noreferrer">
