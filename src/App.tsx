@@ -55,6 +55,9 @@ export default function App() {
       <Libro catalogo={catalogo} apiRef={apiLibro} />
       <footer className="app__pie">
         <p className="app__pie-texto">Catálogo hecho por ADDV</p>
+        <a className="app__pie-enlace" href="https://addv.mx" target="_blank" rel="noopener noreferrer">
+          Sitio web addv.mx
+        </a>
         <a className="app__pie-enlace" href="mailto:info@addv.mx">
           Contacto info@addv.mx
         </a>
