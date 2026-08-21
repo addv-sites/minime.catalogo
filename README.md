@@ -117,12 +117,13 @@ Archivo Word (~20 MB) en la raíz del proyecto, fuente única y verdadera de pro
 ## El catálogo (funcionalidades implementadas)
 
 - **Libro page-flip** con `react-pageflip`: portada (con imagen `portada.png` de fondo, WebP ~132 KB) → introducción → páginas de sección + productos (6 por página) → contraportada.
-- **Imagen al compartir**: `public/og-image.png` (1280×640) en metas OG y Twitter Card para previsualización del link en GitHub Pages.
+- **Imagen al compartir**: `public/og-image-v2.jpg` (1200×630, desde `ic.png`) en metas OG y Twitter Card para previsualización del link en GitHub Pages. El sufijo `-v2` evita la caché de WhatsApp/Facebook (cache-busting).
 - **Navegación**: botones ‹ ›, teclado (flechas; Escape cierra el índice; no interfiere al escribir), swipe/drag/tap, índice de secciones.
 - **Búsqueda**: por código, nombre o talla; con salto directo a la página del producto.
 - **Filtro "Ver solo disponibles"**: checkbox en la cabecera que muestra solo productos disponibles (re-pagina el libro) — útil porque ~40% del catálogo está AGOTADO.
 - **AGOTADO**: badge claro cuando `existencias = 0` o no disponible; el producto no se elimina.
-- **Detalle de producto (popup)**: al tocar/hacer clic en una tarjeta se abre un diálogo accesible con imagen `@2x`, talla completa, precio real, **existencias** y sección; permite **zoom con dos dedos**. Cierra por botón, Escape o clic en el fondo.
+- **Detalle de producto (popup)**: al tocar/hacer clic en una tarjeta se abre un diálogo accesible con imagen `@2x`, talla completa, precio real, **existencias** y sección; permite **zoom con dos dedos** (1×–3×, doble toque alterna 1×↔2.5×). Cierra por botón, Escape o clic en el fondo.
+- **Zoom en el libro**: pinch con dos dedos sobre las páginas (1×–3×), pan con un dedo ampliado y doble toque para restablecer; el volteo de páginas con un dedo funciona igual.
 - **Móvil**: 6 productos por página con márgenes compactos para que precios y detalles no se corten.
 - **Imágenes**: WebP con srcset (`-thumb` lazy / nativa / `@2x` detalle).
 - **Accesibilidad (WCAG AA)**: foco visible, contraste corregido, ARIA (`aria-live`, `role="dialog"`, `role="listbox"`), alt text, touch targets ≥ 44px, `prefers-reduced-motion`.

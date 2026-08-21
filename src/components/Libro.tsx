@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import HTMLFlipBook from 'react-pageflip'
 import type { Catalogo } from '../data/catalog'
 import { indiceSeccion, paginarCatalogo, type Pagina } from '../utils/paginacion'
+import { usePinchZoom } from '../hooks/usePinchZoom'
 import { Portada } from './Portada'
 import { Introduccion } from './Introduccion'
 import { PaginaSeccion } from './PaginaSeccion'
@@ -40,6 +41,7 @@ function ContenidoPagina({ pagina }: { pagina: Pagina }) {
 export function Libro({ catalogo, apiRef }: Props) {
   const paginas = useMemo(() => paginarCatalogo(catalogo.secciones), [catalogo])
   const flipRef = useRef<FlipHandle | null>(null)
+  const { ref: refZoom } = usePinchZoom()
   const [indiceActual, setIndiceActual] = useState(0)
   const [indiceVisible, setIndiceVisible] = useState(false)
   const [reducedMotion] = useState(() =>
@@ -107,7 +109,8 @@ export function Libro({ catalogo, apiRef }: Props) {
   return (
     <section className="libro" aria-label="Catálogo MINI ME">
       <div className="libro__escena">
-        <HTMLFlipBook
+        <div className="libro__zoom" ref={refZoom}>
+          <HTMLFlipBook
           startPage={0}
           size="stretch"
           width={360}
@@ -139,7 +142,8 @@ export function Libro({ catalogo, apiRef }: Props) {
               <ContenidoPagina pagina={pagina} />
             </div>
           ))}
-        </HTMLFlipBook>
+          </HTMLFlipBook>
+        </div>
       </div>
 
       <div className="libro__controles">

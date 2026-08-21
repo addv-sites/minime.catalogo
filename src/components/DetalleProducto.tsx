@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import type { Producto, Seccion } from '../data/catalog'
 import { normalizarPrecio } from '../utils/format'
 import { rutaImagen, srcsetImagen } from '../data/catalog'
+import { usePinchZoom } from '../hooks/usePinchZoom'
 
 interface Props {
   producto: Producto
@@ -12,6 +13,7 @@ interface Props {
 
 export function DetalleProducto({ producto, seccion, onCerrar }: Props) {
   const refCerrar = useRef<HTMLButtonElement>(null)
+  const { ref: refZoom } = usePinchZoom()
   const nombre = producto.nombre || 'Producto sin nombre'
   const imagen = rutaImagen(producto.imagen, 'detalle')
   const srcset = srcsetImagen(producto.imagen)
@@ -58,7 +60,7 @@ export function DetalleProducto({ producto, seccion, onCerrar }: Props) {
         >
           ✕
         </button>
-        <div className="detalle__imagen-wrap">
+        <div className="detalle__imagen-wrap" ref={refZoom}>
           {imagen ? (
             <img
               className="detalle__imagen"

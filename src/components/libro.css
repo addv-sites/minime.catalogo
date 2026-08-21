@@ -26,6 +26,18 @@
   width: 100%;
 }
 
+/* Contenedor ampliable con pinch (dos dedos); recortado por .libro__escena */
+.libro__zoom {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  will-change: transform;
+}
+
 /* Página base: como hoja de catálogo */
 .pagina {
   width: 100%;
@@ -643,6 +655,8 @@
   border-radius: var(--radius-sm);
   overflow: hidden;
   background: var(--color-white);
+  touch-action: none;
+  will-change: transform;
 }
 
 .detalle__imagen {
