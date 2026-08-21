@@ -26,6 +26,8 @@
 | `public/assets/images/products/` | ✅ 2022 WebP (674 productos × 3 variantes) |
 | `public/robots.txt` | ✅ Robots |
 | `public/sitemap.xml` | ✅ Sitemap |
+| `public/og-image-v2.jpg` | ✅ Imagen al compartir (1200×630, desde `ic.png`; v2 = cache-busting) |
+| `src/utils/zoom.ts` + `src/hooks/usePinchZoom.ts` | ✅ Zoom pinch 1–3× (popup y libro) |
 | `.github/workflows/deploy.yml` | ✅ CI/CD: lint + test + build + deploy GitHub Pages |
 | `src/` | ✅ App catálogo libro completa (componentes, utils, admin, tests) |
 | `admin.html` | ✅ Admin local (solo dev, excluido del build) |
@@ -120,13 +122,21 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 
 - Lazy loading (`loading="lazy"` + `decoding="async"`) en tarjetas; `preload` de las primeras imágenes.
 - srcset `-thumb` para móvil, nativa, `@2x` para detalle.
-- Bundle JS ~246 kB (74 kB gzip) → verde en Lighthouse para CWV.
+- Bundle JS ~253 kB (75 kB gzip) → verde en Lighthouse para CWV.
 
 ### 4.7 Pie de página (`App.tsx` + `App.css`)
 
 - Franja compacta fija al pie del layout 100svh (el libro se ajusta con `flex:1`).
 - Texto: **"Catálogo hecho por ADDV"** + enlace de contacto `mailto:info@addv.mx`.
 - Pendiente: reemplazar el texto por el logo de la empresa cuando esté disponible.
+
+### 4.8 Zoom pinch (popup y libro) — `src/utils/zoom.ts` + `src/hooks/usePinchZoom.ts`
+
+- Gestos: pinch a 2 dedos 1×–3× centrado en el punto medio del gesto; pan con 1 dedo mientras está ampliado (limitado a bordes); doble toque/clic alterna 1×↔2.5×; `Ctrl`+rueda en desktop (pinch de trackpad incluido); regreso suave a 1× al soltar bajo 1.05×.
+- **Popup**: el hook va sobre `.detalle__imagen-wrap` (`touch-action: none` solo en el área de imagen; el texto del panel sigue scrolleable).
+- **Libro**: hook sobre `.libro__zoom` (div interno de `.libro__escena`, que recorta con `overflow: hidden`). Los gestos de 2 dedos y el pan ampliado se interceptan en **fase captura** con `preventDefault`+`stopPropagation` → react-pageflip no los ve; con 1 dedo y escala 1× el volteo funciona intacto.
+- Detalles técnicos: listeners nativos `{ passive: false }` (los sintéticos de React son pasivos), escritura directa de `transform` sin re-renders, coordenadas de caja corregidas por la traslación actual, `prefers-reduced-motion` sin transición de regreso. Solo se anima `transform`.
+- Tests: `src/utils/zoom.test.ts` (15 casos sobre las funciones puras). Mock de `matchMedia` añadido a `src/test/setup.ts` para jsdom.
 
 ## 5. Admin local (`admin.html`, SOLO dev)
 
@@ -138,7 +148,7 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 
 ## 6. CI/CD — GitHub Actions (`deploy.yml`)
 
-- Dispara en push a `main`. Pasos: checkout, setup Node, install, **lint**, **test** (48 tests), **build**, upload artifact, deploy GitHub Pages (`actions/deploy-pages`).
+- Dispara en push a `main`. Pasos: checkout, setup Node, install, **lint**, **test** (63 tests), **build**, upload artifact, deploy GitHub Pages (`actions/deploy-pages`).
 - Verificado: primer deploy exitoso (2026-08-18).
 
 ## 7. Decisiones ya tomadas

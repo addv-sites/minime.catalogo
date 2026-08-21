@@ -102,6 +102,7 @@ minime_cat/
 │   ├── data/products.json         # JSON público del catálogo (689, 15 secciones)
 │   ├── robots.txt                 # SEO
 │   ├── sitemap.xml                # SEO
+│   ├── og-image-v2.jpg            # Imagen al compartir (1200×630; versionada por cache-busting)
 │   └── favicon.svg
 ├── src/                           # Frontend (Vite + React + TS)
 │   ├── data/catalog.ts            # Tipos + loader + rutaImagen/srcsetImagen
@@ -166,7 +167,7 @@ Valida integridad de datos: duplicados reales, sin imagen, precios vacíos, cód
 | `npm run build` | Typecheck + build estático (`tsc -b && vite build`) | ✅ |
 | `npm run preview` | Preview del build | ✅ |
 | `npm run lint` | Lint (oxlint) | ✅ |
-| `npm test` / `npm run test:watch` | Pruebas unitarias (Vitest, 48 tests) | ✅ |
+| `npm test` / `npm run test:watch` | Pruebas unitarias (Vitest, 63 tests) | ✅ |
 | `npm run products:validate` | Validar productos | ✅ |
 | `npm run products:generate` | Generar JSON | ✅ |
 | `npm run images:optimize` | Optimizar imágenes (Pillow) | ✅ (2022 WebP generados) |

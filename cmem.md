@@ -79,6 +79,15 @@ El usuario quiere un **catálogo digital premium de ropa de bebé (MINI ME) con 
   - **Filtro "Ver solo disponibles"** (checkbox en cabecera): `src/utils/filtros.ts` (`soloDisponibles`), `App.tsx` con `key` para remontar el libro, CSS. Tests: `filtros.test.ts` + test del toggle.
 - **Resultado publicado**: 689 productos · 15 secciones · 842 existencias · **278 AGOTADO (≈40%)** · 15 sin imagen (14 nuevos + SC015). 10 cambios REALES de precio (APC020 $3→$25, RA0115 $350→$130, APC022 $134→$30, APC019 $10→$35, RA0031 $295→$270, etc.). 48 tests OK · lint OK · build OK.
 
+### 17. Segmento J — og-image v2 (cache-busting) + zoom pinch (COMPLETADO, publicado 2026-08-20)
+- **og-image v2** (`a9a5d9c`): el usuario reportó que al compartir el link seguía saliendo la imagen anterior. Diagnóstico: el deploy SÍ tenía `ic.png` recortada a 1200×630 (verificado por MD5 y comparación píxel a píxel); la causa era la **caché de plataformas sociales** (WhatsApp/Facebook guardan la OG image por URL). Solución estándar: **cache-busting** → nuevo archivo `public/og-image-v2.jpg` + metas `og:image`/`twitter:image` actualizadas. De paso: PNG de 1 MB → **JPEG de 130 KB** (recorte central LANCZOS desde `ic.png` 1536×1024). Se eliminaron `og-image.png` (raíz y `public/`).
+- **Zoom pinch en popup y libro** (`ed3f1f5`): el popup decía "Puedes hacer zoom con dos dedos" pero NO había implementación (`touch-action: pan-x pan-y` bloqueaba el gesto nativo). Nuevo:
+  - `src/utils/zoom.ts`: funciones puras (límites escala 1–3×, límites de pan, `puntoEnCaja`, `aplicarZoomHacia`, `transformarCss`, `esDobleToque`). 15 tests.
+  - `src/hooks/usePinchZoom.ts`: pinch centrado en el gesto, pan con 1 dedo ampliado, doble toque/clic alterna 1×↔2.5×, Ctrl+rueda desktop, regreso suave bajo 1.05×, `prefers-reduced-motion` sin transición. Listeners nativos `{passive:false}` en fase captura; solo anima `transform`.
+  - Popup: hook sobre `.detalle__imagen-wrap`. Libro: hook sobre `.libro__zoom` (dentro de `.libro__escena` con `overflow:hidden`); gestos de 2 dedos interceptados antes que react-pageflip → 1 dedo sigue hojeando.
+  - `src/test/setup.ts`: mock de `matchMedia` para jsdom.
+- **Verificación**: lint OK · **63 tests OK** · build OK · deploys exitosos (`a9a5d9c`, `ed3f1f5`, `8b670c7`). Bundle: ~253 kB (~75 kB gzip).
+
 ### 15. Segmento H — Portada con portada.png + og-image (completado)
 - **Portada**: `portada.png` (1254×1254, transparencia, aportada por el usuario) como **fondo completo** de la portada → optimizada a `src/assets/portada.webp` (~132 KB, RGBA) con `object-fit: cover`; texto MINI ME/tagline y gradiente rosa de respaldo con `z-index` encima. Se retiró `logo.jpg`/`portada-logo.webp`.
 - **OG image**: `public/og-image-v2.jpg` (1200×630, generada desde `ic.png`; PNG de 1 MB → JPEG de 130 KB; sufijo `-v2` para cache-busting) → meta `og:image` + `twitter:image` (card `summary_large_image`) con URL absoluta del sitio publicado.
@@ -103,6 +112,8 @@ El usuario quiere un **catálogo digital premium de ropa de bebé (MINI ME) con 
 | 14 | **AGOTADO si `existencias = 0`** (además de `disponible=false`) |
 | 15 | **Existencias = solo `°` sin número** en `final` (`°NNN` = precio, se ignora) |
 | 16 | **Filtro "Ver solo disponibles"** en cabecera (book se re-pagina) |
+| 17 | **OG image versionada por nombre de archivo** (`og-image-v2.jpg`): las plataformas sociales cachean por URL; cambiar nombre = refresco garantizado |
+| 18 | **Zoom pinch reutilizable** (`usePinchZoom`): 1–3×, doble toque alterna, en popup (imagen) y libro; 2 dedos interceptados en captura para no voltear páginas |
 
 ## Pendientes / bloqueos
 
@@ -120,7 +131,7 @@ El usuario quiere un **catálogo digital premium de ropa de bebé (MINI ME) con 
 | `npm run build` | Typecheck (`tsc -b`) + build estático |
 | `npm run preview` | Preview del build |
 | `npm run lint` | oxlint |
-| `npm test` / `npm run test:watch` | Vitest (48 tests) |
+| `npm test` / `npm run test:watch` | Vitest (63 tests) |
 | `npm run products:validate` | Validar `products-private.json` |
 | `npm run products:generate` | Generar `public/data/products.json` |
 | `python3 scripts/update-costos.py` | Actualizar costos desde `Productos.docx` |

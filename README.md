@@ -24,6 +24,7 @@ El sitio es **100% estático** y está publicado en **GitHub Pages**, sin backen
 | Catálogo libro (page-flip) | ✅ Portada → introducción → secciones → contraportada |
 | Búsqueda / estados AGOTADO | ✅ Búsqueda accesible + badge AGOTADO por producto |
 | Filtro "Ver solo disponibles" | ✅ Checkbox en cabecera (re-pagina el libro) |
+| Zoom pinch (2 dedos) | ✅ Popup de detalle y libro (1×–3×, doble toque, Ctrl+rueda) |
 | Administrador local | ✅ `admin.html` (solo dev, excluido del build) |
 | SEO | ✅ Meta, OG, canonical, sitemap, robots.txt, structured data |
 | GitHub Actions (CI/CD) | ✅ lint + test + build + deploy a GitHub Pages |
@@ -41,7 +42,7 @@ El sitio es **100% estático** y está publicado en **GitHub Pages**, sin backen
 | `npm run build` | Typecheck (`tsc -b`) + build estático en `dist/` |
 | `npm run preview` | Preview del build |
 | `npm run lint` | Lint (oxlint) |
-| `npm test` | Pruebas unitarias (Vitest, 48 tests) |
+| `npm test` | Pruebas unitarias (Vitest, 63 tests) |
 | `npm run test:watch` | Tests en watch |
 | `npm run products:validate` | Validar `admin/source/products-private.json` |
 | `npm run products:generate` | Generar `public/data/products.json` |
@@ -165,6 +166,7 @@ minime_cat/
 │   ├── data/products.json         # JSON público del catálogo (689, 15 secciones)
 │   ├── robots.txt                 # SEO
 │   ├── sitemap.xml                # SEO
+│   ├── og-image-v2.jpg            # Imagen al compartir (1200×630, desde ic.png)
 │   └── favicon.svg
 │
 ├── src/                           # Frontend (Vite + React + TS)
@@ -173,6 +175,8 @@ minime_cat/
 │   ├── utils/paginacion.ts        # paginarCatalogo, indiceSeccion, indiceProducto
 │   ├── utils/filtros.ts           # soloDisponibles (filtro "Ver solo disponibles")
 │   ├── utils/busqueda.ts          # buscarProductos, normalizarTexto
+│   ├── utils/zoom.ts              # Funciones puras del zoom pinch (escala, pan, foco)
+│   ├── hooks/usePinchZoom.ts      # Pinch 2 dedos + pan + doble toque + Ctrl+rueda
 │   ├── components/                # Libro, Portada, Sección, Productos, Tarjeta, Detalle, Búsqueda, Contraportada
 │   ├── admin/                     # Admin local (dev) — NO entra al build
 │   ├── styles/tokens.css          # Tokens de identidad Stitch
