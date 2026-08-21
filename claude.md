@@ -114,6 +114,7 @@ minime_cat/
 │   │   ├── Portada/Introduccion/Contraportada.tsx
 │   │   ├── PaginaSeccion.tsx / PaginaProductos.tsx / TarjetaProducto.tsx
 │   │   ├── DetalleProducto.tsx    # Popup de detalle (diálogo, zoom 2 dedos, portado a body)
+│   │   ├── ../hooks/usePinchZoom.ts # Pinch 1–3× + pan + doble toque + Ctrl+rueda (popup y libro)
 │   │   ├── Busqueda.tsx           # Combobox accesible
 │   │   └── libro.css
 │   ├── admin/                     # Admin local (dev) — NO entra al build
