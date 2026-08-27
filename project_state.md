@@ -1,7 +1,7 @@
 # Project State — MINI ME Catálogo Digital
 
-> Última actualización: 2026-08-20 (nuevos costos desde `Productos.docx` + regla de existencias + filtro "Ver solo disponibles")
-> Estado general: **En producción — catálogo libro page-flip + búsqueda + filtro disponibles + SEO + admin local + CI/CD operativos**
+> Última actualización: 2026-08-26 (toggle Solo disponibles junto a MINI ME + portada responsive centrada sin cortes ni invasión)
+> Estado general: **En producción — catálogo libro page-flip + búsqueda + filtro toggle + portada responsive + SEO + admin local + CI/CD operativos**
 
 ---
 
@@ -100,37 +100,45 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 - Combobox accesible: resultados con teclado (flechas + Enter + Escape), lista `role="listbox"`.
 - Al seleccionar → salto a la página del producto (`indiceProducto` + `FlipApi.turnToPage`).
 
-### 4.3 Filtro "Ver solo disponibles" (`src/utils/filtros.ts` + `App.tsx`)
+### 4.3 Filtro "Ver solo disponibles" (`src/utils/filtros.ts` + `App.tsx` + `App.css`)
 
-- Checkbox accesible en la cabecera: filtra secciones/productos con `disponible = true` (descarta secciones vacías) y re-pagina el libro (remount con `key`).
-- `meta.totalProductos`/`totalSecciones` se recalculan con los valores filtrados; la búsqueda opera sobre el catálogo visible.
-- Motivo: ~40% de productos quedan AGOTADO (regla de existencias); el filtro permite recorrer el catálogo sin agotados.
+- **Toggle switch premium** en la cabecera (reemplaza checkbox nativo): `role="switch"` + `aria-checked`, track `44×26px` (`blush #FADDE1` → activo `primary #994158`), thumb 20px, transición solo `transform` 160ms. Target 44px, `focus-visible` 3px menta `#3d7d79`, respeta `prefers-reduced-motion`.
+- **Responsive:** móvil `≤639px` — `MINI ME` a la izquierda y toggle a la derecha en la misma fila (`cabecera{justify-content:space-between; flex-wrap:nowrap}`), `marca` en columna con totales `0.6rem`; copy `Solo disponibles` → `Solo disp.` a 320px. Desktop `≥640px` — cabecera `flex:1` con `marca{flex:1}` y toggle a la derecha, búsqueda a la derecha en fila única (`barra{gap:.75rem; flex-wrap:wrap}` → `nowrap` en anchos grandes). Ahorra ~52px verticales en móvil.
+- Filtra secciones/productos con `disponible = true` (descarta secciones vacías) y re-pagina el libro (remount con `key` `disponibles`/`catalogo`). `meta.totalProductos`/`totalSecciones` se recalculan; la búsqueda opera sobre el catálogo visible.
+- Motivo: ~40% AGOTADO (278/689); el filtro permite recorrer sin agotados. Commit `6cd02c4`.
 
-### 4.4 SEO
+### 4.4 Portada responsive sin cortes ni invasión (`src/components/libro.css` + `src/components/Libro.tsx` + `src/App.css`)
+
+- **Problema corregido (evidencias 2026-08-26):** portada recortada arriba/abajo e invasión del toggle (`7.12.50.png` toggle cortado por borde rosa; `7.17.58.png` portada pequeña a la derecha; `7.23.28.png` bottom `COMPRA` cortado).
+- **Fix:** `app__barra{z-index:5; background:var(--color-surface); flex-shrink:0; isolation:isolate}` siempre por encima de `libro{z-index:1}`. `libro__escena` responsive con `clamp` + `calc(100dvh - ...)` por breakpoint: `≤639px 50svh/max calc(100dvh-210px)`, `640-1023px clamp(380,58dvh,520)/max 190px`, `1024-1439px clamp(440,62dvh,640)/max 175px`, `≥1440px 560/max 165px`; `overflow:hidden; isolation:isolate; padding .35-.45rem`. `libro__flip{height:100%}` y `HTMLFlipBook maxHeight 900→720` escalan proporcional centrados vía `libro__zoom{flex; center}`. `libro__controles{justify-content:center; z-index:2; background}` centrados debajo sin ocultarse.
+- **Resultado:** portada completa (borde inferior `COMPRA/ENVÍOS/PROMOCIONES` visible), centrada, debajo del header en 320/375/390/430/768/1024/1280/1440/1920; controles y footer siempre visibles, sin scroll forzado.
+- **Tests:** `src/components/Libro.layout.test.tsx` (5 casos) verifica escena/controles visibles, orden vertical, y flip centrado. Total **67 tests** (antes 63).
+
+### 4.5 SEO
 
 - `index.html`: `lang="es"`, meta description, theme-color `#994158`, canonical `https://addv-sites.github.io/minime.catalogo/`, OG (title/description/image/url/type), Twitter Card (`summary_large_image`), JSON-LD WebSite. **Imagen de compartir**: `public/og-image-v2.jpg` (1200×630, desde `ic.png`; v2 por cache-busting de plataformas sociales).
 - `robots.txt` y `sitemap.xml`.
 
-### 4.5 Accesibilidad (WCAG AA)
+### 4.6 Accesibilidad (WCAG AA)
 
 - Foco visible (`:focus-visible`, outlines 3px).
 - Contraste: menta texto `#3d7d79` (4.76:1), primario `#994158` (6.46:1), tinta sobre superficie (9.74:1).
 - ARIA: `aria-live` en indicador de página, `role="dialog"` en índice, `role="listbox"` en búsqueda, `aria-label` en botones.
 - Touch targets ≥ 44px; alt text descriptivo en imágenes; teclado completo.
 
-### 4.6 Rendimiento
+### 4.7 Rendimiento
 
 - Lazy loading (`loading="lazy"` + `decoding="async"`) en tarjetas; `preload` de las primeras imágenes.
 - srcset `-thumb` para móvil, nativa, `@2x` para detalle.
 - Bundle JS ~253 kB (75 kB gzip) → verde en Lighthouse para CWV.
 
-### 4.7 Pie de página (`App.tsx` + `App.css`)
+### 4.8 Pie de página (`App.tsx` + `App.css`)
 
 - Franja compacta fija al pie del layout 100svh (el libro se ajusta con `flex:1`).
 - Texto: **"Catálogo hecho por ADDV"** + enlace de contacto `mailto:info@addv.mx`.
 - Pendiente: reemplazar el texto por el logo de la empresa cuando esté disponible.
 
-### 4.8 Zoom pinch (popup y libro) — `src/utils/zoom.ts` + `src/hooks/usePinchZoom.ts`
+### 4.9 Zoom pinch (popup y libro) — `src/utils/zoom.ts` + `src/hooks/usePinchZoom.ts`
 
 - Gestos: pinch a 2 dedos 1×–3× centrado en el punto medio del gesto; pan con 1 dedo mientras está ampliado (limitado a bordes); doble toque/clic alterna 1×↔2.5×; `Ctrl`+rueda en desktop (pinch de trackpad incluido); regreso suave a 1× al soltar bajo 1.05×.
 - **Popup**: el hook va sobre `.detalle__imagen-wrap` (`touch-action: none` solo en el área de imagen; el texto del panel sigue scrolleable).
@@ -148,8 +156,8 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 
 ## 6. CI/CD — GitHub Actions (`deploy.yml`)
 
-- Dispara en push a `main`. Pasos: checkout, setup Node, install, **lint**, **test** (63 tests), **build**, upload artifact, deploy GitHub Pages (`actions/deploy-pages`).
-- Verificado: primer deploy exitoso (2026-08-18).
+- Dispara en push a `main`. Pasos: checkout, setup Node, install, **lint**, **test** (67 tests), **build**, upload artifact, deploy GitHub Pages (`actions/deploy-pages`).
+- Verificado: primer deploy exitoso (2026-08-18). Último push `6cd02c4` (2026-08-26) con toggle + portada responsive.
 
 ## 7. Decisiones ya tomadas
 
@@ -169,7 +177,7 @@ admin/source/media/imageN.jpeg  ──>  scripts/optimize-images.py  ──>  pu
 - Confirmación del "md de Stitch" (la identidad usada es el HTML de referencia recibido).
 - Derivación de género para filtros (Niña/Niño) en secciones ambiguas.
 - Parsing de tallas/colores (hoy se conservan como texto; el popup de detalle muestra la talla completa).
-- Tests de componente para `Libro`/`PaginaProductos` con render real (hoy los tests cubren utils + tarjetas + detalle + búsqueda + App).
+- Tests de componente para `PaginaProductos` con render real (hoy los tests cubren utils + tarjetas + detalle + búsqueda + App + Libro.layout).
 
 ## 9. Riesgos actuales
 

@@ -117,13 +117,13 @@ minime_cat/
 │   │   ├── DetalleProducto.tsx    # Popup de detalle (diálogo, zoom 2 dedos, portado a body)
 │   │   ├── ../hooks/usePinchZoom.ts # Pinch 1–3× + pan + doble toque + Ctrl+rueda (popup y libro)
 │   │   ├── Busqueda.tsx           # Combobox accesible
-│   │   └── libro.css
+│   │   └── libro.css              # Portada responsive (clamp+calc 100dvh), controles centrados
 │   ├── admin/                     # Admin local (dev) — NO entra al build
 │   │   ├── main.tsx / AdminApp.tsx / admin.css
 │   ├── styles/tokens.css          # Tokens de identidad Stitch
 │   ├── styles/global.css          # Reset, tipografía, focus-visible
-│   ├── App.tsx / App.css          # Búsqueda + Libro + estados carga/error
-│   └── test/                      # Setup de pruebas
+│   ├── App.tsx / App.css          # Header toggle switch + Búsqueda + Libro (z-index 5/1)
+│   └── test/                      # Setup de pruebas + Libro.layout.test (67 tests)
 ├── admin.html                     # Entrada del admin local (dev, excluida del build)
 ├── admin/                         # Local, NO se publica
 │   └── source/
@@ -167,7 +167,7 @@ Valida integridad de datos: duplicados reales, sin imagen, precios vacíos, cód
 | `npm run build` | Typecheck + build estático (`tsc -b && vite build`) | ✅ |
 | `npm run preview` | Preview del build | ✅ |
 | `npm run lint` | Lint (oxlint) | ✅ |
-| `npm test` / `npm run test:watch` | Pruebas unitarias (Vitest, 63 tests) | ✅ |
+| `npm test` / `npm run test:watch` | Pruebas unitarias (Vitest, 67 tests) | ✅ |
 | `npm run products:validate` | Validar productos | ✅ |
 | `npm run products:generate` | Generar JSON | ✅ |
 | `npm run images:optimize` | Optimizar imágenes (Pillow) | ✅ (2022 WebP generados) |

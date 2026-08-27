@@ -23,7 +23,8 @@ El sitio es **100% estático** y está publicado en **GitHub Pages**, sin backen
 | Pipeline de imágenes | ✅ `optimize-images.py` → 2022 WebP (nativa / @2x / thumb) |
 | Catálogo libro (page-flip) | ✅ Portada → introducción → secciones → contraportada |
 | Búsqueda / estados AGOTADO | ✅ Búsqueda accesible + badge AGOTADO por producto |
-| Filtro "Ver solo disponibles" | ✅ Checkbox en cabecera (re-pagina el libro) |
+| Filtro "Ver solo disponibles" | ✅ Toggle switch junto a MINI ME en móvil (re-pagina el libro) |
+| Portada responsive | ✅ Centrada, completa y sin invasión (clamp+calc 100dvh, 320→1920) |
 | Zoom pinch (2 dedos) | ✅ Popup de detalle y libro (1×–3×, doble toque, Ctrl+rueda) |
 | Administrador local | ✅ `admin.html` (solo dev, excluido del build) |
 | SEO | ✅ Meta, OG, canonical, sitemap, robots.txt, structured data |
@@ -42,7 +43,7 @@ El sitio es **100% estático** y está publicado en **GitHub Pages**, sin backen
 | `npm run build` | Typecheck (`tsc -b`) + build estático en `dist/` |
 | `npm run preview` | Preview del build |
 | `npm run lint` | Lint (oxlint) |
-| `npm test` | Pruebas unitarias (Vitest, 63 tests) |
+| `npm test` | Pruebas unitarias (Vitest, 67 tests) |
 | `npm run test:watch` | Tests en watch |
 | `npm run products:validate` | Validar `admin/source/products-private.json` |
 | `npm run products:generate` | Generar `public/data/products.json` |
@@ -121,7 +122,7 @@ Archivo Word (~20 MB) en la raíz del proyecto, fuente única y verdadera de pro
 - **Imagen al compartir**: `public/og-image-v2.jpg` (1200×630, desde `ic.png`) en metas OG y Twitter Card para previsualización del link en GitHub Pages. El sufijo `-v2` evita la caché de WhatsApp/Facebook (cache-busting).
 - **Navegación**: botones ‹ ›, teclado (flechas; Escape cierra el índice; no interfiere al escribir), swipe/drag/tap, índice de secciones.
 - **Búsqueda**: por código, nombre o talla; con salto directo a la página del producto.
-- **Filtro "Ver solo disponibles"**: checkbox en la cabecera que muestra solo productos disponibles (re-pagina el libro) — útil porque ~40% del catálogo está AGOTADO.
+- **Filtro "Ver solo disponibles"**: toggle switch premium junto a `MINI ME` en móvil (`role="switch"`, `44×26px`, `blush→primary`), que muestra solo productos disponibles (re-pagina el libro) — útil porque ~40% del catálogo está AGOTADO.
 - **AGOTADO**: badge claro cuando `existencias = 0` o no disponible; el producto no se elimina.
 - **Detalle de producto (popup)**: al tocar/hacer clic en una tarjeta se abre un diálogo accesible con imagen `@2x`, talla completa, precio real, **existencias** y sección; permite **zoom con dos dedos** (1×–3×, doble toque alterna 1×↔2.5×). Cierra por botón, Escape o clic en el fondo.
 - **Zoom en el libro**: pinch con dos dedos sobre las páginas (1×–3×), pan con un dedo ampliado y doble toque para restablecer; el volteo de páginas con un dedo funciona igual.
