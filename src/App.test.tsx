@@ -35,7 +35,7 @@ describe('App', () => {
 
   it('filtra por disponibles al activar el toggle', async () => {
     render(<App />)
-    const toggle = await screen.findByLabelText(/Ver solo disponibles/)
+    const toggle = await screen.findByRole('switch', { name: /Ver solo productos disponibles/ })
     expect(toggle).not.toBeChecked()
     fireEvent.click(toggle)
     expect(toggle).toBeChecked()

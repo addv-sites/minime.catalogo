@@ -118,7 +118,7 @@ export function Libro({ catalogo, apiRef }: Props) {
           minWidth={240}
           maxWidth={600}
           minHeight={360}
-          maxHeight={900}
+          maxHeight={720}
           drawShadow={true}
           flippingTime={reducedMotion ? 1 : 600}
           usePortrait={true}

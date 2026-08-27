@@ -1,6 +1,6 @@
 .app {
-  min-height: 100svh;
-  height: 100svh;
+  min-height: 100dvh;
+  height: auto;
   max-width: 1280px;
   margin: 0 auto;
   padding: 1rem;
@@ -10,32 +10,57 @@
   box-sizing: border-box;
 }
 
+@media (min-width: 640px) {
+  .app {
+    height: 100dvh;
+    min-height: 560px;
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .libro {
+    min-height: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app {
+    padding: 1rem;
+    gap: 0.6rem;
+  }
+}
+
 .app__barra {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
   flex-wrap: wrap;
-  padding: 0 0.25rem;
-}
-
-@media (max-width: 639px) {
-  .app__barra {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-  }
-
-  .app__cabecera {
-    justify-content: center;
-  }
+  padding: 0.25rem 0.25rem 0.5rem;
+  position: relative;
+  z-index: 5;
+  background: var(--color-surface);
+  isolation: isolate;
+  flex-shrink: 0;
 }
 
 .app__cabecera {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  flex: 1;
+  min-width: 240px;
+}
+
+.app__marca {
+  display: flex;
   align-items: baseline;
   gap: 0.75rem;
   flex-wrap: wrap;
+  min-width: 0;
+  flex: 1;
 }
 
 .app__brand {
@@ -56,23 +81,133 @@
   margin: 0;
 }
 
+/* Toggle switch premium — reemplaza checkbox nativo */
 .app__filtro {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
   font-family: var(--font-body);
   font-size: var(--fs-2xs);
   font-weight: 700;
   color: var(--color-primary);
   cursor: pointer;
   min-height: 44px;
+  min-width: 44px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
 }
 
-.app__filtro input[type='checkbox'] {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--color-primary);
-  cursor: pointer;
+.app__filtro-input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.app__filtro-track {
+  position: relative;
+  width: 44px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-blush-highlight);
+  border: 1px solid #e8b4be;
+  box-sizing: border-box;
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.app__filtro-track::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-white);
+  box-shadow:
+    0 1px 3px rgb(74 62 62 / 0.22),
+    0 0 0 1px rgb(74 62 62 / 0.06);
+  transition: transform var(--dur-fast) var(--ease-out);
+  will-change: transform;
+}
+
+.app__filtro-input:checked + .app__filtro-track {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.app__filtro-input:checked + .app__filtro-track::after {
+  transform: translateX(18px);
+}
+
+.app__filtro-input:focus-visible + .app__filtro-track {
+  outline: 3px solid var(--color-tertiary-text);
+  outline-offset: 2px;
+}
+
+.app__filtro-texto {
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.app__filtro-texto--corto {
+  display: none;
+}
+
+@media (max-width: 359px) {
+  .app__filtro-texto--largo {
+    display: none;
+  }
+
+  .app__filtro-texto--corto {
+    display: inline;
+  }
+}
+
+/* Mobile: MINI ME a la izquierda, toggle a la derecha, búsqueda debajo */
+@media (max-width: 639px) {
+  .app {
+    padding: 0.75rem 0.75rem 0.75rem;
+    gap: 0.5rem;
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  .app__barra {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.4rem;
+    padding: 0;
+  }
+
+  .app__cabecera {
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    flex: none;
+    width: 100%;
+  }
+
+  .app__marca {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .app__totales {
+    font-size: 0.6rem;
+    line-height: 1.2;
+  }
 }
 
 .app__pie {

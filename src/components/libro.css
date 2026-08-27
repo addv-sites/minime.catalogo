@@ -4,6 +4,9 @@
   min-height: 0;
   flex: 1;
   gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
 }
 
 .libro__escena {
@@ -26,7 +29,6 @@
   width: 100%;
 }
 
-/* Contenedor ampliable con pinch (dos dedos); recortado por .libro__escena */
 .libro__zoom {
   flex: 1;
   min-height: 0;
@@ -36,6 +38,70 @@
   justify-content: center;
   touch-action: none;
   will-change: transform;
+}
+
+/* Centro responsive: portada siempre debajo del header y completa */
+.libro__escena {
+  isolation: isolate;
+}
+
+@media (min-width: 640px) {
+  .libro {
+    gap: 0.5rem;
+  }
+
+  .libro__escena {
+    overflow: hidden;
+    padding: 0.35rem;
+    /* Responsivo: se adapta a altura del viewport, nunca tapa header */
+    min-height: clamp(380px, 58dvh, 520px);
+    max-height: calc(100dvh - 190px);
+    isolation: isolate;
+  }
+
+  .libro__flip {
+    height: 100%;
+    width: 100%;
+  }
+
+  .libro__zoom {
+    overflow: hidden;
+  }
+
+  .libro__controles {
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    background: var(--color-surface);
+  }
+}
+
+@media (max-width: 639px) {
+  .libro {
+    gap: 0.5rem;
+  }
+
+  .libro__escena {
+    min-height: 50svh;
+    max-height: calc(100dvh - 210px);
+    padding: 0 0.35rem;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 1024px) {
+  .libro__escena {
+    min-height: clamp(440px, 62dvh, 640px);
+    max-height: calc(100dvh - 175px);
+    padding: 0.45rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .libro__escena {
+    min-height: 560px;
+    max-height: calc(100dvh - 165px);
+  }
 }
 
 /* Página base: como hoja de catálogo */

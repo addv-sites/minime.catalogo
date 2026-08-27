@@ -55,19 +55,31 @@ export default function App() {
     <main className="app">
       <header className="app__barra">
         <div className="app__cabecera">
-          <p className="app__brand">{catalogoVisible.meta.marca}</p>
-          <p className="app__totales">
-            {catalogoVisible.meta.totalProductos} productos · {catalogoVisible.meta.totalSecciones} secciones
-          </p>
+          <div className="app__marca">
+            <p className="app__brand">{catalogoVisible.meta.marca}</p>
+            <p className="app__totales">
+              {catalogoVisible.meta.totalProductos} productos · {catalogoVisible.meta.totalSecciones} secciones
+            </p>
+          </div>
+          <label className="app__filtro">
+            <input
+              type="checkbox"
+              className="app__filtro-input"
+              checked={soloDisponiblesActivo}
+              onChange={(e) => setSoloDisponiblesActivo(e.target.checked)}
+              role="switch"
+              aria-checked={soloDisponiblesActivo}
+              aria-label="Ver solo productos disponibles"
+            />
+            <span className="app__filtro-track" aria-hidden="true" />
+            <span className="app__filtro-texto">
+              <span className="app__filtro-texto--largo">Solo disponibles</span>
+              <span className="app__filtro-texto--corto" aria-hidden="true">
+                Solo disp.
+              </span>
+            </span>
+          </label>
         </div>
-        <label className="app__filtro">
-          <input
-            type="checkbox"
-            checked={soloDisponiblesActivo}
-            onChange={(e) => setSoloDisponiblesActivo(e.target.checked)}
-          />
-          <span>Ver solo disponibles</span>
-        </label>
         <Busqueda secciones={catalogoVisible.secciones} onSeleccionar={irAProducto} />
       </header>
       <Libro key={soloDisponiblesActivo ? 'disponibles' : 'catalogo'} catalogo={catalogoVisible} apiRef={apiLibro} />
